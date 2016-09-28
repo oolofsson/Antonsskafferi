@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.glassfish.samples.model;
+package se.miun.dt142g.model;
 
 import java.io.Serializable;
 import javax.persistence.Basic;

@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.glassfish.samples.login;
+package se.miun.dt142g.login;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,10 +16,10 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author oskar
+ * @author William
  */
-@WebServlet(name = "SecondLogin", urlPatterns = {"/SecondLogin"})
-public class SecondLogin extends HttpServlet {
+@WebServlet(name = "LogOut", urlPatterns = {"/LogOut"})
+public class LogOut extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,20 +33,19 @@ public class SecondLogin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        HttpSession session = request.getSession(false);
         try (PrintWriter out = response.getWriter()) {
-            HttpSession session = request.getSession(false);
-            if(session != null){
-                String redirectURI = request.getContextPath() + "/faces/create.xhtml";
+             if(session != null){
+                session.invalidate();
+                String redirectURI = request.getContextPath() + "/faces/login.xhtml";
                 response.sendRedirect(redirectURI);
-                session.setMaxInactiveInterval(6000);
                 
             }else{
                 String redirectURI = request.getContextPath() + "/faces/login.xhtml";
                 response.sendRedirect(redirectURI);
 
             }
-        }
-    }
+    }}
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -88,4 +86,6 @@ public class SecondLogin extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-}
+    }
+
+

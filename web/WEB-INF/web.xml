@@ -11,7 +11,7 @@
     </servlet>
     <servlet>
         <servlet-name>LogOut</servlet-name>
-        <servlet-class>org.glassfish.samples.login.LogOut</servlet-class>
+        <servlet-class>se.miun.dt142g.LogOut</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>

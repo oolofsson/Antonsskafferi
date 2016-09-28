@@ -3,24 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.glassfish.samples.login;
+package se.miun.dt142g.login;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.ejb.EJB;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceUnit;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import se.miun.dt142g.UserLoginEJB;
+import se.miun.dt142g.model.Userlogin;
 
 /**
  *
- * @author William
+ * @author oskar
  */
-@WebServlet(name = "LogOut", urlPatterns = {"/LogOut"})
-public class LogOut extends HttpServlet {
+@WebServlet(name = "FirstLogin", urlPatterns = {"/FirstLogin"})
+public class FirstLogin extends HttpServlet {
 
+    @EJB
+    UserLoginEJB user;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -32,20 +40,30 @@ public class LogOut extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession(false);
-        try (PrintWriter out = response.getWriter()) {
-             if(session != null){
-                session.invalidate();
-                String redirectURI = request.getContextPath() + "/faces/login.xhtml";
-                response.sendRedirect(redirectURI);
-                
-            }else{
-                String redirectURI = request.getContextPath() + "/faces/login.xhtml";
-                response.sendRedirect(redirectURI);
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
 
+        
+        
+            
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            Userlogin tmpuser;
+            for(int i = 0; i < user.getList().size(); i++){
+                tmpuser = (Userlogin)user.getList().get(i);
+                if(username.equals(tmpuser.getUsername()) && password.equals(tmpuser.getPassword())){
+                    HttpSession session = request.getSession();
+                    session.setAttribute("user", username);
+                    RequestDispatcher rd = request.getRequestDispatcher("SecondLogin");
+                    rd.forward(request, response);
+                    return;
+                }
             }
-    }}
+            out.print("<h4> Wrong username/password, try again");
+            RequestDispatcher rd = request.getRequestDispatcher("login.html");
+            rd.include(request, response);
+        }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -86,6 +104,4 @@ public class LogOut extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    }
-
-
+}

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.glassfish.samples;
+package se.miun.dt142g;
 
 import java.util.List;
 import javax.ejb.Stateless;
@@ -11,8 +11,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import org.glassfish.samples.model.Dish;
-import org.glassfish.samples.model.Userlogin;
+import se.miun.dt142g.model.Dish;
+import se.miun.dt142g.model.Userlogin;
 
 /**
  *

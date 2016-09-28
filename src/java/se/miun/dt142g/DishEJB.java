@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.glassfish.samples;
+package se.miun.dt142g;
 
 import java.util.List;
 import javax.ejb.Stateless;
@@ -11,7 +11,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import org.glassfish.samples.model.Drink;
+import se.miun.dt142g.model.Dish;
 
 /**
  *
@@ -19,21 +19,20 @@ import org.glassfish.samples.model.Drink;
  */
 @Stateless
 @Named
-public class DrinkEJB {
-    
+public class DishEJB {
+
     @PersistenceContext
     EntityManager em;
     
-    @Inject Drink drink;
+    @Inject Dish dish;
+    
     
     public List getList(){
-        return em.createNamedQuery("Drink.findAll").getResultList();
+        return em.createNamedQuery("Dish.findAll").getResultList();
     }
     public void create(){
-        Drink d2 = new Drink(drink.getDrinkid(), drink.getDrinkname(), drink.getDrinkprice(), drink.getDrinktype());
+        Dish d2 = new Dish(dish.getDishid(), dish.getDishname(), dish.getDishprice(), dish.getDishtype());
         em.persist(d2);
     }
-    
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+   
 }
