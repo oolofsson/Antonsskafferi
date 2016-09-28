@@ -41,7 +41,6 @@ public class LogOut extends HttpServlet {
                 response.sendRedirect(redirectURI);
                 
             }else{
-                session.invalidate();
                 String redirectURI = request.getContextPath() + "/faces/login.xhtml";
                 response.sendRedirect(redirectURI);
 
