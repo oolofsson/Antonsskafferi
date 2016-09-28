@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.glassfish.logout;
+package org.glassfish.samples.login;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,23 +31,20 @@ public class LogOut extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
         HttpSession session = request.getSession(false);
-        
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
              if(session != null){
+                session.invalidate();
                 String redirectURI = request.getContextPath() + "/faces/login.xhtml";
                 response.sendRedirect(redirectURI);
-                session.invalidate();
                 
             }else{
+                session.invalidate();
                 String redirectURI = request.getContextPath() + "/faces/login.xhtml";
                 response.sendRedirect(redirectURI);
-                session.invalidate();
+
             }
-        }
-    }
+    }}
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -89,4 +85,6 @@ public class LogOut extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-}
+    }
+
+
