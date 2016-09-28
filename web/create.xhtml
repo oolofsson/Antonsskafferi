@@ -8,8 +8,6 @@
     <body>
 
         <ui:composition template="./WEB-INF/template.xhtml">
-
-            
             <ui:define name="left">
                 <h2>Bilduppladdning</h2>
                 <h:form>
@@ -21,7 +19,8 @@
             </ui:define>
 
             <ui:define name="content">
-                <h:column>
+
+                <h:column class="left_create">
                     <h2>Lägg till ny rätt: </h2>
                     <h:form>
                         <h:panelGrid columns="3">
@@ -29,7 +28,7 @@
                             <h:inputText value="#{dish.dishid}" title="dishid" id="dishid"
                                          required="true" />
                             <h:message for="dishid" style="color: red" />
-                            
+
                             <h:outputText value="Rätt:" />
                             <h:inputText value="#{dish.dishname}" title="dishname" id="dishname"
                                          required="true" />
@@ -48,7 +47,7 @@
                         <h:commandButton action="show" actionListener="#{dishEJB.create}" value="submit" />
                     </h:form>
                 </h:column>
-                
+
                 <h:column>
                     <h2>Lägg till ny dryck: </h2>
                     <h:form>
@@ -57,7 +56,7 @@
                             <h:inputText value="#{drink.drinkid}" title="drinkid" id="drinkid"
                                          required="true" />
                             <h:message for="drinkid" style="color: red" />
-                            
+
                             <h:outputText value="Dryck:" />
                             <h:inputText value="#{drink.drinkname}" title="drinkname" id="drinkname"
                                          required="true" />
@@ -75,19 +74,42 @@
                         </h:panelGrid>
                         <h:commandButton action="show" actionListener="#{drinkEJB.create}" value="submit" />
                     </h:form>
-                    <form action="LogOut" method="post">
+                </h:column>
+
+
+                <div id="dayly">
+                    <h2>Skapa dagens</h2>
+                    <h:column>
+                        <h:form>
+                            <h:outputText value="Måndag" /><br />
+                            <h:selectOneMenu value="#{dishEJB.list}">
+                                <f:selectItems value="#{dishEJB.list}" />
+                            </h:selectOneMenu><br />
+                            <h:outputText value="Tisdag" /><br />
+                            <h:selectOneMenu value="#{dishEJB.list}">
+                                <f:selectItems value="#{dishEJB.list}" />
+                            </h:selectOneMenu><br />
+                              <h:outputText value="Onsdag" /><br />
+                            <h:selectOneMenu value="#{dishEJB.list}">
+                                <f:selectItems value="#{dishEJB.list}" />
+                            </h:selectOneMenu><br />
+                            <h:outputText value="Torsdag" /><br />
+                            <h:selectOneMenu value="#{dishEJB.list}">
+                                <f:selectItems value="#{dishEJB.list}" />
+                            </h:selectOneMenu><br />
+                            <h:outputText value="Fredag" /><br />
+                            <h:selectOneMenu value="#{dishEJB.list}">
+                                <f:selectItems value="#{dishEJB.list}" />
+                            </h:selectOneMenu>
+                        </h:form>
+                    </h:column>
+                </div>    
+                <h:column>
+                    <form id="logout_create" action="LogOut" method="post">
                         <input type="submit" value="Logga ut"/>
                     </form>
-                        
                 </h:column>
                 
-                
-                    
-                
-                
-                
-                
-             
             </ui:define>
             
 

@@ -120,7 +120,7 @@ public class Drink implements Serializable {
 
     @Override
     public String toString() {
-        return "org.glassfish.samples.model.Drink[ drinkid=" + drinkid + " ]";
+        return drinkid + ". " + drinkname + " " + drinkprice;
     }
     
 }

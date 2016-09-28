@@ -120,7 +120,7 @@ public class Dish implements Serializable {
 
     @Override
     public String toString() {
-        return "org.glassfish.samples.model.Dish[ dishid=" + dishid + " ]";
+        return dishid + ". " + dishname + " " + dishprice;
     }
     
 }
