@@ -10,7 +10,7 @@
             
             <ui:define name="content">
                 <h:column>
-                    <h2>Meny</h2>
+                    <h2>Meny Ala carte</h2>
                     <h:dataTable var="d" value="#{dishEJB.list}">
                         <h:column>#{d.dishname}, #{d.dishprice} kr</h:column>
                     </h:dataTable>
@@ -20,6 +20,10 @@
                     <h:dataTable var="d" value="#{drinkEJB.list}">
                         <h:column>#{d.drinkname}, #{d.drinkprice} kr</h:column>
                     </h:dataTable>
+                </h:column>
+                <h:column>
+                    <h2>Meny Dagens</h2>
+                    
                 </h:column>
                 
             </ui:define>

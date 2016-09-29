@@ -8,8 +8,6 @@ package se.miun.dt142g.login;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceUnit;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,9 +40,6 @@ public class FirstLogin extends HttpServlet {
             throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-
-        
-        
             
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
