@@ -83,24 +83,30 @@
                         <h:form>
                             <h:outputText value="Måndag" /><br />
                             <h:selectOneMenu value="#{dishEJB.list}">
+                                <f:selectItem itemLabel="Välj..."  noSelectionOption="true"/>
                                 <f:selectItems value="#{dishEJB.list}" />
                             </h:selectOneMenu><br />
                             <h:outputText value="Tisdag" /><br />
                             <h:selectOneMenu value="#{dishEJB.list}">
+                                <f:selectItem itemLabel="Välj..."  noSelectionOption="true"/>
                                 <f:selectItems value="#{dishEJB.list}" />
                             </h:selectOneMenu><br />
                               <h:outputText value="Onsdag" /><br />
                             <h:selectOneMenu value="#{dishEJB.list}">
+                                <f:selectItem itemLabel="Välj..."  noSelectionOption="true"/>
                                 <f:selectItems value="#{dishEJB.list}" />
                             </h:selectOneMenu><br />
                             <h:outputText value="Torsdag" /><br />
                             <h:selectOneMenu value="#{dishEJB.list}">
+                                <f:selectItem itemLabel="Välj..."  noSelectionOption="true"/>
                                 <f:selectItems value="#{dishEJB.list}" />
                             </h:selectOneMenu><br />
                             <h:outputText value="Fredag" /><br />
                             <h:selectOneMenu value="#{dishEJB.list}">
+                                <f:selectItem itemLabel="Välj..."  noSelectionOption="true"/>
                                 <f:selectItems value="#{dishEJB.list}" />
-                            </h:selectOneMenu>
+                            </h:selectOneMenu><br />
+                            <h:commandButton action="williamslogin" value="submit" />
                         </h:form>
                     </h:column>
                 </div>    

@@ -11,7 +11,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import se.miun.dt142g.model.Dish;
 import se.miun.dt142g.model.Userlogin;
 
 /**
