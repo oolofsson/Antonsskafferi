@@ -59,6 +59,8 @@ public class Drink implements Serializable {
     public Drink(String drinkname, String drinkprice, String drinktype) {
         this.drinkname=drinkname;
         this.drinkprice=drinkprice;
+        this.drinktype = drinktype;
+        
     }
 
     public Integer getDrinkid() {
