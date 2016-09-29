@@ -6,11 +6,11 @@
 package se.miun.dt142g.model;
 
 import java.io.Serializable;
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -21,10 +21,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author oskar
+ * @author mojjie
  */
-@Named
-@RequestScoped
 @Entity
 @Table(name = "DISH")
 @XmlRootElement
@@ -33,24 +31,29 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Dish.findByDishid", query = "SELECT d FROM Dish d WHERE d.dishid = :dishid"),
     @NamedQuery(name = "Dish.findByDishname", query = "SELECT d FROM Dish d WHERE d.dishname = :dishname"),
     @NamedQuery(name = "Dish.findByDishprice", query = "SELECT d FROM Dish d WHERE d.dishprice = :dishprice"),
-    @NamedQuery(name = "Dish.findByDishtype", query = "SELECT d FROM Dish d WHERE d.dishtype = :dishtype")})
+    @NamedQuery(name = "Dish.findByDishtype", query = "SELECT d FROM Dish d WHERE d.dishtype = :dishtype"),
+    @NamedQuery(name = "Dish.findByDailyspecial", query = "SELECT d FROM Dish d WHERE d.dailyspecial = :dailyspecial")})
 public class Dish implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "DISHID")
     private Integer dishid;
-    @Size(max = 30)
+    @Size(max = 250)
     @Column(name = "DISHNAME")
     private String dishname;
-    @Size(max = 4)
+    @Size(max = 15)
     @Column(name = "DISHPRICE")
     private String dishprice;
-    @Size(max = 15)
+    @Size(max = 25)
     @Column(name = "DISHTYPE")
     private String dishtype;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "DAILYSPECIAL")
+    private int dailyspecial;
 
     public Dish() {
     }
@@ -59,12 +62,19 @@ public class Dish implements Serializable {
         this.dishid = dishid;
     }
 
-    public Dish(Integer dishid, String dishname, String dishprice, String dishtype) {
+    public Dish(Integer dishid, int dailyspecial) {
         this.dishid = dishid;
-        this.dishname = dishname;
-        this.dishprice = dishprice;
-        this.dishtype = dishtype;
+        this.dailyspecial = dailyspecial;
     }
+
+    public Dish(String dishname, String dishprice, String dishtype, int dailyspecial) {
+        this.dishname=dishname;
+        this.dishprice=dishprice;
+        this.dishtype=dishtype;
+        this.dailyspecial=dailyspecial;
+    }
+
+   
 
     public Integer getDishid() {
         return dishid;
@@ -98,6 +108,14 @@ public class Dish implements Serializable {
         this.dishtype = dishtype;
     }
 
+    public int getDailyspecial() {
+        return dailyspecial;
+    }
+
+    public void setDailyspecial(int dailyspecial) {
+        this.dailyspecial = dailyspecial;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -120,7 +138,7 @@ public class Dish implements Serializable {
 
     @Override
     public String toString() {
-        return dishid + ". " + dishname + " " + dishprice;
+        return dishid + ". " + dishname + ", " + dishprice;
     }
     
 }

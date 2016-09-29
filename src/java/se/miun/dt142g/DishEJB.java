@@ -31,7 +31,7 @@ public class DishEJB {
         return em.createNamedQuery("Dish.findAll").getResultList();
     }
     public void create(){
-        Dish d2 = new Dish(dish.getDishid(), dish.getDishname(), dish.getDishprice(), dish.getDishtype());
+        Dish d2 = new Dish(dish.getDishname(), dish.getDishprice(), dish.getDishtype(), 0);
         em.persist(d2);
     }
 }

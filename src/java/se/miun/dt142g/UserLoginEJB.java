@@ -29,7 +29,8 @@ public class UserLoginEJB {
         return em.createNamedQuery("Userlogin.findAll").getResultList();
     }
     public void create(){
-        Userlogin l2 = new Userlogin(userlogin.getUsername(), userlogin.getPassword());
+        Userlogin l2 = new Userlogin(userlogin.getUsername(), userlogin.getPassword(), 
+                userlogin.getEmail(), userlogin.getTelnr(), userlogin.getAddress());
         em.persist(l2);
     }
 }

@@ -30,7 +30,7 @@ public class DrinkEJB {
         return em.createNamedQuery("Drink.findAll").getResultList();
     }
     public void create(){
-        Drink d2 = new Drink(drink.getDrinkid(), drink.getDrinkname(), drink.getDrinkprice(), drink.getDrinktype());
+        Drink d2 = new Drink(drink.getDrinkname(), drink.getDrinkprice(), drink.getDrinktype());
         em.persist(d2);
     }
     

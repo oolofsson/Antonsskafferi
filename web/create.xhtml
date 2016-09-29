@@ -24,11 +24,6 @@
                     <h2>Lägg till ny rätt: </h2>
                     <h:form>
                         <h:panelGrid columns="3">
-                            <h:outputText value="ID:" />
-                            <h:inputText value="#{dish.dishid}" title="dishid" id="dishid"
-                                         required="true" />
-                            <h:message for="dishid" style="color: red" />
-
                             <h:outputText value="Rätt:" />
                             <h:inputText value="#{dish.dishname}" title="dishname" id="dishname"
                                          required="true" />
@@ -52,10 +47,6 @@
                     <h2>Lägg till ny dryck: </h2>
                     <h:form>
                         <h:panelGrid columns="3">
-                            <h:outputText value="ID:" />
-                            <h:inputText value="#{drink.drinkid}" title="drinkid" id="drinkid"
-                                         required="true" />
-                            <h:message for="drinkid" style="color: red" />
 
                             <h:outputText value="Dryck:" />
                             <h:inputText value="#{drink.drinkname}" title="drinkname" id="drinkname"
