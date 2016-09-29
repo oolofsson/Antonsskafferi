@@ -1,9 +1,14 @@
- $(function(){
-     /*
-    var dailySpecialSelected = [];   
-    for(i = 0; i < 7; i++){
-        dailySpecialSelected.push($("#daily"+ i).prop('selectedIndex'));
-    }
-    */
+$(document).ready(function () {
     
- });
+    
+    $(".day_select").change(function(){
+       for(var i = 1; i <= 7; i++){
+           $('#daily\\:input' + i).val($('#select' + i).val());
+       }
+    });
+    
+   
+    
+});
+
+

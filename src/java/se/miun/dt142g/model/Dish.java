@@ -17,7 +17,6 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -35,8 +34,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Dish.findByDishid", query = "SELECT d FROM Dish d WHERE d.dishid = :dishid"),
     @NamedQuery(name = "Dish.findByDishname", query = "SELECT d FROM Dish d WHERE d.dishname = :dishname"),
     @NamedQuery(name = "Dish.findByDishprice", query = "SELECT d FROM Dish d WHERE d.dishprice = :dishprice"),
-    @NamedQuery(name = "Dish.findByDishtype", query = "SELECT d FROM Dish d WHERE d.dishtype = :dishtype"),
-    @NamedQuery(name = "Dish.findByDailyspecial", query = "SELECT d FROM Dish d WHERE d.dailyspecial = :dailyspecial")})
+    @NamedQuery(name = "Dish.findByDishtype", query = "SELECT d FROM Dish d WHERE d.dishtype = :dishtype")})
 public class Dish implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -54,10 +52,6 @@ public class Dish implements Serializable {
     @Size(max = 25)
     @Column(name = "DISHTYPE")
     private String dishtype;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "DAILYSPECIAL")
-    private int dailyspecial;
 
     public Dish() {
     }
@@ -66,12 +60,10 @@ public class Dish implements Serializable {
         this.dishid = dishid;
     }
 
-    public Dish(String dishname, String dishprice, String dishtype, int dailyspecial) {
-        this.dishid = (Integer)null;
-        this.dishname = dishname; 
+    public Dish(String dishname, String dishprice, String dishtype) {
+        this.dishname = dishname;
         this.dishprice = dishprice;
         this.dishtype = dishtype;
-        this.dailyspecial = dailyspecial;
     }
 
     public Integer getDishid() {
@@ -106,14 +98,6 @@ public class Dish implements Serializable {
         this.dishtype = dishtype;
     }
 
-    public int getDailyspecial() {
-        return dailyspecial;
-    }
-
-    public void setDailyspecial(int dailyspecial) {
-        this.dailyspecial = dailyspecial;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -136,7 +120,7 @@ public class Dish implements Serializable {
 
     @Override
     public String toString() {
-        return "se.miun.dt142g.model.Dish[ dishid=" + dishid + " ]";
+        return dishid + ". " + dishname + ", " + dishprice;
     }
     
 }

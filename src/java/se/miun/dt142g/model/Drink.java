@@ -61,7 +61,6 @@ public class Drink implements Serializable {
     }
 
     public Drink(String drinkname, String drinkprice, String drinktype) {
-        this.drinkid = (Integer)null;
         this.drinkname = drinkname;
         this.drinkprice = drinkprice;
         this.drinktype = drinktype;
@@ -121,7 +120,7 @@ public class Drink implements Serializable {
 
     @Override
     public String toString() {
-        return "se.miun.dt142g.model.Drink[ drinkid=" + drinkid + " ]";
+        return drinkid + ". " + drinkname + ", " + drinkprice;
     }
     
 }

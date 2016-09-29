@@ -39,7 +39,7 @@
                                          required="true" />
                             <h:message for="dishtype" style="color: red" />
                         </h:panelGrid>
-                        <h:commandButton action="show" actionListener="#{dishEJB.create}" value="submit" />
+                        <h:commandButton action="show" actionListener="#{dishEJB.create}" value="Lägg till" />
                     </h:form>
                 </h:column>
 
@@ -63,41 +63,61 @@
                                          required="true" />
                             <h:message for="drinktype" style="color: red" />
                         </h:panelGrid>
-                        <h:commandButton action="show" actionListener="#{drinkEJB.create}" value="submit" />
+                        <h:commandButton action="show" actionListener="#{drinkEJB.create}" value="Lägg till" />
                     </h:form>
                 </h:column>
-
-
+                
+                
                 <div id="daily_special">
                     <h2>Skapa dagens</h2>
                     <h:column>
-                        <h:form>
                             <h:outputText value="Måndag" /><br />
-                            <h:selectOneMenu>
-                                <f:selectItem itemLabel="Välj..."  noSelectionOption="true"/>
-                                <f:selectItems value="#{dishEJB.list}" />
+                            <h:selectOneMenu class="day_select" id="select1">
+                                <f:selectItem itemLabel="Välj en rätt..."  noSelectionOption="true"/>
+                                <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishname}" />
                             </h:selectOneMenu><br />
+                            
                             <h:outputText value="Tisdag" /><br />
-                            <h:selectOneMenu>
-                                <f:selectItem itemLabel="Välj..."  noSelectionOption="true"/>
-                                <f:selectItems value="#{dishEJB.list}" />
+                            <h:selectOneMenu class="day_select" id="select2">
+                                <f:selectItem itemLabel="Välj en rätt..."  noSelectionOption="true"/>
+                                <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishname}" />
                             </h:selectOneMenu><br />
+                            
                               <h:outputText value="Onsdag" /><br />
-                            <h:selectOneMenu>
-                                <f:selectItem itemLabel="Välj..."  noSelectionOption="true"/>
-                                <f:selectItems value="#{dishEJB.list}" />
+                              <h:selectOneMenu class="day_select" id="select3">
+                                <f:selectItem itemLabel="Välj en rätt..."  noSelectionOption="true"/>
+                                <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishname}" />
                             </h:selectOneMenu><br />
+                            
                             <h:outputText value="Torsdag" /><br />
-                            <h:selectOneMenu>
-                                <f:selectItem itemLabel="Välj..."  noSelectionOption="true"/>
-                                <f:selectItems value="#{dishEJB.list}" />
+                            <h:selectOneMenu class="day_select" id="select4">
+                                <f:selectItem itemLabel="Välj en rätt..."  noSelectionOption="true"/>
+                                <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishname}" />
                             </h:selectOneMenu><br />
+                            
                             <h:outputText value="Fredag" /><br />
-                            <h:selectOneMenu>
-                                <f:selectItem itemLabel="Välj..."  noSelectionOption="true"/>
-                                <f:selectItems value="#{dishEJB.list}" />
+                            <h:selectOneMenu class="day_select" id="select5">
+                                <f:selectItem itemLabel="Välj en rätt..."  noSelectionOption="true"/>
+                                <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishname}" />
                             </h:selectOneMenu><br />
-                            <h:commandButton action="williamslogin" value="submit" />
+                            
+                        <h:form id="daily">
+                            <h:inputText id="input1" required="true" value="#{dailyspecial.monday}" />
+                            <h:message for="input1" style="color: red" />
+                            
+                            <h:inputText id="input2" required="true" value="#{dailyspecial.tuesday}" />
+                            <h:message for="input2" style="color: red" />
+                            
+                            <h:inputText id="input3" required="true" value="#{dailyspecial.wednesday}" />
+                            <h:message for="input3" style="color: red" />
+                            
+                            <h:inputText id="input4" required="true" value="#{dailyspecial.thursday}" />
+                            <h:message for="input4" style="color: red" />
+                            
+                            <h:inputText id="input5" required="true" value="#{dailyspecial.friday}" />
+                            <h:message for="input5" style="color: red" />
+                            
+                            <h:commandButton action="show" value="Lägg till" actionListener="#{dailyspecialEJB.create}" />
                         </h:form>
                     </h:column>
                 </div>    

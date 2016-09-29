@@ -20,17 +20,18 @@ import se.miun.dt142g.model.Dish;
 @Stateless
 @Named
 public class DishEJB {
-
+    
     @PersistenceContext
     EntityManager em;
     
     @Inject Dish dish;
     
-    public List getList(){
+    public List<Dish> getList(){
         return em.createNamedQuery("Dish.findAll").getResultList();
     }
     public void create(){
-        Dish d = new Dish(dish.getDishname(), dish.getDishprice(), dish.getDishtype(), 0);
+        Dish d = new Dish(dish.getDishname(), dish.getDishprice(), dish.getDishtype());
         em.persist(d);
     }
+ 
 }

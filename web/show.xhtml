@@ -16,14 +16,20 @@
                     </h:dataTable>
                 </h:column>
                 <h:column>
-                    <h2>Dryck</h2>
+                    <h2>Drycker</h2>
                     <h:dataTable var="d" value="#{drinkEJB.list}">
                         <h:column>#{d.drinkname}, #{d.drinkprice} kr</h:column>
                     </h:dataTable>
                 </h:column>
                 <h:column>
                     <h2>Meny Dagens</h2>
-                    
+                    <h:dataTable var="d" value="#{dailyspecialEJB.list}">
+                        <h:column>#{d.monday}</h:column><br />
+                        <h:column>#{d.tuesday}</h:column><br />                       
+                        <h:column>#{d.wednesday}</h:column><br />
+                        <h:column>#{d.thursday}</h:column><br />
+                        <h:column>#{d.friday}</h:column><br />
+                    </h:dataTable>
                 </h:column>
                 
             </ui:define>
