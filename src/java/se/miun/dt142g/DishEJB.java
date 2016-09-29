@@ -34,5 +34,4 @@ public class DishEJB {
         Dish d2 = new Dish(dish.getDishid(), dish.getDishname(), dish.getDishprice(), dish.getDishtype());
         em.persist(d2);
     }
-   
 }
