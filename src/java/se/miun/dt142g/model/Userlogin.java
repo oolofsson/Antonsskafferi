@@ -6,6 +6,8 @@
 package se.miun.dt142g.model;
 
 import java.io.Serializable;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,8 +22,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author mojjie
+ * @author oskar
  */
+@Named
+@RequestScoped
 @Entity
 @Table(name = "USERLOGIN")
 @XmlRootElement
@@ -64,7 +68,6 @@ public class Userlogin implements Serializable {
     public Userlogin(Integer userid) {
         this.userid = userid;
     }
-
 
     public Userlogin(String username, String password, String email, String telnr, String address) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

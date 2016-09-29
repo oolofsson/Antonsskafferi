@@ -26,12 +26,11 @@ public class DishEJB {
     
     @Inject Dish dish;
     
-    
     public List getList(){
         return em.createNamedQuery("Dish.findAll").getResultList();
     }
     public void create(){
-        Dish d2 = new Dish(dish.getDishname(), dish.getDishprice(), dish.getDishtype(), 0);
-        em.persist(d2);
+        Dish d = new Dish(dish.getDishname(), dish.getDishprice(), dish.getDishtype(), 0);
+        em.persist(d);
     }
 }

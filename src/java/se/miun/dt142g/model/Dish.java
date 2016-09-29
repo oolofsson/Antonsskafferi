@@ -6,6 +6,8 @@
 package se.miun.dt142g.model;
 
 import java.io.Serializable;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,8 +23,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author mojjie
+ * @author oskar
  */
+@Named
+@RequestScoped
 @Entity
 @Table(name = "DISH")
 @XmlRootElement
@@ -62,19 +66,13 @@ public class Dish implements Serializable {
         this.dishid = dishid;
     }
 
-    public Dish(Integer dishid, int dailyspecial) {
-        this.dishid = dishid;
+    public Dish(String dishname, String dishprice, String dishtype, int dailyspecial) {
+        this.dishid = (Integer)null;
+        this.dishname = dishname; 
+        this.dishprice = dishprice;
+        this.dishtype = dishtype;
         this.dailyspecial = dailyspecial;
     }
-
-    public Dish(String dishname, String dishprice, String dishtype, int dailyspecial) {
-        this.dishname=dishname;
-        this.dishprice=dishprice;
-        this.dishtype=dishtype;
-        this.dailyspecial=dailyspecial;
-    }
-
-   
 
     public Integer getDishid() {
         return dishid;
@@ -138,7 +136,7 @@ public class Dish implements Serializable {
 
     @Override
     public String toString() {
-        return dishid + ". " + dishname + ", " + dishprice;
+        return "se.miun.dt142g.model.Dish[ dishid=" + dishid + " ]";
     }
     
 }
