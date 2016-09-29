@@ -9,25 +9,9 @@
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
-    <servlet>
-        <servlet-name>LogOut</servlet-name>
-        <servlet-class>se.miun.dt142g.LogOut</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>LogOutNew</servlet-name>
-        <servlet-class>se.miun.dt142g.login.LogOut</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LogOut</servlet-name>
-        <url-pattern>/LogOut</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LogOutNew</servlet-name>
-        <url-pattern>/LogOutNew</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -60,7 +60,7 @@ public class FirstLogin extends HttpServlet {
                 }
             }
             out.print("<h4> Wrong username/password, try again");
-            RequestDispatcher rd = request.getRequestDispatcher("login.html");
+            RequestDispatcher rd = request.getRequestDispatcher("login.xhtml");
             rd.include(request, response);
         }
     }
