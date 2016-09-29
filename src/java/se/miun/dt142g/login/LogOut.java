@@ -8,7 +8,6 @@ package se.miun.dt142g.login;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +17,6 @@ import javax.servlet.http.HttpSession;
  *
  * @author William
  */
-@WebServlet(name = "LogOut", urlPatterns = {"/LogOut"})
 public class LogOut extends HttpServlet {
 
     /**
@@ -35,17 +33,20 @@ public class LogOut extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession(false);
         try (PrintWriter out = response.getWriter()) {
-             if(session != null){
+
+            if(session != null){
                 session.invalidate();
                 String redirectURI = request.getContextPath() + "/faces/login.xhtml";
                 response.sendRedirect(redirectURI);
                 
-            }else{
+            }
+            else{
                 String redirectURI = request.getContextPath() + "/faces/login.xhtml";
                 response.sendRedirect(redirectURI);
 
             }
-    }}
+        }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -86,6 +87,4 @@ public class LogOut extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    }
-
-
+}
