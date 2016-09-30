@@ -122,9 +122,10 @@
                     </h:column>
                 </div>    
                 <h:column>
-                    <form action="LogOut" method="post">
-                        <input type="submit" value="Logga ut"/>
-                    </form>
+                	<h:form>
+		<p>Welcome #{loginBean.user}</p>
+		<h:commandLink action="#{loginBean.logout}" value="Logga ut"></h:commandLink>
+                        </h:form>
                 </h:column>
                 
             </ui:define>
