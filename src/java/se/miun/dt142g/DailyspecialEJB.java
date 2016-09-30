@@ -12,7 +12,6 @@ import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import se.miun.dt142g.model.Dailyspecial;
-import se.miun.dt142g.model.Dish;
 
 /**
  *
@@ -32,8 +31,13 @@ public class DailyspecialEJB {
         return em.createNamedQuery("Dailyspecial.findAll").getResultList();
     }
     public void create(){
-        Dailyspecial d = new Dailyspecial(1, dailyspecial.getMonday(), dailyspecial.getTuesday(),
-                dailyspecial.getWednesday(), dailyspecial.getThursday(), dailyspecial.getFriday());
-        em.persist(d);
+        
+        Dailyspecial ds = new Dailyspecial(1, dailyspecial.getMonday(), dailyspecial.getTuesday(),
+        dailyspecial.getWednesday(), dailyspecial.getThursday(), dailyspecial.getFriday());
+        if(getList().isEmpty()){
+            em.persist(ds);
+        }else{
+            em.merge(ds);
+        }
     }
 }

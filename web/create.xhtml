@@ -102,21 +102,22 @@
                             </h:selectOneMenu><br />
                             
                         <h:form id="daily">
-                            <h:inputText id="input1" required="true" value="#{dailyspecial.monday}" />
-                            <h:message for="input1" style="color: red" />
-                            
-                            <h:inputText id="input2" required="true" value="#{dailyspecial.tuesday}" />
-                            <h:message for="input2" style="color: red" />
-                            
-                            <h:inputText id="input3" required="true" value="#{dailyspecial.wednesday}" />
-                            <h:message for="input3" style="color: red" />
-                            
-                            <h:inputText id="input4" required="true" value="#{dailyspecial.thursday}" />
-                            <h:message for="input4" style="color: red" />
-                            
-                            <h:inputText id="input5" required="true" value="#{dailyspecial.friday}" />
-                            <h:message for="input5" style="color: red" />
-                            
+                            <div id="daily_inputs">
+                                <h:inputText id="input1" required="true" value="#{dailyspecial.monday}" />
+                                <h:message for="input1" style="color: red" />
+
+                                <h:inputText id="input2" required="true" value="#{dailyspecial.tuesday}" />
+                                <h:message for="input2" style="color: red" />
+
+                                <h:inputText id="input3" required="true" value="#{dailyspecial.wednesday}" />
+                                <h:message for="input3" style="color: red" />
+
+                                <h:inputText id="input4" required="true" value="#{dailyspecial.thursday}" />
+                                <h:message for="input4" style="color: red" />
+
+                                <h:inputText id="input5" required="true" value="#{dailyspecial.friday}" />
+                                <h:message for="input5" style="color: red" />
+                            </div>
                             <h:commandButton action="show" value="Lägg till" actionListener="#{dailyspecialEJB.create}" />
                         </h:form>
                     </h:column>

@@ -4,6 +4,9 @@
 }
 #daily_special{
     text-align: center;
+    background-color: lightgray;
 }
-
+#daily_inputs{
+    display: none;
+}
 
