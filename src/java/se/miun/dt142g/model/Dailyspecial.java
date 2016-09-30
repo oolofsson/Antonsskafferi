@@ -146,7 +146,9 @@ public class Dailyspecial implements Serializable {
 
     @Override
     public String toString() {
-        return "se.miun.dt142g.model.Dailyspecial[ dailyid=" + dailyid + " ]";
+        return "Måndag: " + monday + "\nTisdag: " + tuesday
+                + "\nWednesday: " + wednesday + "\nThursday: " + thursday
+                + "\nFriday: " + friday;
     }
     
 }

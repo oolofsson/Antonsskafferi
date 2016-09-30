@@ -33,5 +33,7 @@ public class DrinkEJB {
         Drink d = new Drink(drink.getDrinkname(), drink.getDrinkprice(), drink.getDrinktype());
         em.persist(d);
     }
-    
+    public void delete(){
+        em.createQuery("DELETE FROM Drink c WHERE c.drinkid = " + drink.getDrinkid()).executeUpdate();
+    }
 }

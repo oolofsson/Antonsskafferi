@@ -11,6 +11,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import se.miun.dt142g.model.Dish;
 
 /**
@@ -32,6 +33,9 @@ public class DishEJB {
     public void create(){
         Dish d = new Dish(dish.getDishname(), dish.getDishprice(), dish.getDishtype());
         em.persist(d);
+    }
+    public void delete(){
+        em.createQuery("DELETE FROM Dish c WHERE c.dishid = " + dish.getDishid()).executeUpdate();
     }
  
 }

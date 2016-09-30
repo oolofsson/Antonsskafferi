@@ -143,7 +143,7 @@ public class Userlogin implements Serializable {
 
     @Override
     public String toString() {
-        return userid + ". " + username;
+        return username;
     }
     
 }

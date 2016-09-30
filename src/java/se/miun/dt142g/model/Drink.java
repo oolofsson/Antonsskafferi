@@ -120,7 +120,7 @@ public class Drink implements Serializable {
 
     @Override
     public String toString() {
-        return drinkid + ". " + drinkname + ", " + drinkprice;
+        return drinkname + ", " + drinkprice;
     }
     
 }

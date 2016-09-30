@@ -120,7 +120,7 @@ public class Dish implements Serializable {
 
     @Override
     public String toString() {
-        return dishid + ". " + dishname + ", " + dishprice;
+        return dishname + ", " + dishprice;
     }
     
 }

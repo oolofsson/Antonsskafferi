@@ -2,11 +2,15 @@
     text-align: right;
     margin-right: 50px;
 }
-#daily_special{
+#change_daily_special{
     text-align: center;
     background-color: lightgray;
 }
-#daily_inputs{
+.inputs{
     display: none;
+}
+.field{
+    border: 1px solid grey;
+    margin: 5px;
 }
 
