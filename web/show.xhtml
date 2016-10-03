@@ -44,19 +44,23 @@
                 <div class="row container">
                 <h:column>
                     <h2>Veckans lunchmeny</h2>
-                    
+                    <h4>Måndag</h4>
                     <h:dataTable var="d" value="#{dailyspecialEJB.list}">
                         <h:column><p>#{d.monday}</p><br /></h:column>
                     </h:dataTable>
+                    <h4>Tisdag</h4>
                     <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
                         <h:column><p>#{d.tuesday}</p><br /></h:column>   
                     </h:dataTable>
+                    <h4>Onsdag</h4>
                     <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
                         <h:column><p>#{d.wednesday}</p><br /></h:column>
                     </h:dataTable>
+                    <h4>Torsdag</h4>
                     <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
                         <h:column><p>#{d.thursday}</p><br /></h:column>
                     </h:dataTable>
+                    <h4>Fredag</h4>
                     <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
                         <h:column><p>#{d.friday}</p><br /></h:column>
                     </h:dataTable>
