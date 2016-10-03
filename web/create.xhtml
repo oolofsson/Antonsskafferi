@@ -9,16 +9,22 @@
 
         <ui:composition template="./WEB-INF/template_admin.xhtml">
             <ui:define name="left">
-                <h2>Bilduppladdning</h2>
-                <h:form>
-                    <h:panelGrid columns="3">
-                        <h:outputText value="Bild: " />
-                        <h:inputFile />
-                    </h:panelGrid>
-                </h:form>
             </ui:define>
 
             <ui:define name="content">
+                <div class="field">
+                    <h:column id="upload_image_column">
+                        <h2>Ladda upp bild</h2>
+                        <h:form id="fileUpload" prependId="false"     enctype="multipart/form-data">
+                            <h:inputFile id="FileUpload" value="#{jsfFileUploadBean.file}">
+                                <f:validator validatorId="fileUploadValidator"/>
+                            </h:inputFile>
+                            <p> <h:messages id="messages" /></p>
+                            <h:commandButton value="Ladda Upp" action="#{jsfFileUploadBean.processFileUpload}"/>
+                        </h:form>
+                    </h:column>
+                </div>
+                
                 <div class="field">
                     <h:column id="new_dish_column">
                         <h2>Lägg till ny rätt: </h2>
