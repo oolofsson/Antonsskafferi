@@ -33,7 +33,7 @@ String relativeWebPath = "/";
 FacesContext context = FacesContext.getCurrentInstance();
 ExternalContext externalContext = context.getExternalContext();
 ServletContext servletContext = (ServletContext) externalContext.getContext();
-String absoluteDiskPath = servletContext.getRealPath(relativeWebPath);
+String absoluteDiskPath = servletContext.getRealPath(relativeWebPath) + "resources/images/";
         
     private static final long serialVersionUID = 1L;
  
