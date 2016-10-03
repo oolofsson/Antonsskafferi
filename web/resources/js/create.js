@@ -14,6 +14,9 @@ $(document).ready(function () {
            $('#daily_special_form\\:input' + i).val($('#select' + i).val());
         }
     });
+    $('.parallax').parallax();
+    $('.scrollspy').scrollSpy();
+    $('.tabs-wrapper .row').pushpin({ top: $('.tabs-wrapper').offset().top });
     
 });
 

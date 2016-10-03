@@ -1,0 +1,233 @@
+#navmeny{
+    margin: 0 auto;
+    display: block;
+    width: 33%;
+    float: left;
+}
+
+#navmeny li{
+    float: left;
+}
+
+.topnav {
+    position: fixed;
+    background-color: #240C00;
+    width: 100%;
+    z-index: 1;
+    color: red;
+    text-align: center;
+    margin-top: -5px;
+    padding-bottom: 15px;
+}
+body{
+    background-color: #240C00;
+}
+p, h1, h2, h3, h4{color:white;
+}
+p{
+    font-size: 16px;
+}
+
+#box2{
+	width: 50%;
+	float: left;
+	overflow: auto;
+	padding-top: 20px;
+}
+#textlogga{
+    width:33%;
+    float: left;
+    text-align: center;
+}
+#bildlogga{
+    width:33%;
+    float: right;
+    align-content: right;
+    margin-right: -173px;
+    margin-bottom: -21px;
+}
+#sidaffisch{
+    float: right;
+    margin-top: 250px;
+    height: 50px;
+    position: fixed;
+    z-index: 2;
+    margin-right: -11px;
+    right: 0px;
+}
+#sidaffisch img {
+    width: 400px;
+}
+#sidaffisch img:hover{
+    -webkit-transform: scale(1.5,1.5);
+    margin-right:300px;
+    margin-top: -30px;
+    
+}
+#loginsida{
+    margin-left: 50px;
+}
+#login{
+    width: 10%;
+}
+#logut_create{
+    text-align: right;
+    margin-right: 50px;
+}
+#change_daily_special{
+    text-align: center;
+    background-color: lightgray;
+}
+.inputs{
+    display: none;
+}
+.field{
+    border: 1px solid grey;
+    margin: 5px;
+    color: black;
+}
+root { 
+    display: block;
+}
+
+table {
+    empty-cells: show;
+}
+
+form.jsfcrud_list_form th, td th {
+    font-size: x-small;
+    color: #4e6a71;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-color: #b2d5d6;
+    border-bottom-color: #b2d5d6;
+    border-left-color: #90b4bd;
+    border-right-color: #90b4bd;
+    letter-spacing: 3px;
+    text-align: left;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+    background-color: #b2d5d6;
+}
+
+td {
+    vertical-align: top;
+    padding-bottom: 8px;
+    font-size: small;
+}
+
+form.jsfcrud_list_form td, td td {
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-color: #b2d5d6;
+    border-bottom-color: #b2d5d6;
+    border-left-color: #b2d5d6;
+    border-right-color: #b2d5d6;
+    vertical-align: baseline;
+    padding-bottom: 0px;
+}
+
+tr.jsfcrud_odd_row {
+    background-color: #fefeff;
+    color: #4e6a71;
+}
+
+
+tr.jsfcrud_even_row {
+    background-color: #eff5fa;
+    color: #4e6a71;
+}
+
+#busyImage {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+#top_admin {
+    position: relative;
+    background-color: #240C00;
+    color: white;
+    padding: 5px;
+    margin: 0px 0px 10px 0px;
+    height: 100px;
+}
+#content_admin{
+    background-color: white;
+    margin-left: 400px;
+    margin-right: 100px;
+    height: 1000px;
+    overflow: scroll;
+}
+#bottom_admin {
+    position: relative;
+    background-color: #c2dfef;
+    padding: 5px;
+    margin: 10px 0px 0px 0px;
+}
+
+#left_admin {
+    float: left;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 300px;
+    height: 300px;
+}
+
+#right_admin {
+    float: right;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+.center_content_admin {
+    position: relative;
+    background-color: #dddddd;
+    padding: 5px;
+}
+
+.left_content_admin {
+    background-color: #dddddd;
+    padding: 5px;
+    margin-left: 170px;
+}
+
+.right_content_admin {
+    background-color: #dddddd;
+    padding: 5px;
+    margin: 0px 170px 0px 170px;
+}
+
+#top_admin a:link, #top_admin a:visited {
+  color: white;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+#top_admin a:link:hover, #top_admin a:visited:hover  {
+  color: black;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
+body {
+    background-color: #240C00;
+    font-size: 12px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    color: #000000;  
+    margin: 10px;
+}
+/*hej*/

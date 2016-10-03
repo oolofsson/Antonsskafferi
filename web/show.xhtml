@@ -2,39 +2,106 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <body>
-
         <ui:composition template="./WEB-INF/template.xhtml">
-            
+            <ui:define name="top">
+                <div class="topnav">
+            <div id="navmeny" class="col hide-on-small-only m3 l2">
+                <ul class="section table-of-contents">
+                  <li><a href="#lunch">Lunch</a></li>
+                  <li><a href="#middag">Middag</a></li>
+                  <li><a href="#hittahit">Hitta hit</a></li>
+                </ul>
+            </div>
+            <div id="textlogga">
+                <p>Antons skafferi</p>
+            </div>
+            <div id="bildlogga">
+                <img src='resources/images/logga_n_2.jpg'></img>
+            </div>
+        </div>
+            </ui:define>
             <ui:define name="content">
+                <div id='sidaffisch'>
+            <div class="col hide-on-small-only m3a l2">
+                <div class="toc-wrapper">
+                    <div style="height: 1px;">
+                        <img src="resources/images/pistvakt.png" id="bild"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div class="parallax-container">
+            <div class="parallax"><img src="resources/images/Food1.jpg" /></div>
+        </div>
+        
+        <div id="lunch" class="section scrollspy">
+            <div class="section dark-brown1">
+                <div class="row container">
                 <h:column>
+                    <h2>Veckans lunchmeny</h2>
+                    
+                    <h:dataTable var="d" value="#{dailyspecialEJB.list}">
+                        <h:column><p>#{d.monday}</p><br /></h:column>
+                    </h:dataTable>
+                    <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
+                        <h:column><p>#{d.tuesday}</p><br /></h:column>   
+                    </h:dataTable>
+                    <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
+                        <h:column><p>#{d.wednesday}</p><br /></h:column>
+                    </h:dataTable>
+                    <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
+                        <h:column><p>#{d.thursday}</p><br /></h:column>
+                    </h:dataTable>
+                    <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
+                        <h:column><p>#{d.friday}</p><br /></h:column>
+                    </h:dataTable>
+                </h:column>
+                </div>
+            </div>
+        </div>     
+        <div class="parallax-container">
+            <div class="parallax"><img src="resources/images/Food2.jpg" /></div>
+       </div>
+        <div id="middag" class="section scrollspy">
+            <div class="section dark-brown1">
+                <div class="row container">
+                 <h:column>
                     <h2>Meny Ala carte</h2>
                     <h:dataTable var="d" value="#{dishEJB.list}">
-                        <h:column>#{d.dishname}, #{d.dishprice} kr</h:column>
+                        <h:column><p>#{d.dishname} #{d.dishprice} </p></h:column>
                     </h:dataTable>
-                </h:column>
-                <h:column>
-                    <h2>Drycker</h2>
-                    <h:dataTable var="d" value="#{drinkEJB.list}">
-                        <h:column>#{d.drinkname}, #{d.drinkprice} kr</h:column>
-                    </h:dataTable>
-                </h:column>
-                <h:column>
-                    <h2>Meny Dagens</h2>
-                    <h:dataTable var="d" value="#{dailyspecialEJB.list}">
-                        <h:column>#{d.monday}</h:column><br />
-                        <h:column>#{d.tuesday}</h:column><br />                       
-                        <h:column>#{d.wednesday}</h:column><br />
-                        <h:column>#{d.thursday}</h:column><br />
-                        <h:column>#{d.friday}</h:column><br />
-                    </h:dataTable>
-                </h:column>
+                 </h:column>
+                </div>
+            </div> 
+        </div>
+        <div class="parallax-container">
+            <div class="parallax"><img src="resources/images/parallax1.jpg"></img></div>
+        </div>
+        <div id="hittahit" class="section scrollspy">
+            <div class="section dark-brown1">
+                <div class="row container">
+                    <h2>Hitta hit</h2>
+                    <div id="box2">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1848.798569698317!2d17.282027516458182!3d62.39462708283425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46645df40bcf4d13%3A0xc2e27193e1ae82a8!2sMittuniversitetet!5e0!3m2!1ssv!2sse!4v1474390401970" width="600" height="450" style="border:0" allowfullscreen="true"></iframe>
+                    </div>
+                    <div id="box2">
+                        <h2>Öppetider</h2>
+                        <p>Måndag till fredag 11-22</p>
+                        <p>Lördag 15-02</p>
+                        <p>Söndag Stängt</p>
+                    </div>
+                </div>
+            </div>
+        </div>
                 
             </ui:define>
-
         </ui:composition>
+
 
     </body>
 </html>
