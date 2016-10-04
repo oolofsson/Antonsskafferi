@@ -25,7 +25,7 @@ import se.miun.dt142g.model.Userlogin;
  * @author William
  */
 @Stateless
-@Path("se.miun.dt142g.model.userlogin")
+@Path("users")
 public class UserloginFacadeREST extends AbstractFacade<Userlogin> {
 
     @PersistenceContext(unitName = "glassfish4testPU")

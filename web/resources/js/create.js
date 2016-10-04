@@ -1,5 +1,14 @@
 $(document).ready(function () {
     
+    /*
+    var today = new Date();
+    switch(today.getDay()){
+        case 1:
+            $('#monday').css()
+        case 2:
+            $('#tuesday').css()
+    } */      
+    
     
     $("#delete_drink").change(function(){
         $('#delete_drink_form\\:input_drink').val($('#delete_drink').val());

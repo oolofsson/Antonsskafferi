@@ -25,7 +25,7 @@ import se.miun.dt142g.model.Drink;
  * @author William
  */
 @Stateless
-@Path("se.miun.dt142g.model.drink")
+@Path("drinks")
 public class DrinkFacadeREST extends AbstractFacade<Drink> {
 
     @PersistenceContext(unitName = "glassfish4testPU")

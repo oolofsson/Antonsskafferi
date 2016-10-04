@@ -25,7 +25,7 @@ import se.miun.dt142g.model.Dailyspecial;
  * @author William
  */
 @Stateless
-@Path("se.miun.dt142g.model.dailyspecial")
+@Path("dailyspecials")
 public class DailyspecialFacadeREST extends AbstractFacade<Dailyspecial> {
 
     @PersistenceContext(unitName = "glassfish4testPU")
