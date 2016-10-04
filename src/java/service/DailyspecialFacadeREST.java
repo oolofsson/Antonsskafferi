@@ -58,7 +58,7 @@ public class DailyspecialFacadeREST extends AbstractFacade<Dailyspecial> {
     @GET
     @Path("{id}")
     @Produces({//MediaType.APPLICATION_XML, 
-        MediaType.APPLICATION_JSON})
+        MediaType.APPLICATION_JSON + ";charset=utf-8"})
     public Dailyspecial find(@PathParam("id") Integer id) {
         return super.find(id);
     }
@@ -66,7 +66,7 @@ public class DailyspecialFacadeREST extends AbstractFacade<Dailyspecial> {
     @GET
     @Override
     @Produces({//MediaType.APPLICATION_XML, 
-        MediaType.APPLICATION_JSON})
+        MediaType.APPLICATION_JSON + ";charset=utf-8"})
     public List<Dailyspecial> findAll() {
         return super.findAll();
     }
@@ -74,7 +74,7 @@ public class DailyspecialFacadeREST extends AbstractFacade<Dailyspecial> {
     @GET
     @Path("{from}/{to}")
     @Produces({//MediaType.APPLICATION_XML, 
-        MediaType.APPLICATION_JSON})
+        MediaType.APPLICATION_JSON + ";charset=utf-8"})
     public List<Dailyspecial> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
