@@ -58,7 +58,7 @@ public class UserloginFacadeREST extends AbstractFacade<Userlogin> {
     @GET
     @Path("{id}")
     @Produces({//MediaType.APPLICATION_XML, 
-        MediaType.APPLICATION_JSON})
+        MediaType.APPLICATION_JSON + ";charset=utf-8"})
     public Userlogin find(@PathParam("id") Integer id) {
         return super.find(id);
     }
@@ -66,7 +66,7 @@ public class UserloginFacadeREST extends AbstractFacade<Userlogin> {
     @GET
     @Override
     @Produces({//MediaType.APPLICATION_XML, 
-        MediaType.APPLICATION_JSON})
+        MediaType.APPLICATION_JSON + ";charset=utf-8"})
     public List<Userlogin> findAll() {
         return super.findAll();
     }
@@ -74,7 +74,7 @@ public class UserloginFacadeREST extends AbstractFacade<Userlogin> {
     @GET
     @Path("{from}/{to}")
     @Produces({//MediaType.APPLICATION_XML, 
-        MediaType.APPLICATION_JSON})
+        MediaType.APPLICATION_JSON + ";charset=utf-8"})
     public List<Userlogin> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }

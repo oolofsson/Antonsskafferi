@@ -58,23 +58,24 @@ public class DishFacadeREST extends AbstractFacade<Dish> {
     @GET
     @Path("{id}")
     @Produces({//MediaType.APPLICATION_XML, 
-        MediaType.APPLICATION_JSON})
+        MediaType.APPLICATION_JSON + ";charset=utf-8"})
     public Dish find(@PathParam("id") Integer id) {
         return super.find(id);
     }
 
     @GET
     @Override
-    @Produces({//MediaType.APPLICATION_XML, 
-        MediaType.APPLICATION_JSON})
+    @Produces({//MediaType.APPLICATION_XML,
+        MediaType.APPLICATION_JSON + ";charset=utf-8"})
     public List<Dish> findAll() {
+        
         return super.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({//MediaType.APPLICATION_XML, 
-        MediaType.APPLICATION_JSON})
+        MediaType.APPLICATION_JSON + ";charset=utf-8"})
     public List<Dish> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }

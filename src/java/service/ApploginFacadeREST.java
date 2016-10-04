@@ -18,34 +18,34 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import se.miun.dt142g.model.Drink;
+import se.miun.dt142g.model.Applogin;
 
 /**
  *
  * @author William
  */
 @Stateless
-@Path("drinks")
-public class DrinkFacadeREST extends AbstractFacade<Drink> {
+@Path("applogin")
+public class ApploginFacadeREST extends AbstractFacade<Applogin> {
 
     @PersistenceContext(unitName = "glassfish4testPU")
     private EntityManager em;
 
-    public DrinkFacadeREST() {
-        super(Drink.class);
+    public ApploginFacadeREST() {
+        super(Applogin.class);
     }
 
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void create(Drink entity) {
+    public void create(Applogin entity) {
         super.create(entity);
     }
 
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Integer id, Drink entity) {
+    public void edit(@PathParam("id") Integer id, Applogin entity) {
         super.edit(entity);
     }
 
@@ -59,7 +59,7 @@ public class DrinkFacadeREST extends AbstractFacade<Drink> {
     @Path("{id}")
     @Produces({//MediaType.APPLICATION_XML, 
         MediaType.APPLICATION_JSON + ";charset=utf-8"})
-    public Drink find(@PathParam("id") Integer id) {
+    public Applogin find(@PathParam("id") Integer id) {
         return super.find(id);
     }
 
@@ -67,7 +67,7 @@ public class DrinkFacadeREST extends AbstractFacade<Drink> {
     @Override
     @Produces({//MediaType.APPLICATION_XML, 
         MediaType.APPLICATION_JSON + ";charset=utf-8"})
-    public List<Drink> findAll() {
+    public List<Applogin> findAll() {
         return super.findAll();
     }
 
@@ -75,7 +75,7 @@ public class DrinkFacadeREST extends AbstractFacade<Drink> {
     @Path("{from}/{to}")
     @Produces({//MediaType.APPLICATION_XML, 
         MediaType.APPLICATION_JSON + ";charset=utf-8"})
-    public List<Drink> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<Applogin> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 
