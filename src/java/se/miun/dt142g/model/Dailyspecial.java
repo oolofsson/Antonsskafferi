@@ -6,6 +6,7 @@
 package se.miun.dt142g.model;
 
 import java.io.Serializable;
+import java.nio.charset.Charset;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.persistence.Basic;
@@ -89,7 +90,12 @@ public class Dailyspecial implements Serializable {
     }
 
     public void setMonday(String monday) {
-        this.monday = monday;
+        Charset windows1252 = Charset.forName("ISO-8859-1");
+        Charset utf8charset = Charset.forName("UTF-8");
+
+        byte[] bytes = monday.getBytes(windows1252);
+        String z = new String(bytes, utf8charset);
+        this.monday=z;
     }
 
     public String getTuesday() {
@@ -97,7 +103,12 @@ public class Dailyspecial implements Serializable {
     }
 
     public void setTuesday(String tuesday) {
-        this.tuesday = tuesday;
+        Charset windows1252 = Charset.forName("ISO-8859-1");
+        Charset utf8charset = Charset.forName("UTF-8");
+
+        byte[] bytes = tuesday.getBytes(windows1252);
+        String z = new String(bytes, utf8charset);
+        this.tuesday=z;
     }
 
     public String getWednesday() {
@@ -105,7 +116,12 @@ public class Dailyspecial implements Serializable {
     }
 
     public void setWednesday(String wednesday) {
-        this.wednesday = wednesday;
+        Charset windows1252 = Charset.forName("ISO-8859-1");
+        Charset utf8charset = Charset.forName("UTF-8");
+
+        byte[] bytes = wednesday.getBytes(windows1252);
+        String z = new String(bytes, utf8charset);
+        this.wednesday=z;
     }
 
     public String getThursday() {
@@ -113,7 +129,12 @@ public class Dailyspecial implements Serializable {
     }
 
     public void setThursday(String thursday) {
-        this.thursday = thursday;
+                Charset windows1252 = Charset.forName("ISO-8859-1");
+        Charset utf8charset = Charset.forName("UTF-8");
+
+        byte[] bytes = thursday.getBytes(windows1252);
+        String z = new String(bytes, utf8charset);
+        this.thursday=z;
     }
 
     public String getFriday() {
@@ -121,7 +142,12 @@ public class Dailyspecial implements Serializable {
     }
 
     public void setFriday(String friday) {
-        this.friday = friday;
+        Charset windows1252 = Charset.forName("ISO-8859-1");
+        Charset utf8charset = Charset.forName("UTF-8");
+
+        byte[] bytes = friday.getBytes(windows1252);
+        String z = new String(bytes, utf8charset);
+        this.friday=z;
     }
 
     @Override

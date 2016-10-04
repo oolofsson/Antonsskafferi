@@ -6,6 +6,7 @@
 package se.miun.dt142g.model;
 
 import java.io.Serializable;
+import java.nio.charset.Charset;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.persistence.Basic;
@@ -79,7 +80,13 @@ public class Dish implements Serializable {
     }
 
     public void setDishname(String dishname) {
-        this.dishname = dishname;
+        /* this.dishname = dishname;*/
+        Charset windows1252 = Charset.forName("ISO-8859-1");
+        Charset utf8charset = Charset.forName("UTF-8");
+
+        byte[] bytes = dishname.getBytes(windows1252);
+        String z = new String(bytes, utf8charset);
+        this.dishname=z;
     }
 
     public String getDishprice() {
@@ -95,7 +102,12 @@ public class Dish implements Serializable {
     }
 
     public void setDishtype(String dishtype) {
-        this.dishtype = dishtype;
+        Charset windows1252 = Charset.forName("ISO-8859-1");
+        Charset utf8charset = Charset.forName("UTF-8");
+
+        byte[] bytes = dishtype.getBytes(windows1252);
+        String z = new String(bytes, utf8charset);
+        this.dishtype=z;
     }
 
     @Override
