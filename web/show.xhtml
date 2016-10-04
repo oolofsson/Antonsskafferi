@@ -43,10 +43,12 @@
             <div class="section dark-brown1">
                 <div class="row container">
                 <h:column>
-                    <h2>Veckans lunchmeny</h2>
+                    <h2>Dagens lunch:</h2>
+                    <p>Dagens lunch serveras med salladsbar och dryck, 89kr, klockan: 11-14</p>
+                    <h3>Veckans lunchmeny</h3>
                     <h4>Måndag</h4>
                     <h:dataTable var="d" value="#{dailyspecialEJB.list}">
-                        <h:column><p>#{d.monday}</p><br /></h:column>
+                        <h:column><p style = "line-height:70%">#{d.monday}</p><br /></h:column>
                     </h:dataTable>
                     <h4>Tisdag</h4>
                     <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
@@ -62,7 +64,7 @@
                     </h:dataTable>
                     <h4>Fredag</h4>
                     <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
-                        <h:column><p>#{d.friday}</p><br /></h:column>
+                        <h:column><p style = "line-height:70%">#{d.friday}</p><br /></h:column>
                     </h:dataTable>
                 </h:column>
                 </div>
