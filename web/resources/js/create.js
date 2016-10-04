@@ -1,13 +1,23 @@
 $(document).ready(function () {
-    
-    /*
-    var today = new Date();
-    switch(today.getDay()){
-        case 1:
-            $('#monday').css()
-        case 2:
-            $('#tuesday').css()
-    } */      
+   /*$("#VisaDagens").change(function(){
+        switch(new Date().getDay()){
+            case 1:
+                $("#VisaDagens").val($("Dagens Lunch: "+"#monday").val());
+                break;
+            case 2:
+                $("#VisaDagens").val($("#thuesday").val());  
+                break;
+            case 3:
+                $("#VisaDagens").val($("#monday").val());
+                break;
+            case 4:
+                $("#VisaDagens").val($("#monday").val());
+                break;
+            case 5:
+                $("#VisaDagens").val($("#monday").val());
+                break;
+         };
+     });*/
     
     
     $("#delete_drink").change(function(){
@@ -28,5 +38,7 @@ $(document).ready(function () {
     $('.tabs-wrapper .row').pushpin({ top: $('.tabs-wrapper').offset().top });
     
 });
+
+
 
 

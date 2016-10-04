@@ -4,16 +4,17 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
-
+    
     <body>
+        
         <ui:composition template="./WEB-INF/template.xhtml">
             <ui:define name="top">
                 <div class="topnav">
             <div id="navmeny" class="col hide-on-small-only m3 l2">
                 <ul class="section table-of-contents">
-                  <li><a href="#lunch">Lunch</a></li>
-                  <li><a href="#middag">Middag</a></li>
-                  <li><a href="#hittahit">Hitta hit</a></li>
+                  <li><a href="#lunch" style='border-color:#240C00'>Lunch</a></li>
+                  <li><a href="#middag" style='border-color:#240C00'>Middag</a></li>
+                  <li><a href="#hittahit" style='border-color:#240C00'>Hitta hit</a></li>
                 </ul>
             </div>
             <div id="textlogga">
@@ -43,30 +44,55 @@
             <div class="section dark-brown1">
                 <div class="row container">
                 <h:column>
-                    <h2>Dagens lunch:</h2>
-                    <p>Dagens lunch serveras med salladsbar och dryck, 89kr, klockan: 11-14</p>
+                    <h2 id="VisaDagens" ></h2>
+                    <p>Dagens lunch serveras med salladsbar och dryck, 89kr, klockan: 11-14</p>              
+                    
                     <h3>Veckans lunchmeny</h3>
                     <h4>Måndag</h4>
                     <h:dataTable var="d" value="#{dailyspecialEJB.list}">
-                        <h:column><p style = "line-height:70%">#{d.monday}</p><br /></h:column>
+                        <h:column><p id='1'>#{d.monday}</p><br /></h:column>
                     </h:dataTable>
                     <h4>Tisdag</h4>
-                    <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
-                        <h:column><p>#{d.tuesday}</p><br /></h:column>   
+                    <h:dataTable id='dt' var="d" value="#{dailyspecialEJB.list}">                   
+                        <h:column><p id='2'>#{d.tuesday}</p><br /></h:column>   
                     </h:dataTable>
                     <h4>Onsdag</h4>
                     <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
-                        <h:column><p>#{d.wednesday}</p><br /></h:column>
+                        <h:column><p id='3'>#{d.wednesday}</p><br /></h:column>
                     </h:dataTable>
                     <h4>Torsdag</h4>
                     <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
-                        <h:column><p>#{d.thursday}</p><br /></h:column>
+                        <h:column><p id='4'>#{d.thursday}</p><br /></h:column>
                     </h:dataTable>
                     <h4>Fredag</h4>
                     <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
-                        <h:column><p style = "line-height:70%">#{d.friday}</p><br /></h:column>
+                        <h:column><p id='5'>#{d.friday}</p><br /></h:column>
                     </h:dataTable>
+                    
+                    <script>
+                        var day;
+                        switch (new Date().getDay()) {
+                            case 1:
+                                day = "måndag";
+                                break;
+                            case 2:                              
+                                day = document.getElementById("#{2}").value;
+                                break;
+                            case 3:
+                                day = "Wednesday";
+                                break;
+                            case 4:
+                                day = "Thursday";
+                                break;
+                            case 5:
+                                day = "Friday";
+                                break;
+                        }
+                        document.getElementById("VisaDagens").innerHTML = "Dagens lunch: " + day;
+                    </script>
+                    
                 </h:column>
+                    
                 </div>
             </div>
         </div>     

@@ -7,6 +7,9 @@
 
 #navmeny li{
     float: left;
+    border: 30px;
+    border-color: #240c00;
+    
 }
 
 .topnav {
