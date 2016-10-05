@@ -1,17 +1,14 @@
 #navmeny{
     margin: 0 auto;
-    display: block;
+    display: inline-block;
     width: 33%;
     float: left;
 }
-
 #navmeny li{
     float: left;
     border: 30px;
-    border-color: #240c00;
-    
+    border-color: #240c00;   
 }
-
 .topnav {
     position: fixed;
     background-color: #240C00;
@@ -32,13 +29,11 @@ p{
 .row h4{
     margin-top: -15px;
 }
-
 #box2{
     width: 50%;
     float: left;
     overflow: hidden;
-    padding: 30px;
-    padding-bottom: -30px;
+    padding-right: 50px;
 }
 #box2 img{
     max-width: 100%;
@@ -56,10 +51,13 @@ p{
     margin-right: -173px;
     margin-bottom: -21px;
 }
+#bildlogga img{
+    
+}
 #sidaffisch{
     float: right;
-    margin-top: 10%;
-    height: 50px;
+    margin-top: 7%;
+    max-height: 780px;
     position: fixed;
     z-index: 2;
     margin-right: -11px;
@@ -120,7 +118,7 @@ table {
     }
 }
 
-@media screen and (max-height: 750px) {
+@media screen and (max-height: 700px) {
     #sidaffisch img {
         display: none;
     }
