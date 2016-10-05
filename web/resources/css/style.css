@@ -12,5 +12,10 @@
 .field{
     border: 1px solid grey;
     margin: 5px;
+    display: none;
+}
+
+#janne{
+    align-self:  flex-end;
 }
 
