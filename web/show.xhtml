@@ -6,7 +6,6 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     
     <body>
-        
         <ui:composition template="./WEB-INF/template.xhtml">
             <ui:define name="top">
                 <div class="topnav">
@@ -14,6 +13,7 @@
                 <ul class="section table-of-contents">
                   <li><a href="#lunch" style='border-color:#240C00'>Lunch</a></li>
                   <li><a href="#middag" style='border-color:#240C00'>Middag</a></li>
+                  <li><a href="#underhållning" style='border-color:#240C00'>Underhållning</a></li>
                   <li><a href="#hittahit" style='border-color:#240C00'>Hitta hit</a></li>
                 </ul>
             </div>
@@ -30,7 +30,7 @@
             <div class="col hide-on-small-only m3a l2">
                 <div class="toc-wrapper">
                     <div style="height: 1px;">
-                        <img src="resources/images/image.png" id="bild"/>
+                        <a href="#underhållning"><img src="resources/images/image.png" id="bild"/></a>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,8 @@
             <div class="section dark-brown1">
                 <div class="row container">
                 <h:column>
-                    <h2 id="VisaDagens" ></h2>
+                    <h2>Dagens lunch</h2>
+                    <h5 id="VisaDagens" ></h5>
                     <p>Dagens lunch serveras med salladsbar och dryck, 89kr, klockan: 11-14</p>              
                     
                     <h3>Veckans lunchmeny</h3>
@@ -67,8 +68,7 @@
                     <h4>Fredag</h4>
                     <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
                         <h:column><p id='5'>#{d.friday}</p><br /></h:column>
-                    </h:dataTable>
-                    
+                    </h:dataTable>                   
                     <script>
                         var day;
                         switch (new Date().getDay()) {
@@ -88,9 +88,8 @@
                                 day = document.getElementById("#{5}").innerHTML;
                                 break;
                         }
-                        document.getElementById("VisaDagens").innerHTML = "Dagens lunch: " + day;
-                    </script>
-                    
+                        document.getElementById("VisaDagens").innerHTML = day;
+                    </script>                   
                 </h:column>
                     
                 </div>
@@ -114,12 +113,27 @@
         <div class="parallax-container">
             <div class="parallax"><img src="resources/images/parallax1.jpg"></img></div>
         </div>
+        <div id="underhållning" class="section scrollspy">
+            <div class="section dark-brown1">
+                <div class="row container">
+                    <div id="box2">
+                        <img src="resources/images/image.png" id="bild"/>    
+                    </div>
+                    <div id="box2">
+                        <p>Här är lite info om vad som händer! tack och hej, leverpastej</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="parallax-container">
+            <div class="parallax"><img src="resources/images/parallax1.jpg"></img></div>
+        </div>
         <div id="hittahit" class="section scrollspy">
             <div class="section dark-brown1">
                 <div class="row container">
                     <h2>Hitta hit</h2>
                     <div id="box2">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1848.798569698317!2d17.282027516458182!3d62.39462708283425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46645df40bcf4d13%3A0xc2e27193e1ae82a8!2sMittuniversitetet!5e0!3m2!1ssv!2sse!4v1474390401970" width="600" height="450" style="border:0" allowfullscreen="true"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1848.798569698317!2d17.282027516458182!3d62.39462708283425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46645df40bcf4d13%3A0xc2e27193e1ae82a8!2sMittuniversitetet!5e0!3m2!1ssv!2sse!4v1474390401970" width="600" height="450" style="border:0" allowfullscreen="true"></iframe>
                     </div>
                     <div id="box2">
                         <h2>Öppetider</h2>

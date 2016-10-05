@@ -25,7 +25,7 @@
 body{
     background-color: #240C00;
 }
-p, h1, h2, h3, h4{color:white; line-height: 70%;}
+p, h1, h2, h3, h4, h5{color:white;}
 p{
     font-size: 16px;
 }
@@ -34,10 +34,16 @@ p{
 }
 
 #box2{
-	width: 50%;
-	float: left;
-	overflow: auto;
-	padding-top: 20px;
+    width: 50%;
+    float: left;
+    overflow: hidden;
+    padding: 30px;
+    padding-bottom: -30px;
+}
+#box2 img{
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
 }
 #textlogga{
     width:33%;
@@ -47,13 +53,12 @@ p{
 #bildlogga{
     width:33%;
     float: right;
-    align-content: right;
     margin-right: -173px;
     margin-bottom: -21px;
 }
 #sidaffisch{
     float: right;
-    margin-top: 250px;
+    margin-top: 10%;
     height: 50px;
     position: fixed;
     z-index: 2;
@@ -62,13 +67,16 @@ p{
 }
 #sidaffisch img {
     width: 400px;
+    margin-left: 20px;
 }
+/*
 #sidaffisch img:hover{
     -webkit-transform: scale(1.5,1.5);
     margin-right:300px;
     margin-top: -30px;
     
 }
+*/
 #loginsida{
     margin-left: 50px;
 }
@@ -98,4 +106,22 @@ root {
 table {
     empty-cells: show;
 }
+#VisaDagens{
+    width: 85%;
+}
 
+#lunch p{
+    margin: -5px;
+}
+
+@media only screen and (max-width: 1400px){
+    #sidaffisch img {
+        display: none;
+    }
+}
+
+@media screen and (max-height: 750px) {
+    #sidaffisch img {
+        display: none;
+    }
+}
