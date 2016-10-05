@@ -8,22 +8,26 @@
     <body>
         <ui:composition template="./WEB-INF/template.xhtml">
             <ui:define name="top">
-            <div class="topnav">
-                <div id="navmeny" class="col hide-on-small-only m3 l2">
-                    <ul class="section table-of-contents">
-                      <li><a href="#lunch" style='border-color:#240C00'>Lunch</a></li>
-                      <li><a href="#middag" style='border-color:#240C00'>Ala carte</a></li>
-                      <li><a href="#underhållning" style='border-color:#240C00'>Underhållning</a></li>
-                      <li><a href="#hittahit" style='border-color:#240C00'>Hitta hit</a></li>
-                    </ul>
-                </div>
-                <div id="textlogga">
-                    <p>Antons skafferi</p>
-                </div>
-                <div id="bildlogga">
-                    <img src='resources/images/logga_n_2.jpg'></img>
-                </div>
-            </div>
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper" style="background-color: #240C00">
+            <a href="#!" class="brand-logo center">Antonsskafferi</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="left hide-on-med-and-down">
+                <li><a href="#lunch">Lunch</a></li>
+                <li><a href="#middag">Ala carte</a></li>
+                <li><a href="#underhållning">Underhållning</a></li>
+                <li><a href="#hittahit">Hitta hit</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="#lunch">Lunch</a></li>
+                <li><a href="#middag">Ala carte</a></li>
+                <li><a href="#underhållning">Underhållning</a></li>
+                <li><a href="#hittahit">Hitta hit</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
             </ui:define>
             <ui:define name="content">
                 <div id='sidaffisch'>

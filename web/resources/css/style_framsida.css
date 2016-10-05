@@ -1,0 +1,53 @@
+body{
+    background-color: #240C00;
+}
+p, h1, h2, h3, h4, h5{color:white;}
+p{
+    font-size: 16px;
+}
+.row h4{
+    margin-top: -15px;
+}
+#box2{
+    width: 50%;
+    float: left;
+    overflow: hidden;
+    padding-right: 50px;
+}
+#box2 img{
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+#sidaffisch{
+    float: right;
+    margin-top: 7%;
+    max-height: 780px;
+    position: fixed;
+    z-index: 2;
+    margin-right: -11px;
+    right: 0px;
+}
+#sidaffisch img {
+    width: 400px;
+    margin-left: 20px;
+}
+#VisaDagens{
+    width: 85%;
+}
+
+#lunch p{
+    margin: -5px;
+}
+
+@media only screen and (max-width: 1400px){
+    #sidaffisch img {
+        display: none;
+    }
+}
+
+@media screen and (max-height: 700px) {
+    #sidaffisch img {
+        display: none;
+    }
+}
