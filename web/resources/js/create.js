@@ -2,6 +2,14 @@
 
 $(document).ready(function () {
     $("#logoutdiv").show();
+        $("#imageuploaddiv").hide();
+        $("#newdishdiv").hide();
+        $("#deletedishdiv").hide();
+        $("#newdrinkdiv").hide();
+        $("#deletedrinkdiv").hide();
+        $("#dailyspecialdiv").hide();
+        $("#newdagensdiv").hide();
+        $("#deletedagensdiv").hide();
     
     $("#bildknapp").click(function(){
         $("#imageuploaddiv").show();
