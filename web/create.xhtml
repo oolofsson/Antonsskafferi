@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <body>
 
@@ -12,7 +13,10 @@
             </ui:define>
 
             <ui:define name="content">
-                <div class="field">
+                <button id="bildknapp"> Ändra Bild</button>
+                <button id="alacarteknapp"> Ändra i A lá carte</button>
+                <button id="dagensknapp"> Ändra Dagensmeny</button>
+                <div id="imageuploaddiv" class="field">
                     <h:column id="upload_image_column">
                         <h2>Ladda upp bild</h2>
                         <h:form id="fileUpload" prependId="false" enctype="multipart/form-data">
@@ -25,7 +29,7 @@
                     </h:column>
                 </div>
                 
-                <div class="field">
+                <div id="newdishdiv" class="field">
                     <h:column id="new_dish_column">
                         <h2>Lägg till ny rätt: </h2>
                         <h:form>
@@ -49,7 +53,7 @@
                         </h:form>
                     </h:column>
                 </div>
-                <div class="field">
+                <div id="deletedishdiv" class="field">
                     <h:column id="delete_dish_column">
                         <h3>Ta bort en rätt</h3><br />
                         <h:selectOneMenu id="delete_dish"> 
@@ -65,7 +69,7 @@
                         </h:form>
                     </h:column>
                 </div>
-                <div class="field">
+                <div id="newdrinkdiv" class="field">
                     <h:column id="new_drink_column">
                         <h2>Lägg till ny dryck: </h2>
                         <h:form>
@@ -91,7 +95,7 @@
                     </h:column>
                 </div>
                 
-                <div class="field">
+                <div id="deletedrinkdiv" class="field">
                     <h:column id="delete_drink_column">
                         <h3>Ta bort en dryck</h3><br />
                         <h:selectOneMenu id="delete_drink"> 
@@ -107,8 +111,47 @@
                         </h:form>
                     </h:column>
                 </div>
-                
-                <div class="field">    
+                <div id="newdagensdiv" class="field">
+                    <h:column id="new_dagens_column">
+                        <h2>Lägg till ny rätt: </h2>
+                        <h:form>
+                            <h:panelGrid columns="3">
+                                <h:outputText value="Rätt:" />
+                                <h:inputText value="#{dish.dishname}" title="dishname" 
+                                             required="true" />
+                                <h:message for="dishname" style="color: red" />
+
+                                <h:outputText value="Pris:" />
+                                <h:inputText value="#{dish.dishprice}" title="dishprice" 
+                                             required="true" />
+                                <h:message for="dishprice" style="color: red" />
+
+                                <h:outputText value="Typ:" />
+                                <h:inputText value="#{dish.dishtype}" title="dishtype" 
+                                             required="true" />
+                                <h:message for="dishtype" style="color: red" />
+                            </h:panelGrid>
+                            <h:commandButton action="show" actionListener="#{dishEJB.create}" value="Lägg till" />
+                        </h:form>
+                    </h:column>
+                </div>
+                <div id="deletedagensdiv" class="field">
+                    <h:column id="delete_dagens_column">
+                        <h3>Ta bort en rätt</h3><br />
+                        <h:selectOneMenu id="delete_dagens"> 
+                            <f:selectItem itemLabel="Välj en rätt..."  noSelectionOption="true"/>
+                            <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishid}" />
+                        </h:selectOneMenu><br />
+                        <h:form id="delete_dagens_form">
+                            <div class="inputs">
+                                <h:inputText id="input_dish" required="true" value="#{dish.dishid}" />
+                            </div>
+                            <h:commandButton action="show" value="Ta bort" actionListener="#{dishEJB.delete}" />
+                            <h:message for="input_dish" style="color: red" />
+                        </h:form>
+                    </h:column>
+                </div>
+                <div id="dailyspecialdiv" class="field">    
                     <h:column id="change_daily_special">
                     <h2>Skapa dagens</h2>
                         <h:outputText value="Måndag" /><br />
@@ -162,17 +205,16 @@
                         </h:form>
                     </h:column>
                 </div>
-                <div class="field">
-                    <h:column id="logout_create">
-                        <h:form>
-                            <p>Welcome #{loginBean.user}</p>
-                            <h:commandLink action="#{loginBean.logout}" value="Logga ut"></h:commandLink>
-                        </h:form>
-                    </h:column>
+                
+                <div id="logoutdiv" align="bottom">
+                    <br/>
+                    <br/>
+                    <br/>
+                <h:form>
+                    <h:commandButton id="loggautknapp" action="#{loginBean.logout}" value="Logga ut"></h:commandButton>
+                </h:form>
                 </div>
             </ui:define>
-            
-
         </ui:composition>
 
     </body>
