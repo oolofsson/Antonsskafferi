@@ -41,6 +41,10 @@ public class AuthorizationFilter implements Filter {
                         if(reqURI.indexOf("/show.xhtml") >= 0){
                             chain.doFilter(request, response);
                         }
+                        
+                        else if(reqURI.indexOf("/Antonsskafferi") >= 0){
+                            chain.doFilter(request, response);
+                        }
                         else if (reqURI.indexOf("/login.xhtml") >= 0
 					|| (ses != null && ses.getAttribute("username") != null)
 					//|| reqURI.indexOf("/public/") >= 0
