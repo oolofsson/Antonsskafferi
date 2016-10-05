@@ -37,9 +37,11 @@ public class AuthorizationFilter implements Filter {
 			HttpSession ses = reqt.getSession(false);
 
 			String reqURI = reqt.getRequestURI();
-                        
-                        if(reqURI.indexOf("/show.xhtml") >= 0){
-                            chain.doFilter(request, response);
+                        if(reqURI.indexOf("/create.xhtml") >= 0){
+                            resp.sendRedirect(reqt.getContextPath() + "/login.xhtml");
+                        }
+                        else if(reqURI.indexOf("/show.xhtml") >= 0){
+                            resp.sendRedirect(reqt.getContextPath());
                         }
                         
                         else if(reqURI.indexOf("/Antonsskafferi") >= 0){
@@ -57,7 +59,7 @@ public class AuthorizationFilter implements Filter {
                              
                         }
                         else
-				resp.sendRedirect(reqt.getContextPath() + "/faces/login.xhtml");
+				resp.sendRedirect(reqt.getContextPath() + "/login.xhtml");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
