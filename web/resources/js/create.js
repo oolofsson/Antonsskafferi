@@ -3,8 +3,8 @@
 $(document).ready(function () {
     $("#logoutdiv").show();
         $("#imageuploaddiv").hide();
-        $("#newdishdiv").hide();
-        $("#deletedishdiv").hide();
+        $("#newalacartediv").hide();
+        $("#deletealacartediv").hide();
         $("#newdrinkdiv").hide();
         $("#deletedrinkdiv").hide();
         $("#dailyspecialdiv").hide();
@@ -13,8 +13,8 @@ $(document).ready(function () {
     
     $("#bildknapp").click(function(){
         $("#imageuploaddiv").show();
-        $("#newdishdiv").hide();
-        $("#deletedishdiv").hide();
+        $("#newalacartediv").hide();
+        $("#deletealacartediv").hide();
         $("#newdrinkdiv").hide();
         $("#deletedrinkdiv").hide();
         $("#dailyspecialdiv").hide();
@@ -22,8 +22,8 @@ $(document).ready(function () {
         $("#deletedagensdiv").hide();
     });
     $("#alacarteknapp").click(function(){
-        $("#newdishdiv").show();
-        $("#deletedishdiv").show();
+        $("#newalacartediv").show();
+        $("#deletealacartediv").show();
         $("#newdrinkdiv").show();
         $("#deletedrinkdiv").show();
         $("#dailyspecialdiv").hide();
@@ -33,8 +33,8 @@ $(document).ready(function () {
     });
     $("#dagensknapp").click(function(){
         $("#imageuploaddiv").hide();
-        $("#newdishdiv").hide();
-        $("#deletedishdiv").hide();
+        $("#newalacartediv").hide();
+        $("#deletealacartediv").hide();
         $("#newdrinkdiv").hide();
         $("#deletedrinkdiv").hide();
         $("#newdagensdiv").show();
@@ -46,8 +46,12 @@ $(document).ready(function () {
         $('#delete_drink_form\\:input_drink').val($('#delete_drink').val());
     });
     
-    $("#delete_dish").change(function(){
-        $('#delete_dish_form\\:input_dish').val($('#delete_dish').val());
+    $("#delete_alacarte").change(function(){
+        $('#delete_alacarte_form\\:input_alacarte').val($('#delete_alacarte').val());
+    });
+    
+    $("#delete_dagens").change(function(){
+        $('#delete_dagens_form\\:input_dagens').val($('#delete_dagens').val());
     });
     
     $('.day_select').change(function(){

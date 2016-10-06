@@ -28,50 +28,52 @@
                         </h:form>
                     </h:column>
                 </div>
-                
-                <div id="newdishdiv" class="field">
-                    <h:column id="new_dish_column">
-                        <h2>Lägg till ny rätt: </h2>
+                <div id="newalacartediv" class="field">
+                    <h:column id="new_alacarte_column">
+                        <h2>Lägg till ny rätt i alacarte: </h2>
                         <h:form>
                             <h:panelGrid columns="3">
                                 <h:outputText value="Rätt:" />
-                                <h:inputText value="#{dish.dishname}" title="dishname" id="dishname"
+                                <h:inputText value="#{alacarte.alacartename}" title="alacartename" id="alacartename"
                                              required="true" />
-                                <h:message for="dishname" style="color: red" />
+                                <h:message for="alacartename" style="color: red" />
 
                                 <h:outputText value="Pris:" />
-                                <h:inputText value="#{dish.dishprice}" title="dishprice" id="dishprice"
+                                <h:inputText value="#{alacarte.alacarteprice}" title="alacarteprice" id="alacarteprice"
                                              required="true" />
-                                <h:message for="dishprice" style="color: red" />
+                                <h:message for="alacarteprice" style="color: red" />
 
                                 <h:outputText value="Typ:" />
-                                <h:inputText value="#{dish.dishtype}" title="dishtype" id="dishtype"
+                                <h:inputText value="#{alacarte.alacartetype}" title="alacartetype" id="alacartetype"
                                              required="true" />
-                                <h:message for="dishtype" style="color: red" />
+                                <h:message for="alacartetype" style="color: red" />
                             </h:panelGrid>
-                            <h:commandButton action="show" actionListener="#{dishEJB.create}" value="Lägg till" />
+                            <h:commandButton action="create" actionListener="#{alacarteEJB.create}" value="Lägg till" />
                         </h:form>
                     </h:column>
                 </div>
-                <div id="deletedishdiv" class="field">
-                    <h:column id="delete_dish_column">
-                        <h3>Ta bort en rätt</h3><br />
-                        <h:selectOneMenu id="delete_dish"> 
+                
+                                <div id="deletealacartediv" class="field">
+                    <h:column id="delete_alacarte_column">
+                        <h3>Ta bort en rätt i Alacarte</h3><br />
+                        <h:selectOneMenu id="delete_alacarte"> 
                             <f:selectItem itemLabel="Välj en rätt..."  noSelectionOption="true"/>
-                            <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishid}" />
+                            <f:selectItems value="#{alacarteEJB.list}" var="i" itemValue="#{i.alacarteid}" />
                         </h:selectOneMenu><br />
-                        <h:form id="delete_dish_form">
+                        <h:form id="delete_alacarte_form">
                             <div class="inputs">
-                                <h:inputText id="input_dish" required="true" value="#{dish.dishid}" />
+                                <h:inputText id="input_alacarte" required="true" value="#{alacarte.alacarteid}" />
                             </div>
-                            <h:commandButton action="show" value="Ta bort" actionListener="#{dishEJB.delete}" />
-                            <h:message for="input_dish" style="color: red" />
+                            <h:commandButton action="show" value="Ta bort" actionListener="#{alacarteEJB.delete}" />
+                            <h:message for="input_alacarte" style="color: red" />
                         </h:form>
                     </h:column>
                 </div>
+
+                
                 <div id="newdrinkdiv" class="field">
                     <h:column id="new_drink_column">
-                        <h2>Lägg till ny dryck: </h2>
+                        <h2>Lägg till ny dryck i Alacarte: </h2>
                         <h:form>
                             <h:panelGrid columns="3">
 
@@ -113,7 +115,7 @@
                 </div>
                 <div id="newdagensdiv" class="field">
                     <h:column id="new_dagens_column">
-                        <h2>Lägg till ny rätt: </h2>
+                        <h2>Lägg till ny dagens: </h2>
                         <h:form>
                             <h:panelGrid columns="3">
                                 <h:outputText value="Rätt:" />
@@ -137,17 +139,17 @@
                 </div>
                 <div id="deletedagensdiv" class="field">
                     <h:column id="delete_dagens_column">
-                        <h3>Ta bort en rätt</h3><br />
+                        <h3>Ta bort en dagens</h3><br />
                         <h:selectOneMenu id="delete_dagens"> 
                             <f:selectItem itemLabel="Välj en rätt..."  noSelectionOption="true"/>
                             <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishid}" />
                         </h:selectOneMenu><br />
                         <h:form id="delete_dagens_form">
                             <div class="inputs">
-                                <h:inputText id="input_dish" required="true" value="#{dish.dishid}" />
+                                <h:inputText id="input_dagens" required="true" value="#{dish.dishid}" />
                             </div>
                             <h:commandButton action="show" value="Ta bort" actionListener="#{dishEJB.delete}" />
-                            <h:message for="input_dish" style="color: red" />
+                            <h:message for="input_dagens" style="color: red" />
                         </h:form>
                     </h:column>
                 </div>
@@ -196,7 +198,7 @@
 
                                 <h:inputText id="input5" required="true" value="#{dailyspecial.friday}" />
                             </div>
-                            <h:commandButton action="show" value="Lägg till" actionListener="#{dailyspecialEJB.create}" />
+                            <h:commandButton action="create" value="Lägg till" actionListener="#{dailyspecialEJB.create}" />
                             <h:message for="input1" style="color: red" />
                             <h:message for="input2" style="color: red" />
                             <h:message for="input3" style="color: red" />
