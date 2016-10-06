@@ -24,7 +24,7 @@
                                 <f:validator validatorId="fileUploadValidator"/>
                             </h:inputFile>
                             <p> <h:messages id="messages" /></p>
-                            <h:commandButton value="Ladda Upp" action="show" actionListener="#{jsfFileUploadBean.processFileUpload}"/>
+                            <h:commandButton value="Ladda Upp" action="create" actionListener="#{jsfFileUploadBean.processFileUpload}"/>
                         </h:form>
                     </h:column>
                 </div>
@@ -64,7 +64,7 @@
                             <div class="inputs">
                                 <h:inputText id="input_alacarte" required="true" value="#{alacarte.alacarteid}" />
                             </div>
-                            <h:commandButton action="show" value="Ta bort" actionListener="#{alacarteEJB.delete}" />
+                            <h:commandButton action="create" value="Ta bort" actionListener="#{alacarteEJB.delete}" />
                             <h:message for="input_alacarte" style="color: red" />
                         </h:form>
                     </h:column>
@@ -92,7 +92,7 @@
                                              required="true" />
                                 <h:message for="drinktype" style="color: red" />
                             </h:panelGrid>
-                            <h:commandButton action="show" actionListener="#{drinkEJB.create}" value="Lägg till" />
+                            <h:commandButton action="create" actionListener="#{drinkEJB.create}" value="Lägg till" />
                         </h:form>
                     </h:column>
                 </div>
@@ -108,7 +108,7 @@
                             <div class="inputs">
                                 <h:inputText id="input_drink" required="true" value="#{drink.drinkid}" />
                             </div>
-                            <h:commandButton action="show" value="Ta bort" actionListener="#{drinkEJB.delete}" />
+                            <h:commandButton action="create" value="Ta bort" actionListener="#{drinkEJB.delete}" />
                             <h:message for="input_drink" style="color: red" />
                         </h:form>
                     </h:column>
@@ -133,7 +133,7 @@
                                              required="true" />
                                 <h:message for="dishtype" style="color: red" />
                             </h:panelGrid>
-                            <h:commandButton action="show" actionListener="#{dishEJB.create}" value="Lägg till" />
+                            <h:commandButton action="create" actionListener="#{dishEJB.create}" value="Lägg till" />
                         </h:form>
                     </h:column>
                 </div>
@@ -148,7 +148,7 @@
                             <div class="inputs">
                                 <h:inputText id="input_dagens" required="true" value="#{dish.dishid}" />
                             </div>
-                            <h:commandButton action="show" value="Ta bort" actionListener="#{dishEJB.delete}" />
+                            <h:commandButton action="create" value="Ta bort" actionListener="#{dishEJB.delete}" />
                             <h:message for="input_dagens" style="color: red" />
                         </h:form>
                     </h:column>
@@ -207,7 +207,12 @@
                         </h:form>
                     </h:column>
                 </div>
-                
+                <div id="granskadiv" align="bottom">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h:button value="Granska förstasida" outcome="show" />
+                </div>
                 <div id="logoutdiv" align="bottom">
                     <br/>
                     <br/>
