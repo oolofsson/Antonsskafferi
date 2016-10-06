@@ -1,5 +1,3 @@
-
-
 $(document).ready(function () {
     $("#logoutdiv").show();
         $("#imageuploaddiv").hide();

@@ -23,6 +23,7 @@
     border: 1px solid grey;
     margin: 5px;
     color: black;
+    display: none;
 }
 root { 
     display: block;
