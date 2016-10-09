@@ -32,3 +32,6 @@ root {
 table {
     empty-cells: show;
 }
+.get_change_requests{
+    border: 2px solid red;
+}

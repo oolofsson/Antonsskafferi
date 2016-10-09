@@ -58,13 +58,16 @@
                         ResultSet resultset2 = null;
                         //Class.forName("com.mysql.jdbc.Driver").newInstance();
                         
-                        Connection connection = DatabaseConnection.getConnection();  //DriverManager.getConnection("jdbc:derby://localhost:1527/sample");
+                        Connection conn = DatabaseConnection.getConnection();  //DriverManager.getConnection("jdbc:derby://localhost:1527/sample");
 
-                        Statement statement1 = connection.createStatement();
-                        Statement statement2 = connection.createStatement();
+                        Statement statement1 = conn.createStatement();
+                        Statement statement2 = conn.createStatement();
 
-                        resultset1 = statement1.executeQuery("select * from waiter_event where waiter_id = 2 order by start_date"); //Inloggad waiter
-                        resultset2 = statement2.executeQuery("select * from waiter_event where waiter_id != 2 order by start_date"); //Alla som inte är waiter
+                        String query1 = "select * from waiter_event where waiter_id = " + session.getAttribute("username").toString() + " order by start_date";
+                        String query2 = "select * from waiter_event where waiter_id != " + session.getAttribute("username").toString() + " order by start_date";
+                        
+                        resultset1 = statement1.executeQuery(query1); //Inloggad waiter
+                        resultset2 = statement2.executeQuery(query2); //Alla som inte är waiter
                 %>
                 
                 <center>
@@ -108,6 +111,35 @@
                 %>
                 
             </div>
+            
+            <%
+
+                ResultSet resultset = null;
+                //Class.forName("com.mysql.jdbc.Driver").newInstance();
+
+                Connection connection = DatabaseConnection.getConnection();  //DriverManager.getConnection("jdbc:derby://localhost:1527/sample");
+
+                Statement statement = connection.createStatement();
+
+                resultset = statement.executeQuery("SELECT * FROM change_request"); //Alla som inte är waiter
+                while(resultset.next()){
+                    if(resultset.getString(5).equals(session.getAttribute("username").toString())){
+                        out.print("<div class=\"get_change_requests\">"); //Hämta mer info. Personer, tider mm.
+                        out.print("<h3>Du har byte</h3>");
+                        out.print("<form class=\"change_form\" action=\"ChangeEvent\" method=\"POST\" >");
+                        out.print("<input class=\"get_change_request_input\" type=\"text\" name=\"event1\" value=\" "
+                                + resultset.getString(3) + " \" />");
+                        out.print("<input class=\"get_change_request_input\" type=\"text\" name=\"event2\" value=\" "
+                                + resultset.getString(4) + " \" />");
+                        out.print("<input type=\"submit\" value=\"Acceptera\" ");
+                        out.print("</form>");
+                        //out.print("<button class=\"accept_btn\" type=\"button\">Acceptera</button>");
+                        out.print("<button class=\"deny_btn\" type=\"button\">Avböj</button>");
+                        out.print("</div>");
+                    }
+                }
+
+            %>
             
             
             

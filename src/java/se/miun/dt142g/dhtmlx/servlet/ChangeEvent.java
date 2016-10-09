@@ -7,7 +7,6 @@ package se.miun.dt142g.dhtmlx.servlet;
 
 import com.dhtmlx.planner.DHXStatus;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -63,9 +62,9 @@ public class ChangeEvent extends HttpServlet {
 
         controller.saveEvent(event1, DHXStatus.UPDATE); //Save events 
         controller.saveEvent(event2, DHXStatus.UPDATE);
-
-        String redirectURL = "javacalendar.jsp";
-        response.sendRedirect(redirectURL);
+        //Delete
+        //String redirectURL = "javacalendar.jsp";
+        //response.sendRedirect(redirectURL);
             
     }
 
