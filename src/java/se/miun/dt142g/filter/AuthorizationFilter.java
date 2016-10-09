@@ -37,9 +37,13 @@ public class AuthorizationFilter implements Filter {
 			HttpSession ses = reqt.getSession(false);
 
 			String reqURI = reqt.getRequestURI();
+                        
 
                         if(reqURI.indexOf("/show.xhtml") >= 0){
                             resp.sendRedirect(reqt.getContextPath());
+                        }
+                        else if(reqURI.indexOf("/create.xhtml")>= 0 && ses.getAttribute("username").toString().length() < 3) {
+                            resp.sendRedirect(reqt.getContextPath() + "/javacalendar.jsp");
                         }
                         
                         else if (reqURI.indexOf("/login.xhtml") >= 0
