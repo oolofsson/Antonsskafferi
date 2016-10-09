@@ -90,7 +90,7 @@ public class Dailyspecial implements Serializable {
     }
 
     public void setMonday(String monday) {
-        Charset windows1252 = Charset.forName("ISO-8859-1");
+        Charset windows1252 = Charset.forName("ISO-8859-1");   //Ändra till något annat än windows1252!
         Charset utf8charset = Charset.forName("UTF-8");
 
         byte[] bytes = monday.getBytes(windows1252);
