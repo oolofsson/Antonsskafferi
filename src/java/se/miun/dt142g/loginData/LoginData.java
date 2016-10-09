@@ -19,15 +19,18 @@ public class LoginData {
         PreparedStatement ps = null;
         
         try{
+            //Admin and Waiter Check in one
             con = DataConnect.getConnection();
             ps = con.prepareStatement("Select UserName, Password from UserLogin where UserName = ? and Password = ?");
             ps.setString(1, user);
             ps.setString(2, password);
+            
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
                 //result found, means valid inputs
 		return true;
-            }
+            }  
+            
 
         } catch (SQLException ex){
             System.out.println("Login error -->" + ex.getMessage());

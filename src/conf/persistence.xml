@@ -4,6 +4,6 @@
     <jta-data-source>jdbc/sample</jta-data-source>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     
-    <properties/>
+   
   </persistence-unit>
 </persistence>

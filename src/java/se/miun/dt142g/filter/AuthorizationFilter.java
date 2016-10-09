@@ -57,7 +57,7 @@ public class AuthorizationFilter implements Filter {
                             chain.doFilter(request, response);
                         }
                         else
-				resp.sendRedirect(reqt.getContextPath() + "/show.xhtml");
+                            resp.sendRedirect(reqt.getContextPath() + "/show.xhtml");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

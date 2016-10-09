@@ -12,6 +12,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 import se.miun.dt142g.loginData.LoginData;
+import se.miun.dt142g.loginData.LoginWaiter;
 import se.miun.dt142g.util.SessionUtils;
 
 /**
@@ -55,20 +56,25 @@ public class loginBean implements Serializable {
     
     public String validateUsernamePassword() {
         boolean valid = LoginData.validate(user, pwd);
+        boolean validWaiter = LoginWaiter.validate(user, pwd);
         if(valid){
             HttpSession session = SessionUtils.getSession();
             session.setAttribute("username", user);
             return "create";
+        }else if(validWaiter){ //Fixa speciel typ av session så att man inte kommer åt create
+            HttpSession session = SessionUtils.getSession();
+            session.setAttribute("username", user);
+            return "javacalendar.jsp";
         }
-            else{
+        else{
             FacesContext.getCurrentInstance().addMessage(
             null,
             new FacesMessage(FacesMessage.SEVERITY_WARN,
-		"Incorrect Username and Passowrd",
-		"Please enter correct username and Password"));
+            "Incorrect Username and Passowrd",
+            "Please enter correct username and Password"));
             return "login";
-                    }
         }
+    }
     	//logout event, invalidate session
 	public String logout() {
 		HttpSession session = SessionUtils.getSession();
