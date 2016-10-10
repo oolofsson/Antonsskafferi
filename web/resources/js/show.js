@@ -3,7 +3,7 @@ $(document).ready(function () {
     $('.scrollspy').scrollSpy();
     $('.materialboxed').materialbox();
     $(".button-collapse").sideNav();
-    $("#nav-wrapper").click(function(){
+    $(".nav-wrapper").click(function(){
         $('.button-collapse').sideNav('hide');
     });
 });
