@@ -63,8 +63,11 @@ public class ChangeEvent extends HttpServlet {
         controller.saveEvent(event1, DHXStatus.UPDATE); //Save events 
         controller.saveEvent(event2, DHXStatus.UPDATE);
         //Delete
-        //String redirectURL = "javacalendar.jsp";
-        //response.sendRedirect(redirectURL);
+        
+        controller.deleteEventRequest(request.getParameter("id"));
+        
+        String redirectURL = "javacalendar.jsp";
+        response.sendRedirect(redirectURL);
             
     }
 

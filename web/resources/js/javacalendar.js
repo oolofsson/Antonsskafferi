@@ -14,8 +14,6 @@ $(function(){
         $(".receiver_id_input").val(event2arr[1]);
     });
     
-    $(".accept_btn").click(function(){
-       
-    });
+ 
       
 });

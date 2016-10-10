@@ -33,41 +33,45 @@
             }
             %>
             </div>
-            
-            <td>Username: </td>
-            <td><input id="session" type="text" value="<%= session.getAttribute("username") %>" /></td>
-            
-            
-            
-            
-            <div id="create_event">
-                <form action="SaveEvent" method="post">
-                    Text: (String) <input type="text" name="text" /><br />
-                    Start datum: (yyyy-mm-dd hh:mm:ss) <input type="text" name="start_date" />
-                    Slut datum: (yyyy-mm-dd hh:mm:ss) <input type="text" name="end_date" />
-                    Servitris: (int) <input type="text" name="waiter_id" />
-                    Färg: (String, hexvärde) <input type=" text" name="color" />
-                    <input type="submit" value="Lägg till event" />
-                </form>
+            <div id="user_info">
+                <%
+                    if(session.getAttribute("username").toString().length() < 4){
+                    Connection conn = DatabaseConnection.getConnection();  //DriverManager.getConnection("jdbc:derby://localhost:1527/sample");
+
+                        //Print out username
+                        ResultSet waiters = null;
+
+
+                        Statement waiterstatement = conn.createStatement();
+
+                        waiters = waiterstatement.executeQuery("SELECT waitername FROM waiter WHERE waiterid = " + session.getAttribute("username").toString()); 
+                        while(waiters.next())
+                            out.print("<p>Välkommen till ditt schema " + waiters.getString(1) + "</p>");
+
+                    
+                    
+
+                %>
             </div>
+           
           
             <div id="change_event">
                 <%
                     try{
-                        ResultSet resultset1 = null;
-                        ResultSet resultset2 = null;
+                        ResultSet yourEvents = null;
+                        ResultSet otherEvents = null;
                         //Class.forName("com.mysql.jdbc.Driver").newInstance();
                         
-                        Connection conn = DatabaseConnection.getConnection();  //DriverManager.getConnection("jdbc:derby://localhost:1527/sample");
+                        //Connection conn = DatabaseConnection.getConnection();  //DriverManager.getConnection("jdbc:derby://localhost:1527/sample");
 
-                        Statement statement1 = conn.createStatement();
-                        Statement statement2 = conn.createStatement();
+                        Statement statementYourEvents = conn.createStatement();
+                        Statement statementOtherEvents = conn.createStatement();
 
-                        String query1 = "select * from waiter_event where waiter_id = " + session.getAttribute("username").toString() + " order by start_date";
-                        String query2 = "select * from waiter_event where waiter_id != " + session.getAttribute("username").toString() + " order by start_date";
+                        String queryYourEvents = "select * from waiter_event where waiter_id = " + session.getAttribute("username").toString() + " order by start_date";
+                        String queryOtherEvents = "select * from waiter_event where waiter_id != " + session.getAttribute("username").toString() + " order by start_date";
                         
-                        resultset1 = statement1.executeQuery(query1); //Inloggad waiter
-                        resultset2 = statement2.executeQuery(query2); //Alla som inte är waiter
+                        yourEvents = statementYourEvents.executeQuery(queryYourEvents); //Inloggad waiter
+                        otherEvents = statementOtherEvents.executeQuery(queryOtherEvents); //Alla som inte är waiter
                 %>
                 
                 <center>
@@ -75,9 +79,9 @@
                     <h2>Dina pass</h2>
                     <select class="event1_select">
                         <option selected="true" disabled="true" >Välj ett av dina pass...</option>
-                        <%  while(resultset1.next()){ %>
-                        <option value="<%= resultset1.getString(1) + "." + resultset1.getString(5) %>" >
-                            <%= "Tid: " + resultset1.getString(3) %>
+                        <%  while(yourEvents.next()){ %>
+                        <option value="<%= yourEvents.getString(1) + "." + yourEvents.getString(5) %>" >
+                            <%= "Tid: " + yourEvents.getString(3) %>
                         </option>
                         <% } %>
                     </select>
@@ -86,9 +90,9 @@
                     <h2>Andra pass</h2>
                     <select class="event2_select">
                         <option selected="true" disabled="true" >Välj ett pass att byta mot...</option>
-                        <% while(resultset2.next()){ %>
-                        <option value="<%= resultset2.getString(1) + "." + resultset2.getString(5) %>">
-                            <%= "Med: " + resultset2.getString(2) + ". Tid: " + resultset2.getString(3) %>
+                        <% while(otherEvents.next()){ %>
+                        <option value="<%= otherEvents.getString(1) + "." + otherEvents.getString(5) %>">
+                            <%= "Med: " + otherEvents.getString(2) + ". Tid: " + otherEvents.getString(3) %>
                         </option>
                         <% } %>
                     </select>
@@ -112,36 +116,70 @@
                 
             </div>
             
-            <%
+            <% //Display change requests
+                    ResultSet waiterEvents = null;
+                    Statement statementWaiterEvents = conn.createStatement();
+                    waiterEvents = statementWaiterEvents.executeQuery("SELECT * FROM waiter_event");
 
-                ResultSet resultset = null;
-                //Class.forName("com.mysql.jdbc.Driver").newInstance();
+                    ResultSet changeRequests = null;
 
-                Connection connection = DatabaseConnection.getConnection();  //DriverManager.getConnection("jdbc:derby://localhost:1527/sample");
+                    Statement statementChangeRequests = conn.createStatement();
 
-                Statement statement = connection.createStatement();
+                    changeRequests = statementChangeRequests.executeQuery("SELECT * FROM change_request"); 
+                    while(changeRequests.next()){
+                        if(changeRequests.getString(5).equals(session.getAttribute("username").toString())){
+                            String from = "";
+                            String fromTime = "";
+                            String toTime = "";
+                            while(waiterEvents.next()){
+                                if(changeRequests.getString(3).equals(waiterEvents.getString(1))){
+                                    from = waiterEvents.getString(2);
+                                    fromTime = waiterEvents.getString(3);
+                                }else if(changeRequests.getString(4).equals(waiterEvents.getString(1))){
+                                    toTime = waiterEvents.getString(3);
+                                }
+                            }
 
-                resultset = statement.executeQuery("SELECT * FROM change_request"); //Alla som inte är waiter
-                while(resultset.next()){
-                    if(resultset.getString(5).equals(session.getAttribute("username").toString())){
-                        out.print("<div class=\"get_change_requests\">"); //Hämta mer info. Personer, tider mm.
-                        out.print("<h3>Du har byte</h3>");
-                        out.print("<form class=\"change_form\" action=\"ChangeEvent\" method=\"POST\" >");
-                        out.print("<input class=\"get_change_request_input\" type=\"text\" name=\"event1\" value=\" "
-                                + resultset.getString(3) + " \" />");
-                        out.print("<input class=\"get_change_request_input\" type=\"text\" name=\"event2\" value=\" "
-                                + resultset.getString(4) + " \" />");
-                        out.print("<input type=\"submit\" value=\"Acceptera\" ");
-                        out.print("</form>");
-                        //out.print("<button class=\"accept_btn\" type=\"button\">Acceptera</button>");
-                        out.print("<button class=\"deny_btn\" type=\"button\">Avböj</button>");
-                        out.print("</div>");
+                            out.print("<div class=\"get_change_requests\">"); //Hämta mer info. Personer, tider mm.
+                            out.print("<h3>Du har byte</h3>");
+                            out.print(from + " vill byta sitt pass den: " + fromTime + ", mot ditt pass den: " + toTime + ".");
+                            out.print("<form class=\"change_form\" action=\"ChangeEvent\" method=\"POST\" >");
+                            out.print("<input class=\"get_change_request_input\" type=\"text\" name=\"id\" value=\""
+                                    + changeRequests.getString(1) + "\" />");
+                            out.print("<input class=\"get_change_request_input\" type=\"text\" name=\"sender_id\" value=\""
+                                    + changeRequests.getString(2) + "\" />");
+                            out.print("<input class=\"get_change_request_input\" type=\"text\" name=\"event1\" value=\""
+                                    + changeRequests.getString(3) + "\" />");
+                            out.print("<input class=\"get_change_request_input\" type=\"text\" name=\"event2\" value=\""
+                                    + changeRequests.getString(4) + "\" />");
+                            out.print("<input class=\"get_change_request_input\" type=\"text\" name=\"receiver_id\" value=\""
+                                    + changeRequests.getString(5) + "\" />");
+                            out.print("<input type=\"submit\" value=\"Acceptera\" />");
+                            
+                            out.print("</form>");
+                            out.print("<form class=\"change_form\" action=\"DeleteRequest\" method=\"POST\" >");
+                            out.print("<input class=\"get_change_request_input\" type=\"text\" name=\"id\" value=\""
+                                    + changeRequests.getString(1) + "\" />");
+                            out.print("<input type=\"submit\" value=\"Avböj\" />");
+                            out.print("</form>");
+                            
+                            out.print("</div>");
+                        }
                     }
-                }
-
+                    conn.close();
+                } //End of username.lenght < 4
             %>
             
-            
+             <div id="create_event">
+                <form action="SaveEvent" method="post">
+                    Text: (String) <input type="text" name="text" /><br />
+                    Start datum: (yyyy-mm-dd hh:mm:ss) <input type="text" name="start_date" />
+                    Slut datum: (yyyy-mm-dd hh:mm:ss) <input type="text" name="end_date" />
+                    Servitris: (int) <input type="text" name="waiter_id" />
+                    Färg: (String, hexvärde) <input type=" text" name="color" />
+                    <input type="submit" value="Lägg till event" />
+                </form>
+            </div>
             
                 
                 

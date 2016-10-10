@@ -39,6 +39,9 @@ $(document).ready(function () {
         $("#deletedagensdiv").show();
         $("#dailyspecialdiv").show();
     });
+    $("#schemaknapp").click(function(){
+       window.location.href = "javacalendar.jsp"; 
+    });
     
     $("#delete_drink").change(function(){
         $('#delete_drink_form\\:input_drink').val($('#delete_drink').val());

@@ -11,6 +11,8 @@ package se.miun.dt142g.dhtmlx;
  */
 import com.dhtmlx.planner.DHXEventsManager;
 import com.dhtmlx.planner.DHXStatus;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -20,6 +22,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import se.miun.dt142g.dhtmlx.event.WaiterEvent;
+import se.miun.dt142g.dhtmlx.servlet.DeleteRequest;
 
 /**
  *
@@ -120,6 +123,27 @@ public class EventController {
             if(result != null) try{result.close();}catch(SQLException e){}
             if(ps != null) try{ps.close();}catch(SQLException e){}
             if(conn != null) try{conn.close();}catch(SQLException e){}
+        }
+    }
+    public void deleteEventRequest(String id){
+        Connection conn = null;
+        try{
+            conn = DatabaseConnection.getConnection();
+
+            // create the mysql delete statement.
+            // i'm deleting the row where the id is "3", which corresponds to my
+            // "Barney Rubble" record.
+            String query = "Delete from change_request where id = " + id;
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+
+            // execute the preparedstatement
+            preparedStatement.execute();
+
+            conn.close();
+        }catch(SQLException e){
+            e.printStackTrace();
+        } catch (InstantiationException | IllegalAccessException ex) {
+            Logger.getLogger(DeleteRequest.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
       

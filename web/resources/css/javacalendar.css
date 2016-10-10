@@ -24,6 +24,10 @@ and open the template in the editor.
 .sender_id_input, .event1_id_input, .event2_id_input, .receiver_id_input{
     display: none;
 }
-
-
+.get_change_requests{
+    border: 2px solid black;
+}
+.get_change_request_input{
+    display: none;
+}
 
