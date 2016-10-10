@@ -15,11 +15,11 @@ import java.sql.DriverManager;
 public class DataConnect {
     public static Connection getConnection() {
     try {
-	Class.forName("org.apache.derby.jdbc.ClientDriver");
-        String myDB = "jdbc:derby://localhost:1527/sample";
+	Class.forName("org.apache.derby.jdbc.ClientDriver"); // databastypp, (JavaDerby)
+        String myDB = "jdbc:derby://localhost:1527/sample"; // var och vilken port databasen ligger på i datorn i string
 	Connection con = DriverManager.getConnection(
-	myDB, "app", "app");
-	return con;
+	myDB, "app", "app"); // skapar en uppkoppling mot db:n, användarnamn = app, lösenord = app.
+	return con; // returnerar uppkopplingen
 		} 
         catch (Exception ex) {
                 System.out.println("Database.getConnection() Error -->"

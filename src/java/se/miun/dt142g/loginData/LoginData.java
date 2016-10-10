@@ -15,19 +15,20 @@ public class LoginData {
     
     
     public static boolean validate(String user, String password){
-        Connection con = null;
-        PreparedStatement ps = null;
+        Connection con = null; // skapar en uppkoppling, initialt satt som 0.   
+        PreparedStatement ps = null; // skapar ett förbestämt statement, initalt 0
         
         try{
-            //Admin and Waiter Check in one
-            con = DataConnect.getConnection();
-            ps = con.prepareStatement("Select UserName, Password from UserLogin where UserName = ? and Password = ?");
-            ps.setString(1, user);
-            ps.setString(2, password);
+            con = DataConnect.getConnection(); // hämtar connection från DataConnect som hämtar info från databasen.
             
-            ResultSet rs = ps.executeQuery();
+            // sätter förbestämda statementet till "Select UserName, Password from UserLogin where UserName = ? and Password = ?"
+            ps = con.prepareStatement("Select UserName, Password from UserLogin where UserName = ? and Password = ?");
+            ps.setString(1, user); // sätter frågetecken 1 som värdet user har som skickas in i funktionen (det som skrivs in på sidan som username)
+            ps.setString(2, password); // sätter frågetecken 2 som inskriva lösenord
+            
+            ResultSet rs = ps.executeQuery(); // kör statementet / queryn 
             if(rs.next()){
-                //result found, means valid inputs
+                //om resultat hittas betyder det att det är ett godkänt användarnamn / lösenord
 		return true;
             }  
             
