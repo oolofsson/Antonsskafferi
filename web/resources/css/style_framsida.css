@@ -12,12 +12,19 @@ p{
     width: 50%;
     float: left;
     overflow: hidden;
-    padding-right: 30px;
+
+
 }
 #box2 img{
     max-width: 100%;
     height: auto;
     width: auto\9; /* ie8 */
+}
+#box2_5{
+    width: 40%;
+    float: left;
+    overflow: hidden;
+    margin-right: 30px;
 }
 #sidaffisch{
     float: right;
