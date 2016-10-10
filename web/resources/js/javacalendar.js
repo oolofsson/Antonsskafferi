@@ -14,6 +14,49 @@ $(function(){
         $(".receiver_id_input").val(event2arr[1]);
     });
     
- 
-      
+    
+    $(".waiter_select").change(function(){
+        var waiterStr = $(".waiter_select").val();
+        var waiterArr = waiterStr.split(".");
+        $(".waiter_id_input").val(waiterArr[0]);
+        $(".event_text_input").val(waiterArr[1]);
+        $(".color_input").val(getColorCode(waiterArr[0])); //Generate color
+    });
+    
+    //Datepicker init
+    $( "#datepicker" ).datepicker({ 
+      dayNamesMin: ['Sö', 'Må', 'Ti', 'On', 'To', 'Fr', 'Lö'],
+      monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September','Oktober', 'November', 'December'] 
+    });
+    $('#datepicker').datepicker('option', 'dateFormat', 'yy-mm-dd');
+    $(".event_time_select").hide(); //Time select hidden before date is selected
+    
+    $("#datepicker").change(function(){
+        //$(".event_start_date_input").val($("#datepicker").val());
+        //$(".event_end_date_input").val($("#datepicker").val());
+        
+        $(".event_time_select").show();
+    });
+    
+    $(".event_time_select").change(function(){
+       
+       var timeStr = $(".event_time_select").val();
+       var timeArr = timeStr.split(".");
+        
+       $(".event_start_date_input").val($("#datepicker").val() + " " + timeArr[0]);
+       $(".event_end_date_input").val($("#datepicker").val() + " " + timeArr[1]); 
+       
+    });
+    
 });
+
+getColorCode = function(id){
+    var colorCode = "#";
+    for(var i = 0; i < 6; i++){
+        if(i % 2 == 0)
+            colorCode += Number(id) * (i + 1);
+        else
+            colorCode += Number(id) + 3 * i;
+    }
+    return colorCode.substr(0, 7);
+}

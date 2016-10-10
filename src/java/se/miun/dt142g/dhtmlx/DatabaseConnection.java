@@ -16,7 +16,7 @@ public class DatabaseConnection {
         String url = "jdbc:derby://localhost:1527/";
         String dbName = "sample";
         String driver = "org.apache.derby.jdbc.ClientDriver";
-        String user = "app";
+        String user = "app";    
         String password = "app";
         try{
             Class.forName(driver).newInstance();

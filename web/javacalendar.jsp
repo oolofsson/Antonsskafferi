@@ -11,9 +11,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>   
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>Schema</title>
         <script src="<c:url value="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js " />"></script>
         <script src="<c:url value="resources/js/javacalendar.js" />"></script>
+        <script src="<c:url value="https://code.jquery.com/ui/1.12.1/jquery-ui.js" />"></script>
+        <link type="text/css" rel="stylesheet" href="<c:url value="resources/css/normalize.css" />" />
+        <link type="text/css" rel="stylesheet" href="<c:url value="resources/css/datepicker.css" />" />
         <link type="text/css" rel="stylesheet" href="<c:url value="resources/css/javacalendar.css" />" />
     </head>
     <body>
@@ -28,6 +32,8 @@
                 s.setInitialDate(2013, 0, 21); 
                 s.load("events.jsp", DHXDataFormat.JSON);
                 s.data.dataprocessor.setURL("events.jsp");
+                s.config.setFirstHour(9);
+                s.config.setLastHour(21);
                 s.config.setReadonly(true);
                 return s.render();
             }
@@ -35,8 +41,8 @@
             </div>
             <div id="user_info">
                 <%
-                    if(session.getAttribute("username").toString().length() < 4){
                     Connection conn = DatabaseConnection.getConnection();  //DriverManager.getConnection("jdbc:derby://localhost:1527/sample");
+                    if(session.getAttribute("username").toString().length() < 4){
 
                         //Print out username
                         ResultSet waiters = null;
@@ -170,18 +176,52 @@
                 } //End of username.lenght < 4
             %>
             
-             <div id="create_event">
+            <%
+                if(session.getAttribute("username").toString().length() > 4){
+                    ResultSet waiters = null;
+
+
+                    Statement waiterstatement = conn.createStatement();
+
+                    waiters = waiterstatement.executeQuery("SELECT * FROM waiter"); 
+                    
+
+
+            %>
+            
+            <div id="create_event">
+                <h2>Skapa ett nytt pass</h2>
+                <center>
+                    <select class="waiter_select">
+                        <option selected="true" disabled="true" >Välj sevitris...</option>
+                        <% while(waiters.next()){ %>
+                        <option value="<%= waiters.getString(1) + "." + waiters.getString(2) %>">
+                            <%= waiters.getString(2) %>
+                        </option>
+                        <% } %>
+                    </select>
+                    Datum: <input type="text" id="datepicker" />    
+                    <select class="event_time_select">
+                        <option selected="true" disabled="true" >Välj tid...</option>
+                        <option value="11:00:00.15:00:00">Lunchspass</option>
+                        <option value="17:00:00.22:00:00">Middagspass</option>
+                    </select>
+                </center>
+
                 <form action="SaveEvent" method="post">
-                    Text: (String) <input type="text" name="text" /><br />
-                    Start datum: (yyyy-mm-dd hh:mm:ss) <input type="text" name="start_date" />
-                    Slut datum: (yyyy-mm-dd hh:mm:ss) <input type="text" name="end_date" />
-                    Servitris: (int) <input type="text" name="waiter_id" />
-                    Färg: (String, hexvärde) <input type=" text" name="color" />
+                    <input class="event_text_input" type="text" name="text" /><br />
+                    <input class="event_start_date_input" type="text" name="start_date" />
+                    <input class="event_end_date_input" type="text" name="end_date" />
+                    <input class="waiter_id_input" type="text" name="waiter_id" />
+                    <input class="color_input" type=" text" name="color" />
                     <input type="submit" value="Lägg till event" />
                 </form>
+
             </div>
-            
+            <%
                 
+                }
+            %>
                 
             <div style="clear: both" ></div>
         </div>     

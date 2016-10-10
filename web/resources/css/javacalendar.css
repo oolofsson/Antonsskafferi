@@ -7,16 +7,19 @@ and open the template in the editor.
     Created on : Oct 8, 2016, 6:13:25 PM
     Author     : oskar
 */
+body{
+    background-color: white !important;
+}
 #planner{
     float: left;
 }
-
 #create_event{
     text-align: center;
-    position: absolute;
     margin-left: 1000px;
-    margin-top: 400px;
+    margin-top: 200px;
+    position: absolute;
     width: 200px;
+    border: 2px solid black;
 }
 #change_event{
     text-align: center;
@@ -24,10 +27,19 @@ and open the template in the editor.
 .sender_id_input, .event1_id_input, .event2_id_input, .receiver_id_input{
     display: none;
 }
+.event_text_input, .event_start_date_input, .event_end_date_input, .waiter_id_input, .color_input{
+    display: none;
+}
 .get_change_requests{
     border: 2px solid black;
 }
 .get_change_request_input{
     display: none;
+}
+.waiter_select{
+    margin: 10px;
+}
+.event_time_select{
+    margin: 10px;
 }
 
