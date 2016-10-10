@@ -12,7 +12,7 @@ p{
     width: 50%;
     float: left;
     overflow: hidden;
-    padding: 20px;
+    padding-right: 30px;
 }
 #box2 img{
     max-width: 100%;
