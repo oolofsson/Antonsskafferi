@@ -58,10 +58,10 @@ public class loginBean implements Serializable {
         boolean valid = LoginData.validate(user, pwd);
         boolean validWaiter = LoginWaiter.validate(user, pwd);
         if(valid){
-            HttpSession session = SessionUtils.getSession();
-            session.setAttribute("username", user);
-            return "create";
-        }else if(validWaiter){ //Fixa speciel typ av session så att man inte kommer åt create
+            HttpSession session = SessionUtils.getSession(); // skapar HttpSession m.h.a klassen SessionUtils som sköter sessioner
+            session.setAttribute("username", user); // sätter sessionens inskriva username som ett attribut för sessionen (binds till användarnamn)
+            return "create"; // till create.xhtml
+        }else if(validWaiter){ // Inloggningsverifiering för servitriser
             HttpSession session = SessionUtils.getSession();
             session.setAttribute("username", user);
             return "javacalendar.jsp";
@@ -71,14 +71,14 @@ public class loginBean implements Serializable {
             null,
             new FacesMessage(FacesMessage.SEVERITY_WARN,
             "Incorrect Username and Passowrd",
-            "Please enter correct username and Password"));
+            "Please enter correct username and Password")); // berättar att du skrivit in fel användarnamn / lösen
             return "login";
         }
     }
     	//logout event, invalidate session
 	public String logout() {
 		HttpSession session = SessionUtils.getSession();
-		session.invalidate();
+		session.invalidate(); // invaliderar sessionen vid knapptryck log out.
 		return "login";
 	}
     }
