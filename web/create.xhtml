@@ -53,8 +53,16 @@
                         </h:form>
                     </h:column>
                 </div>
+                <div id="PreAlaCarte">
+                 <h:column>
+                    <h2>Meny Ala carte</h2>
+                    <h:dataTable var="d" value="#{alacarteEJB.list}">
+                        <h:column><p>#{d.alacartename} #{d.alacarteprice} </p></h:column>
+                    </h:dataTable>
+                 </h:column>
+                </div>
                 
-                                <div id="deletealacartediv" class="field">
+                    <div id="deletealacartediv" class="field">
                     <h:column id="delete_alacarte_column">
                         <h3>Ta bort en rätt i Alacarte</h3><br />
                         <h:selectOneMenu id="delete_alacarte"> 
@@ -138,6 +146,29 @@
                         </h:form>
                     </h:column>
                 </div>
+                <div id="PreLunch">
+                    <h3>Veckans lunchmeny</h3>
+                    <h4>Måndag</h4>
+                    <h:dataTable var="d" value="#{dailyspecialEJB.list}">
+                        <h:column><p id='1'>#{d.monday}</p><br /></h:column>
+                    </h:dataTable>
+                    <h4>Tisdag</h4>
+                    <h:dataTable id='dt' var="d" value="#{dailyspecialEJB.list}">                   
+                        <h:column><p id='2'>#{d.tuesday}</p><br /></h:column>   
+                    </h:dataTable>
+                    <h4>Onsdag</h4>
+                    <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
+                        <h:column><p id='3'>#{d.wednesday}</p><br /></h:column>
+                    </h:dataTable>
+                    <h4>Torsdag</h4>
+                    <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
+                        <h:column><p id='4'>#{d.thursday}</p><br /></h:column>
+                    </h:dataTable>
+                    <h4>Fredag</h4>
+                    <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
+                        <h:column><p id='5'>#{d.friday}</p><br /></h:column>
+                    </h:dataTable> 
+                </div>
                 <div id="deletedagensdiv" class="field">
                     <h:column id="delete_dagens_column">
                         <h3>Ta bort en dagens</h3><br />
@@ -213,6 +244,11 @@
                     <br/>
                     <br/>
                     <h:button value="Granska förstasida" outcome="show" />
+                    <button id="ShowAlaCarte"> Granska Alacarte</button>
+                    <button id="ShowLunch"> Granska Lunch</button>
+                    <button id="HideAlaCarte"> Dölj Alacarte</button>
+                    <button id="HideLunch"> Dölj Lunch</button>
+
                 </div>
                 <div id="logoutdiv" align="bottom">
                     <br/>

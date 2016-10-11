@@ -8,6 +8,12 @@ $(document).ready(function () {
         $("#dailyspecialdiv").hide();
         $("#newdagensdiv").hide();
         $("#deletedagensdiv").hide();
+        $("#ShowAlaCarte").hide();
+        $("#PreAlaCarte").hide();
+        $("#ShowLunch").hide();
+        $("#PreLunch").hide();
+        $("#HideAlaCarte").hide();
+        $("#HideLunch").hide();
     
     $("#bildknapp").click(function(){
         $("#imageuploaddiv").show();
@@ -18,6 +24,13 @@ $(document).ready(function () {
         $("#dailyspecialdiv").hide();
         $("#newdagensdiv").hide();
         $("#deletedagensdiv").hide();
+        $("#ShowAlaCarte").hide();
+        $("#PreAlaCarte").hide();
+        $("#ShowLunch").hide();
+        $("#PreLunch").hide();
+        $("#HideAlaCarte").hide();
+        $("#HideLunch").hide();
+        
     });
     $("#alacarteknapp").click(function(){
         $("#newalacartediv").show();
@@ -28,6 +41,13 @@ $(document).ready(function () {
         $("#imageuploaddiv").hide();
         $("#newdagensdiv").hide();
         $("#deletedagensdiv").hide();
+        $("#PreAlaCarte").hide();
+        $("#ShowAlaCarte").show();
+        $("#PreAlaCarte").hide();
+        $("#ShowLunch").hide();
+        $("#PreLunch").hide();
+        $("#HideAlaCarte").hide();
+        $("#HideLunch").hide();
     });
     $("#dagensknapp").click(function(){
         $("#imageuploaddiv").hide();
@@ -38,6 +58,34 @@ $(document).ready(function () {
         $("#newdagensdiv").show();
         $("#deletedagensdiv").show();
         $("#dailyspecialdiv").show();
+        $("#ShowAlaCarte").hide();
+        $("#PreAlaCarte").hide();
+        $("#PreLunch").hide();
+        $("#ShowLunch").show();
+        $("#HideLunch").hide();
+        $("#HideAlaCarte").hide();
+        $("#HideLunch").hide();
+    });
+    $("#ShowAlaCarte").click(function(){
+        $("#PreAlaCarte").show();
+        $("#HideAlaCarte").show();
+        $("#ShowAlaCarte").hide();
+    });
+    $("#HideAlaCarte").click(function(){
+        $("#PreAlaCarte").hide();
+        $("#HideAlaCarte").hide();
+        $("#ShowAlaCarte").show();
+    });
+    
+    $("#ShowLunch").click(function(){
+        $("#PreLunch").show();
+        $("#HideLunch").show();
+        $("#ShowLunch").hide();
+    });
+    $("#HideLunch").click(function(){
+        $("#PreLunch").hide();
+        $("#HideLunch").hide();
+        $("#ShowLunch").show();
     });
     $("#schemaknapp").click(function(){
        window.location.href = "javacalendar.jsp"; 

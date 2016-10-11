@@ -37,8 +37,9 @@ table {
     text-align: center;
 }
 #content{
-    background-color: #240C00;
-    overflow: hidden;
+    background-color: whitesmokee;
+    overflow: auto;
+    height: 100%;
     margin-right: 200px;
     margin-left: 200px;
 }
