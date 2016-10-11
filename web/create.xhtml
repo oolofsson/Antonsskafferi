@@ -32,11 +32,14 @@
                 <div id="newalacartediv" class="field">
                     <h:column id="new_alacarte_column">
                         <h2>Lägg till ny rätt i alacarte: </h2>
-                        <h:outputText value="Välj typ av rätt"></h:outputText>
+                        <h:outputText value="Välj typ av rätt:   "></h:outputText>
                         <h:selectOneMenu id="type_alacarte"> 
-                            <f:selectItem itemLabel="Val"  noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Välj rätttyp..."  noSelectionOption="true"/>
                             <f:selectItems value="#{typeEJB.list}" var="i" itemValue="#{i.id}" />
                         </h:selectOneMenu>
+                    <br/>
+                    <br/>
+                     
                         <h:form id="create_alacarte_form">
                             <h:panelGrid columns="3">
                                 <h:outputText value="Rätt:" />
@@ -64,7 +67,7 @@
                         </h:form>
                     </h:column>
                 </div>
-                <div id="PreAlaCarte">
+                <div id="PreAlaCarte" class="field">
                  <h:column>
                     <h2>Meny Ala carte</h2>
                     <h:dataTable var="d" value="#{alacarteEJB.list}">
@@ -157,7 +160,7 @@
                         </h:form>
                     </h:column>
                 </div>
-                <div id="PreLunch">
+                <div id="PreLunch" class="field">
                     <h3>Veckans lunchmeny</h3>
                     <h4>Måndag</h4>
                     <h:dataTable var="d" value="#{dailyspecialEJB.list}">
@@ -255,10 +258,10 @@
                     <br/>
                     <br/>
                     <h:button value="Granska förstasida" outcome="show" />
-                    <button id="ShowAlaCarte"> Granska Alacarte</button>
-                    <button id="ShowLunch"> Granska Lunch</button>
-                    <button id="HideAlaCarte"> Dölj Alacarte</button>
-                    <button id="HideLunch"> Dölj Lunch</button>
+                    <button class="field" id="ShowAlaCarte"> Granska Alacarte</button>
+                    <button class="field" id="ShowLunch"> Granska Lunch</button>
+                    <button class="field" id="HideAlaCarte"> Dölj Alacarte</button>
+                    <button class="field" id="HideLunch"> Dölj Lunch</button>
 
                 </div>
                 <div id="logoutdiv" align="bottom">
