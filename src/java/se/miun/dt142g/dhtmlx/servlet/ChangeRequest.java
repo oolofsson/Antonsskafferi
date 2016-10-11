@@ -61,10 +61,7 @@ public class ChangeRequest extends HttpServlet {
             
             if(ps != null){
                 ps.executeUpdate();
-                /*result = ps.getGeneratedKeys();
-                if(result.next()){
-                    event.setId(result.getInt(1));
-                }*/
+              
             }
         }catch(SQLException e){
             e.printStackTrace();

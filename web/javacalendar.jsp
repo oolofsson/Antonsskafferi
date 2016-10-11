@@ -1,3 +1,7 @@
+<%@page import="se.miun.dt142g.dhtmlx.event.ChangedEvent"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page import="se.miun.dt142g.dhtmlx.ChangedEventLog"%>
 <%@page import="com.dhtmlx.planner.controls.DHXLocalization"%>
 <%@page import="se.miun.dt142g.util.SessionUtils"%>
 <%@page import="se.miun.dt142g.dhtmlx.DatabaseConnection"%>
@@ -170,7 +174,7 @@
                         }
                     }
                     conn.close();
-                } //End of username.lenght < 4
+                } //End of username.lenght < 4, waiter view
             %>
             
             <%
@@ -198,7 +202,7 @@
                     Datum: <input type="text" id="datepicker" />    
                     <select class="event_time_select">
                         <option selected="true" disabled="true" >Välj tid...</option>
-                        <option value="11:00:00.15:00:00">Lunchspass</option>
+                        <option value="11:00:00.15:00:00">Lunchpass</option>
                         <option value="17:00:00.22:00:00">Middagspass</option>
                     </select>
                 </center>
@@ -209,13 +213,29 @@
                     <input class="event_end_date_input" required="true" type="text" name="end_date" />
                     <input class="waiter_id_input" required="true" type="text" name="waiter_id" />
                     <input class="color_input" required="true" type=" text" name="color" />
+                    
                     <input type="submit" value="Lägg till event" />
                 </form>
 
             </div>
+            <div id="change_event_log">        
             <%
-                
-                }
+                    //Changelogen
+                    List changedEvents = ChangedEventLog.getChangedEvents();
+                        if(!changedEvents.isEmpty()){
+                            out.print("<h2>Följande arbetspassbyten har gjorts</h2>");
+                        }
+                        out.print("<ul>");
+                        for(Iterator<ChangedEvent> i = changedEvents.iterator(); i.hasNext(); ) { //Increment all earlier changedevents id
+                            ChangedEvent ch = i.next();
+                            out.print("<li>" + ch.getMessage() + "</li>");
+                            
+                        }
+                        out.print("</ul>");
+            %>    
+            </div>    
+            <%    
+                } //username.lenght > 4, admin view
             %>
                 
             <div style="clear: both" ></div>

@@ -16,7 +16,7 @@ body{
 #create_event{
     text-align: center;
     margin-left: 1000px;
-    margin-top: 200px;
+    margin-top: 400px;
     position: absolute;
     width: 200px;
     border: 2px solid black;
@@ -42,4 +42,13 @@ body{
 .event_time_select{
     margin: 10px;
 }
+#change_event_log{
+    border: 2px solid black;
+    margin-left: 1000px;
+    
+}
+#change_event_log ul li {
+   
+    padding: 0 0 4px 23px;
 
+}

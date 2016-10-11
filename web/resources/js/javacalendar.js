@@ -26,7 +26,8 @@ $(function(){
     //Datepicker init
     $( "#datepicker" ).datepicker({ 
       dayNamesMin: ['M&aring', 'Ti', 'On', 'To', 'Fr', 'L&ouml', 'S&ouml'],
-      monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September','Oktober', 'November', 'December'] 
+      monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September','Oktober', 'November', 'December'] ,
+      disabled: true
       
     });
     $('#datepicker').datepicker('option', 'dateFormat', 'yy-mm-dd');

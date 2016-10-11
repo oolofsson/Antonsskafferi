@@ -130,9 +130,7 @@ public class EventController {
         try{
             conn = DatabaseConnection.getConnection();
 
-            // create the mysql delete statement.
-            // i'm deleting the row where the id is "3", which corresponds to my
-            // "Barney Rubble" record.
+            
             String query = "Delete from change_request where id = " + id;
             PreparedStatement preparedStatement = conn.prepareStatement(query);
 
