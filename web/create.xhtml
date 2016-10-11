@@ -32,7 +32,12 @@
                 <div id="newalacartediv" class="field">
                     <h:column id="new_alacarte_column">
                         <h2>Lägg till ny rätt i alacarte: </h2>
-                        <h:form>
+                        <h:outputText value="Välj typ av rätt"></h:outputText>
+                        <h:selectOneMenu id="type_alacarte"> 
+                            <f:selectItem itemLabel="Val"  noSelectionOption="true"/>
+                            <f:selectItems value="#{typeEJB.list}" var="i" itemValue="#{i.id}" />
+                        </h:selectOneMenu>
+                        <h:form id="create_alacarte_form">
                             <h:panelGrid columns="3">
                                 <h:outputText value="Rätt:" />
                                 <h:inputText value="#{alacarte.alacartename}" title="alacartename" id="alacartename"
@@ -49,9 +54,10 @@
                                              required="true" />
                                 <h:message for="alacarteprice" style="color: red" />
 
-                                <h:outputText value="Typ:" />
-                                <h:inputText value="#{alacarte.alacartetype}" title="alacartetype" id="alacartetype"
+                                <div class="inputs" >
+                                <h:inputText class="inputs" value="#{alacarte.alacartetype}" id="alacartetype"
                                              required="true" />
+                                </div>
                                 <h:message for="alacartetype" style="color: red" />
                             </h:panelGrid>
                             <h:commandButton action="create" actionListener="#{alacarteEJB.create}" value="Lägg till" />
