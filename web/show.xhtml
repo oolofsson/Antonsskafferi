@@ -113,11 +113,17 @@
                  </h:column>
                     
                     <h4>Förrätter</h4>
-                    <p>Här ska förrätterna stå mohahah</p>
+                    <p><h:dataTable var="d" value="#{alacarteEJB.starter}">
+                            <h:column><p>#{d.alacartename}<p> #{d.alacartedescription} #{d.alacarteprice}</p></p></h:column>
+                    </h:dataTable></p>
                     <h4>Huvudrätt</h4>
-                    <p>Här ska förrätterna eller ska det stå huvudrätt eller ska vi börja med efterätt och sluta med huvudrätt mohahah</p>
+                    <p><h:dataTable var="d" value="#{alacarteEJB.mainCourse}">
+                        <h:column><p>#{d.alacartename}<p> #{d.alacartedescription} #{d.alacarteprice}</p></p></h:column>
+                    </h:dataTable></p>
                     <h4>Efterrätt</h4>
-                    <p>Här ska förrätterna stå eller något, vem är jag igentligen? mohahah</p>
+                    <p><h:dataTable var="d" value="#{alacarteEJB.dessert}">
+                        <h:column><p>#{d.alacartename}<p> #{d.alacartedescription} #{d.alacarteprice}</p></p></h:column>
+                    </h:dataTable></p>
                 </div>
             </div> 
         </div>

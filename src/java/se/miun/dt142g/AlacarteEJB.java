@@ -25,6 +25,19 @@ public class AlacarteEJB {
     public List<Alacarte> getList(){
         return em.createNamedQuery("Alacarte.findAll").getResultList();
     }
+    
+    public List<Alacarte> getStarter(){
+        return em.createNamedQuery("Alacarte.findByStarter").getResultList();
+    }
+    
+    public List<Alacarte> getMainCourse(){
+        return em.createNamedQuery("Alacarte.findByMainCourse").getResultList();
+    }
+    
+    public List<Alacarte> getDessert(){
+        return em.createNamedQuery("Alacarte.findByDessert").getResultList();
+    }
+    
     public void create(){//lägga in AlacarteDescription?
         Alacarte d = new Alacarte(alacarte.getAlacartename(), alacarte.getAlacartedescription(), alacarte.getAlacarteprice(), alacarte.getAlacartetype());
         em.persist(d);

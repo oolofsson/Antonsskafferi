@@ -31,7 +31,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Alacarte.findByAlacartename", query = "SELECT a FROM Alacarte a WHERE a.alacartename = :alacartename"),
     @NamedQuery(name = "Alacarte.findByAlacarteprice", query = "SELECT a FROM Alacarte a WHERE a.alacarteprice = :alacarteprice"),
     @NamedQuery(name = "Alacarte.findByAlacartetype", query = "SELECT a FROM Alacarte a WHERE a.alacartetype = :alacartetype"),
-    @NamedQuery(name = "Alacarte.findByAlacartedescription", query = "SELECT a FROM Alacarte a WHERE a.alacartedescription = :alacartedescription")})
+    @NamedQuery(name = "Alacarte.findByAlacartedescription", query = "SELECT a FROM Alacarte a WHERE a.alacartedescription = :alacartedescription"),
+    @NamedQuery(name = "Alacarte.findByStarter", query = "SELECT a FROM Alacarte a WHERE a.alacartetype = 1 "),
+    @NamedQuery(name = "Alacarte.findByMainCourse", query = "SELECT a FROM Alacarte a WHERE a.alacartetype = 2 "),
+    @NamedQuery(name = "Alacarte.findByDessert", query = "SELECT a FROM Alacarte a WHERE a.alacartetype = 3 ")
+        })
 public class Alacarte implements Serializable {
 
     private static final long serialVersionUID = 1L;
