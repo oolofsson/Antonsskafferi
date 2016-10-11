@@ -38,7 +38,12 @@
                                 <h:inputText value="#{alacarte.alacartename}" title="alacartename" id="alacartename"
                                              required="true" />
                                 <h:message for="alacartename" style="color: red" />
-
+                                
+                                <h:outputText value="Beskrivning:" />
+                                <h:inputText value="#{alacarte.alacartedescription}" title="alacartedescription" id="alacartedescription"
+                                             required="true" />
+                                <h:message for="alacartedescription" style="color: red" />
+                                
                                 <h:outputText value="Pris:" />
                                 <h:inputText value="#{alacarte.alacarteprice}" title="alacarteprice" id="alacarteprice"
                                              required="true" />
