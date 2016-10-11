@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package se.miun.dt142g;
 
 import javax.ejb.Stateless;
@@ -30,8 +25,8 @@ public class AlacarteEJB {
     public List<Alacarte> getList(){
         return em.createNamedQuery("Alacarte.findAll").getResultList();
     }
-    public void create(){
-        Alacarte d = new Alacarte(alacarte.getAlacartename(), alacarte.getAlacarteprice(), alacarte.getAlacartetype());
+    public void create(){//lägga in AlacarteDescription?
+        Alacarte d = new Alacarte(alacarte.getAlacartename(), alacarte.getAlacartedescription(), alacarte.getAlacarteprice(), alacarte.getAlacartetype());
         em.persist(d);
     }
     public void delete(){

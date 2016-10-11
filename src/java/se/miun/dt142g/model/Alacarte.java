@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package se.miun.dt142g.model;
 
 import java.io.Serializable;
@@ -30,12 +25,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "ALACARTE")
 @XmlRootElement
-@NamedQueries({
+@NamedQueries({//lägga in findbyalacartedescription, samt get och set för den.
     @NamedQuery(name = "Alacarte.findAll", query = "SELECT a FROM Alacarte a"),
     @NamedQuery(name = "Alacarte.findByAlacarteid", query = "SELECT a FROM Alacarte a WHERE a.alacarteid = :alacarteid"),
     @NamedQuery(name = "Alacarte.findByAlacartename", query = "SELECT a FROM Alacarte a WHERE a.alacartename = :alacartename"),
     @NamedQuery(name = "Alacarte.findByAlacarteprice", query = "SELECT a FROM Alacarte a WHERE a.alacarteprice = :alacarteprice"),
-    @NamedQuery(name = "Alacarte.findByAlacartetype", query = "SELECT a FROM Alacarte a WHERE a.alacartetype = :alacartetype")})
+    @NamedQuery(name = "Alacarte.findByAlacartetype", query = "SELECT a FROM Alacarte a WHERE a.alacartetype = :alacartetype"),
+    @NamedQuery(name = "Alacarte.findByAlacartedescription", query = "SELECT a FROM Alacarte a WHERE a.alacartedescription = :alacartedescription")})
 public class Alacarte implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,7 +49,10 @@ public class Alacarte implements Serializable {
     @Size(max = 25)
     @Column(name = "ALACARTETYPE")
     private String alacartetype;
-
+    @Size(max = 250)
+    @Column(name = "ALACARTEDESCRIPTION")
+    private String alacartedescription;
+    
     public Alacarte() {
     }
 
@@ -61,10 +60,11 @@ public class Alacarte implements Serializable {
         this.alacarteid = alacarteid;
     }
 
-    public Alacarte(String alacartename, String alacarteprice, String alacartetype) {
+    public Alacarte(String alacartename,String alacartedescription, String alacarteprice, String alacartetype) {
         this.alacartename = alacartename;
         this.alacarteprice = alacarteprice;
         this.alacartetype = alacartetype;
+        this.alacartedescription = alacartedescription;
     }
 
 
@@ -89,7 +89,20 @@ public class Alacarte implements Serializable {
         String z = new String(bytes, utf8charset);
         this.alacartename = z;
     }
+    
+    public String getAlacartedescription() {
+        return alacartedescription;
+    }
 
+    public void setAlacartedescription(String alacartedescription) {
+        Charset windows1252 = Charset.forName("ISO-8859-1");
+        Charset utf8charset = Charset.forName("UTF-8");
+
+        byte[] bytes = alacartedescription.getBytes(windows1252);
+        String z = new String(bytes, utf8charset);
+        this.alacartedescription = z;
+    }
+    
     public String getAlacarteprice() {
         return alacarteprice;
     }
@@ -110,7 +123,7 @@ public class Alacarte implements Serializable {
         String z = new String(bytes, utf8charset);
         this.alacartetype = z;
     }
-
+    
     @Override
     public int hashCode() {
         int hash = 0;

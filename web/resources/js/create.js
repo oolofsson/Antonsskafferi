@@ -95,6 +95,10 @@ $(document).ready(function () {
         $('#delete_drink_form\\:input_drink').val($('#delete_drink').val());
     });
     
+    $("#type_alacarte").change(function(){
+        $('#create_alacarte_form\\:alacartetype').val($('#type_alacarte').val());
+    });
+    
     $("#delete_alacarte").change(function(){
         $('#delete_alacarte_form\\:input_alacarte').val($('#delete_alacarte').val());
     });
