@@ -15,7 +15,7 @@
         <title>Schema</title>
         <script src="<c:url value="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js " />"></script>
         <script src="<c:url value="resources/js/javacalendar.js" />"></script>
-        <script src="<c:url value="https://code.jquery.com/ui/1.12.1/jquery-ui.js" />"></script>
+        <script src="<c:url value="https://code.jquery.com/ui/1.12.1/jquery-ui.js" />" ></script>
         <link type="text/css" rel="stylesheet" href="<c:url value="resources/css/normalize.css" />" />
         <link type="text/css" rel="stylesheet" href="<c:url value="resources/css/datepicker.css" />" />
         <link type="text/css" rel="stylesheet" href="<c:url value="resources/css/javacalendar.css" />" />
@@ -29,11 +29,11 @@
                 DHXPlanner s = new DHXPlanner("./codebase/", DHXSkin.TERRACE);
                 s.localizations.set(DHXLocalization.Swedish );
                 s.setWidth(900);
-                s.setInitialDate(2013, 0, 21); 
+                s.setInitialDate(2016, 9, 10); 
                 s.load("events.jsp", DHXDataFormat.JSON);
                 s.data.dataprocessor.setURL("events.jsp");
                 s.config.setFirstHour(9);
-                s.config.setLastHour(21);
+                s.config.setLastHour(23);
                 s.config.setReadonly(true);
                 return s.render();
             }
@@ -53,9 +53,6 @@
                         waiters = waiterstatement.executeQuery("SELECT waitername FROM waiter WHERE waiterid = " + session.getAttribute("username").toString()); 
                         while(waiters.next())
                             out.print("<p>Välkommen till ditt schema " + waiters.getString(1) + "</p>");
-
-                    
-                    
 
                 %>
             </div>
@@ -104,10 +101,10 @@
                     </select>
                 </center>
                 <form action="ChangeRequest" method="post">
-                    <input class="sender_id_input" type="text" name="sender_id" />
-                    <input class="event1_id_input" type="text" name="event1" />
-                    <input class="event2_id_input" type="text" name="event2" />
-                    <input class="receiver_id_input" type="text" name="receiver_id" />
+                    <input class="sender_id_input" required="true" type="text" name="sender_id" />
+                    <input class="event1_id_input" required="true" type="text" name="event1" />
+                    <input class="event2_id_input" required="true" type="text" name="event2" />
+                    <input class="receiver_id_input" required="true" type="text" name="receiver_id" />
                     <input type="submit" value="Skicka förfrågan" />
                 </form>
                     
@@ -185,8 +182,6 @@
 
                     waiters = waiterstatement.executeQuery("SELECT * FROM waiter"); 
                     
-
-
             %>
             
             <div id="create_event">
@@ -209,11 +204,11 @@
                 </center>
 
                 <form action="SaveEvent" method="post">
-                    <input class="event_text_input" type="text" name="text" /><br />
-                    <input class="event_start_date_input" type="text" name="start_date" />
-                    <input class="event_end_date_input" type="text" name="end_date" />
-                    <input class="waiter_id_input" type="text" name="waiter_id" />
-                    <input class="color_input" type=" text" name="color" />
+                    <input class="event_text_input" required="true" type="text" name="text" /><br />
+                    <input class="event_start_date_input" required="true" type="text" name="start_date" />
+                    <input class="event_end_date_input" required="true" type="text" name="end_date" />
+                    <input class="waiter_id_input" required="true" type="text" name="waiter_id" />
+                    <input class="color_input" required="true" type=" text" name="color" />
                     <input type="submit" value="Lägg till event" />
                 </form>
 
