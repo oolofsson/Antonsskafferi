@@ -131,7 +131,9 @@
                         <img src="resources/images/image.png" id="bild" class="materialboxed responsive-img"/>    
                     </div>
                     <div id="box2">
-                        <p>Här är lite info om vad som händer! tack och hej, leverpastej</p>
+                        <p><h:dataTable var="d" value="#{imagetextEJB.list}">
+                                <h:column><p>#{d.imagetext}</p></h:column>
+                    </h:dataTable></p>
                     </div>
                 </div>
             </div>

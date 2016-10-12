@@ -28,6 +28,14 @@
                             <h:commandButton value="Ladda Upp" action="create" actionListener="#{jsfFileUploadBean.processFileUpload}"/>
                         </h:form>
                     </h:column>
+                    <h2> Ändra Event Text </h2>
+                        <h:form id="imageText">
+                            <h:inputTextarea value="#{imagetext.imagetext}" title="imagetextname" id="imagetextarea"
+                                             required="true">
+                                
+                            </h:inputTextarea>
+                            <h:commandButton value="Spara Text" action="create" actionListener="#{imagetextEJB.create()}"/>
+                        </h:form>
                 </div>
                 <div id="newalacartediv" class="field">
                     <h:column id="new_alacarte_column">
