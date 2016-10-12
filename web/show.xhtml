@@ -52,24 +52,24 @@
                     <h5 id="VisaDagens" ></h5>
                     <p>Dagens lunch serveras med salladsbar och dryck, 89kr, klockan: 11-14</p>              
                     
-                    <h3>Veckans lunchmeny</h3>
-                    <h4>Måndag</h4>
+                    <h2>Veckans lunchmeny</h2>
+                    <h5>Måndag</h5>
                     <h:dataTable var="d" value="#{dailyspecialEJB.list}">
                         <h:column><p id='1'>#{d.monday}</p><br /></h:column>
                     </h:dataTable>
-                    <h4>Tisdag</h4>
+                    <h5>Tisdag</h5>
                     <h:dataTable id='dt' var="d" value="#{dailyspecialEJB.list}">                   
                         <h:column><p id='2'>#{d.tuesday}</p><br /></h:column>   
                     </h:dataTable>
-                    <h4>Onsdag</h4>
+                    <h5>Onsdag</h5>
                     <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
                         <h:column><p id='3'>#{d.wednesday}</p><br /></h:column>
                     </h:dataTable>
-                    <h4>Torsdag</h4>
+                    <h5>Torsdag</h5>
                     <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
                         <h:column><p id='4'>#{d.thursday}</p><br /></h:column>
                     </h:dataTable>
-                    <h4>Fredag</h4>
+                    <h5>Fredag</h5>
                     <h:dataTable var="d" value="#{dailyspecialEJB.list}">                   
                         <h:column><p id='5'>#{d.friday}</p><br /></h:column>
                     </h:dataTable>                   
@@ -105,16 +105,9 @@
         <div id="middag" class="section scrollspy">
             <div class="section dark-brown1">
                 <div class="row container">
-                 <h:column>
-                     <h2>Meny Ala carte</h2>
-                     <h:dataTable var="d" value="#{alacarteEJB.list}">
-                        <h:column><p>#{d.alacartename} #{d.alacartedescription} #{d.alacarteprice}</p></h:column>
-                    </h:dataTable>
-                 </h:column>
-                    
                     <h4>Förrätter</h4>
                     <p><h:dataTable var="d" value="#{alacarteEJB.starter}">
-                            <h:column><p>#{d.alacartename}<p> #{d.alacartedescription} #{d.alacarteprice}</p></p></h:column>
+                        <h:column><p>#{d.alacartename}<p> #{d.alacartedescription} #{d.alacarteprice}</p></p></h:column>
                     </h:dataTable></p>
                     <h4>Huvudrätt</h4>
                     <p><h:dataTable var="d" value="#{alacarteEJB.mainCourse}">

@@ -9,6 +9,7 @@
         <ui:composition template="./WEB-INF/template_admin.xhtml">
             <ui:define name="content">            
                 <h:form>
+                    <div id="loginbars">
                     <h3>Admin Login</h3>
                     <dd>
                         <dt><h:outputText value="Username" /></dt>
@@ -23,6 +24,7 @@
                     </dd>
                     <h:commandButton action="#{loginBean.validateUsernamePassword}"
                             value="Login"></h:commandButton>
+                    </div>
                 </h:form>
                 
             </ui:define>

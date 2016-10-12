@@ -68,12 +68,18 @@
                     </h:column>
                 </div>
                 <div id="PreAlaCarte" class="field">
-                 <h:column>
-                    <h2>Meny Ala carte</h2>
-                    <h:dataTable var="d" value="#{alacarteEJB.list}">
-                        <h:column><p>#{d.alacartename} #{d.alacarteprice} </p></h:column>
-                    </h:dataTable>
-                 </h:column>
+                    <h4>Förrätter</h4>
+                    <p><h:dataTable var="d" value="#{alacarteEJB.starter}">
+                        <h:column><p>#{d.alacartename}<p> #{d.alacartedescription} #{d.alacarteprice}</p></p></h:column>
+                    </h:dataTable></p>
+                    <h4>Huvudrätt</h4>
+                    <p><h:dataTable var="d" value="#{alacarteEJB.mainCourse}">
+                        <h:column><p>#{d.alacartename}<p> #{d.alacartedescription} #{d.alacarteprice}</p></p></h:column>
+                    </h:dataTable></p>
+                    <h4>Efterrätt</h4>
+                    <p><h:dataTable var="d" value="#{alacarteEJB.dessert}">
+                        <h:column><p>#{d.alacartename}<p> #{d.alacartedescription} #{d.alacarteprice}</p></p></h:column>
+                    </h:dataTable></p>
                 </div>
                 
                     <div id="deletealacartediv" class="field">

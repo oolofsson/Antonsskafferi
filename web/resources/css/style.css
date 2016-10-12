@@ -50,8 +50,9 @@ body{
 #bottom{
     background-color: #240C00;
 }
-#Loginali{
-    
+#loginbars{
+    align-content: center;
+    text-align: center;   
 }
 
 #type_alacarte{
