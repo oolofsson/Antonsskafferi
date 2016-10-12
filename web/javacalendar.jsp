@@ -23,6 +23,7 @@
         <link type="text/css" rel="stylesheet" href="<c:url value="resources/css/normalize.css" />" />
         <link type="text/css" rel="stylesheet" href="<c:url value="resources/css/datepicker.css" />" />
         <link type="text/css" rel="stylesheet" href="<c:url value="resources/css/javacalendar.css" />" />
+        <link type="text/css" rel="stylesheet" href="<c:url value="resources/css/style.css" />" />
     </head>
     <body>
         <div>
@@ -109,7 +110,7 @@
                     <input class="event1_id_input" required="true" type="text" name="event1" />
                     <input class="event2_id_input" required="true" type="text" name="event2" />
                     <input class="receiver_id_input" required="true" type="text" name="receiver_id" />
-                    <input type="submit" value="Skicka förfrågan" />
+                    <input class="submit_button" type="submit" value="Skicka förfrågan" />
                 </form>
                     
                 <%
@@ -161,13 +162,13 @@
                                     + changeRequests.getString(4) + "\" />");
                             out.print("<input class=\"get_change_request_input\" type=\"text\" name=\"receiver_id\" value=\""
                                     + changeRequests.getString(5) + "\" />");
-                            out.print("<input type=\"submit\" value=\"Acceptera\" />");
+                            out.print("<input class=\"submit_button\" type=\"submit\" value=\"Acceptera\" />");
                             
                             out.print("</form>");
                             out.print("<form class=\"change_form\" action=\"DeleteRequest\" method=\"POST\" >");
                             out.print("<input class=\"get_change_request_input\" type=\"text\" name=\"id\" value=\""
                                     + changeRequests.getString(1) + "\" />");
-                            out.print("<input type=\"submit\" value=\"Avböj\" />");
+                            out.print("<input class=\"delete_button\" type=\"submit\" value=\"Avböj\" />");
                             out.print("</form>");
                             
                             out.print("</div>");
@@ -216,7 +217,7 @@
                     <input class="waiter_id_input" required="true" type="text" name="waiter_id" />
                     <input class="color_input" required="true" type=" text" name="color" />
                     
-                    <input class="event_submit" type="submit" value="Lägg till pass" />
+                    <input class="event_submit submit_button" type="submit" value="Lägg till pass" />
                 </form>
 
             </div>
@@ -237,12 +238,16 @@
             %>    
             </div>
             <div id="control_panel">
-                <button id="adminknapp">Tillbaka till administrationssidan</button>
+                <button id="adminknapp" class="button">Tillbaka till administrationssidan</button>
             </div>
             <%    
                 } //username.lenght > 4, admin view
-            %>
                 
+            %>
+            <form action="Logout" method="get">
+                <input class="button" type="submit" value="Logga ut" />
+            </form>
+            
             <div style="clear: both" ></div>
         </div>     
     </body>

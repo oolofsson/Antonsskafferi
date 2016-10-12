@@ -13,11 +13,13 @@
             </ui:define>
 
             <ui:define name="content">
+                
                 <button class="button" id="bildknapp"> Ändra Event</button>
                 <button class="button" id="alacarteknapp"> Ändra i A lá carte</button>
                 <button class="button" id="dagensknapp"> Ändra Dagensmeny</button>
                 <button class="button" id="servitrisknapp">Servitriser</button>
                 <button class="button" id="schemaknapp">Öppna Schema</button>
+                
                 <div id="imageuploaddiv" class="field">
                     <h:column id="upload_image_column">
                         <h2>Ladda upp bild</h2>
@@ -26,7 +28,7 @@
                                 <f:validator validatorId="fileUploadValidator"/>
                             </h:inputFile>
                             <p> <h:messages id="messages" /></p>
-                            <h:commandButton value="Ladda Upp" action="create" actionListener="#{jsfFileUploadBean.processFileUpload}"/>
+                            <h:commandButton class="submit_button" value="Ladda Upp" action="create" actionListener="#{jsfFileUploadBean.processFileUpload}"/>
                         </h:form>
                     </h:column>
                     <h2> Ändra Event Text </h2>
@@ -35,19 +37,19 @@
                                              required="true">
                                 
                             </h:inputTextarea>
-                            <h:commandButton value="Spara Text" action="create" actionListener="#{imagetextEJB.create()}"/>
+                            <h:commandButton class="submit_button" value="Spara Text" action="create" actionListener="#{imagetextEJB.create}"/>
                         </h:form>
                 </div>
                 <div id="newalacartediv" class="field">
                     <h:column id="new_alacarte_column">
                         <h2>Lägg till ny rätt i alacarte: </h2>
-                        <h:outputText value="Välj typ av rätt:   "></h:outputText>
+                        
                         <h:selectOneMenu id="type_alacarte"> 
                             <f:selectItem itemLabel="Välj rätttyp..."  noSelectionOption="true"/>
                             <f:selectItems value="#{typeEJB.list}" var="i" itemValue="#{i.id}" />
                         </h:selectOneMenu>
-                    <br/>
-                    <br/>
+                        <br/>
+                        <br/>
                      
                         <h:form id="create_alacarte_form">
                             <h:panelGrid columns="3">
@@ -72,7 +74,7 @@
                                 </div>
                                 <h:message for="alacartetype" style="color: red" />
                             </h:panelGrid>
-                            <h:commandButton action="create" actionListener="#{alacarteEJB.create}" value="Lägg till" />
+                            <h:commandButton class="submit_button" action="create" actionListener="#{alacarteEJB.create}" value="Lägg till" />
                         </h:form>
                     </h:column>
                 </div>
@@ -81,11 +83,11 @@
                     <p><h:dataTable var="d" value="#{alacarteEJB.starter}">
                         <h:column><p>#{d.alacartename}<p> #{d.alacartedescription} #{d.alacarteprice}</p></p></h:column>
                     </h:dataTable></p>
-                    <h4>Huvudrätt</h4>
+                    <h4>Huvudrätter</h4>
                     <p><h:dataTable var="d" value="#{alacarteEJB.mainCourse}">
                         <h:column><p>#{d.alacartename}<p> #{d.alacartedescription} #{d.alacarteprice}</p></p></h:column>
                     </h:dataTable></p>
-                    <h4>Efterrätt</h4>
+                    <h4>Efterrätter</h4>
                     <p><h:dataTable var="d" value="#{alacarteEJB.dessert}">
                         <h:column><p>#{d.alacartename}<p> #{d.alacartedescription} #{d.alacarteprice}</p></p></h:column>
                     </h:dataTable></p>
@@ -102,7 +104,7 @@
                             <div class="inputs">
                                 <h:inputText id="input_alacarte" required="true" value="#{alacarte.alacarteid}" />
                             </div>
-                            <h:commandButton action="create" value="Ta bort" actionListener="#{alacarteEJB.delete}" />
+                            <h:commandButton class="delete_button" action="create" value="Ta bort" actionListener="#{alacarteEJB.delete}" />
                             <h:message for="input_alacarte" style="color: red" />
                         </h:form>
                     </h:column>
@@ -130,7 +132,7 @@
                                              required="true" />
                                 <h:message for="drinktype" style="color: red" />
                             </h:panelGrid>
-                            <h:commandButton action="create" actionListener="#{drinkEJB.create}" value="Lägg till" />
+                            <h:commandButton class="submit_button" action="create" actionListener="#{drinkEJB.create}" value="Lägg till" />
                         </h:form>
                     </h:column>
                 </div>
@@ -146,7 +148,7 @@
                             <div class="inputs">
                                 <h:inputText id="input_drink" required="true" value="#{drink.drinkid}" />
                             </div>
-                            <h:commandButton action="create" value="Ta bort" actionListener="#{drinkEJB.delete}" />
+                            <h:commandButton class="delete_button" action="create" value="Ta bort" actionListener="#{drinkEJB.delete}" />
                             <h:message for="input_drink" style="color: red" />
                         </h:form>
                     </h:column>
@@ -166,7 +168,7 @@
                                              required="true" />
                                 <h:message for="dishprice" style="color: red" />
                             </h:panelGrid>
-                            <h:commandButton action="create" actionListener="#{dishEJB.create}" value="Lägg till" />
+                            <h:commandButton class="submit_button" action="create" actionListener="#{dishEJB.create}" value="Lägg till" />
                         </h:form>
                     </h:column>
                 </div>
@@ -204,7 +206,7 @@
                             <div class="inputs">
                                 <h:inputText id="input_dagens" required="true" value="#{dish.dishid}" />
                             </div>
-                            <h:commandButton action="create" value="Ta bort" actionListener="#{dishEJB.delete}" />
+                            <h:commandButton class="delete_button" action="create" value="Ta bort" actionListener="#{dishEJB.delete}" />
                             <h:message for="input_dagens" style="color: red" />
                         </h:form>
                     </h:column>
@@ -254,7 +256,7 @@
 
                                 <h:inputText id="input5" required="true" value="#{dailyspecial.friday}" />
                             </div>
-                            <h:commandButton action="create" value="Lägg till" actionListener="#{dailyspecialEJB.create}" />
+                            <h:commandButton class="submit_button" action="create" value="Lägg till" actionListener="#{dailyspecialEJB.create}" />
                             <h:message for="input1" style="color: red" />
                             <h:message for="input2" style="color: red" />
                             <h:message for="input3" style="color: red" />
@@ -266,7 +268,7 @@
                 <div id="newwaiterdiv" class="field">
                     <h:column id="new_waiter_column">
                         <h2>Lägg till en ny servitris: </h2>
-                        <h:form>
+                        <h:form id="new_waiter_form">
                             <h:panelGrid columns="3">
                                 <h:outputText value="Namn:" />
                                 <h:inputText value="#{waiter.waitername}" title="waitername" 
@@ -278,7 +280,7 @@
                                              required="true" />
                                 <h:message for="pincode" style="color: red" />
                             </h:panelGrid>
-                            <h:commandButton action="create" actionListener="#{waiterEJB.create}" value="Lägg till" />
+                            <h:commandButton class="submit_button" action="create" actionListener="#{waiterEJB.create}" value="Lägg till" />
                         </h:form>
                     </h:column>
                 </div>
@@ -299,7 +301,7 @@
                             <div class="inputs">
                                 <h:inputText id="input_waiter" required="true" value="#{waiter.waiterid}" />
                             </div>
-                            <h:commandButton action="create" value="Ta bort" actionListener="#{waiterEJB.delete}" />
+                            <h:commandButton class="delete_button" action="create" value="Ta bort" actionListener="#{waiterEJB.delete}" />
                             <h:message for="input_waiter" style="color: red" />
                         </h:form>
                     </h:column>

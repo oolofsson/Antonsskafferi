@@ -173,6 +173,8 @@ $(document).ready(function () {
            $('#daily_special_form\\:input' + i).val($('#select' + i).val());
         }
     });
+    
+   
 });
 
 
