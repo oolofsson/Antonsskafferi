@@ -199,7 +199,9 @@
                         </option>
                         <% } %>
                     </select>
-                    Datum: <input type="text" id="datepicker" />    
+                    
+                    <div id="datepicker"></div>
+                    
                     <select class="event_time_select">
                         <option selected="true" disabled="true" >Välj tid...</option>
                         <option value="11:00:00.15:00:00">Lunchpass</option>
@@ -214,7 +216,7 @@
                     <input class="waiter_id_input" required="true" type="text" name="waiter_id" />
                     <input class="color_input" required="true" type=" text" name="color" />
                     
-                    <input type="submit" value="Lägg till event" />
+                    <input class="event_submit" type="submit" value="Lägg till pass" />
                 </form>
 
             </div>
@@ -233,7 +235,10 @@
                         }
                         out.print("</ul>");
             %>    
-            </div>    
+            </div>
+            <div id="control_panel">
+                <button id="adminknapp">Tillbaka till administrationssidan</button>
+            </div>
             <%    
                 } //username.lenght > 4, admin view
             %>
