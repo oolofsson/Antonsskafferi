@@ -156,11 +156,6 @@
                                 <h:inputText value="#{dish.dishprice}" title="dishprice" 
                                              required="true" />
                                 <h:message for="dishprice" style="color: red" />
-
-                                <h:outputText value="Typ:" />
-                                <h:inputText value="#{dish.dishtype}" title="dishtype" 
-                                             required="true" />
-                                <h:message for="dishtype" style="color: red" />
                             </h:panelGrid>
                             <h:commandButton action="create" actionListener="#{dishEJB.create}" value="Lägg till" />
                         </h:form>
@@ -211,31 +206,31 @@
                         <h:outputText value="Måndag" /><br />
                         <h:selectOneMenu class="day_select" id="select1">
                             <f:selectItem itemLabel="Välj en rätt..."  noSelectionOption="true"/>
-                            <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishname}" />
+                            <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishname}, #{i.dishprice}" />
                         </h:selectOneMenu><br />
 
                         <h:outputText value="Tisdag" /><br />
                         <h:selectOneMenu class="day_select" id="select2">
                             <f:selectItem itemLabel="Välj en rätt..."  noSelectionOption="true"/>
-                            <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishname}" />
+                            <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishname}, #{i.dishprice}" />
                         </h:selectOneMenu><br />
 
                           <h:outputText value="Onsdag" /><br />
                           <h:selectOneMenu class="day_select" id="select3">
                             <f:selectItem itemLabel="Välj en rätt..."  noSelectionOption="true"/>
-                            <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishname}" />
+                            <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishname}, #{i.dishprice}" />
                         </h:selectOneMenu><br />
 
                         <h:outputText value="Torsdag" /><br />
                         <h:selectOneMenu class="day_select" id="select4">
                             <f:selectItem itemLabel="Välj en rätt..."  noSelectionOption="true"/>
-                            <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishname}" />
+                            <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishname}, #{i.dishprice}" />
                         </h:selectOneMenu><br />
 
                         <h:outputText value="Fredag" /><br />
                         <h:selectOneMenu class="day_select" id="select5">
                             <f:selectItem itemLabel="Välj en rätt..."  noSelectionOption="true"/>
-                            <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishname}" />
+                            <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishname}, #{i.dishprice}" />
                         </h:selectOneMenu><br />
 
                         <h:form id="daily_special_form">
