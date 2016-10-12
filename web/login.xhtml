@@ -10,14 +10,14 @@
             <ui:define name="content">            
                 <h:form>
                     <div id="loginbars">
-                    <h3>Admin Login</h3>
+                    <h3>Logga in</h3>
                     <dd>
-                        <dt><h:outputText value="Username" /></dt>
+                        <dt><h:outputText value="Användarnamn" /></dt>
                         <dl><h:inputText id="username" value="#{loginBean.user}"></h:inputText></dl>
                         <h:message for="username"></h:message>
                         <br></br><br></br>
 
-                        <dt><h:outputText value="Password" /></dt>
+                        <dt><h:outputText value="Lösenord" /></dt>
                         <dl><h:inputSecret id="password" value="#{loginBean.pwd}"></h:inputSecret></dl>
                     <h:message for="password"></h:message>
                     <br></br><br></br>

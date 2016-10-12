@@ -13,10 +13,11 @@
             </ui:define>
 
             <ui:define name="content">
-                <button id="bildknapp"> Ändra Event</button>
-                <button id="alacarteknapp"> Ändra i A lá carte</button>
-                <button id="dagensknapp"> Ändra Dagensmeny</button>
-                <button id="schemaknapp">Öppna Schema</button>
+                <button class="button" id="bildknapp"> Ändra Event</button>
+                <button class="button" id="alacarteknapp"> Ändra i A lá carte</button>
+                <button class="button" id="dagensknapp"> Ändra Dagensmeny</button>
+                <button class="button" id="servitrisknapp">Servitriser</button>
+                <button class="button" id="schemaknapp">Öppna Schema</button>
                 <div id="imageuploaddiv" class="field">
                     <h:column id="upload_image_column">
                         <h2>Ladda upp bild</h2>
@@ -262,23 +263,66 @@
                         </h:form>
                     </h:column>
                 </div>
+                <div id="newwaiterdiv" class="field">
+                    <h:column id="new_waiter_column">
+                        <h2>Lägg till en ny servitris: </h2>
+                        <h:form>
+                            <h:panelGrid columns="3">
+                                <h:outputText value="Namn:" />
+                                <h:inputText value="#{waiter.waitername}" title="waitername" 
+                                             required="true" />
+                                <h:message for="waitername" style="color: red" />
+
+                                <h:outputText value="Pinkod:" />
+                                <h:inputText value="#{waiter.pincode}" title="pincode" 
+                                             required="true" />
+                                <h:message for="pincode" style="color: red" />
+                            </h:panelGrid>
+                            <h:commandButton action="create" actionListener="#{waiterEJB.create}" value="Lägg till" />
+                        </h:form>
+                    </h:column>
+                </div>
+                <div id="PreWaiters" class="field">
+                    <h2>Servitriser</h2>
+                    <p><h:dataTable var="d" value="#{waiterEJB.list}">
+                            <h:column><strong>#{d.waitername}</strong><p> Pinkod: </p> #{d.pincode}</h:column>
+                    </h:dataTable></p>
+                </div>
+                <div id="deletewaiterdiv" class="field">
+                    <h:column id="delete_waiter_column">
+                        <h3>Ta bort en Servitris</h3><br />
+                        <h:selectOneMenu id="delete_waiter"> 
+                            <f:selectItem itemLabel="Välj en servitris..."  noSelectionOption="true"/>
+                            <f:selectItems value="#{waiterEJB.list}" var="i" itemValue="#{i.waiterid}" />
+                        </h:selectOneMenu><br />
+                        <h:form id="delete_waiter_form">
+                            <div class="inputs">
+                                <h:inputText id="input_waiter" required="true" value="#{waiter.waiterid}" />
+                            </div>
+                            <h:commandButton action="create" value="Ta bort" actionListener="#{waiterEJB.delete}" />
+                            <h:message for="input_waiter" style="color: red" />
+                        </h:form>
+                    </h:column>
+                </div>
                 <div id="granskadiv" align="bottom">
                     <br/>
                     <br/>
                     <br/>
-                    <h:button value="Granska förstasida" outcome="show" />
-                    <button class="field" id="ShowAlaCarte"> Granska Alacarte</button>
-                    <button class="field" id="ShowLunch"> Granska Lunch</button>
-                    <button class="field" id="HideAlaCarte"> Dölj Alacarte</button>
-                    <button class="field" id="HideLunch"> Dölj Lunch</button>
-
+                    <h:button class="button" value="Granska förstasida" outcome="show" />
+                    <button class="field button" id="ShowAlaCarte"> Granska Alacarte</button>
+                    <button class="field button" id="ShowLunch"> Granska Lunch</button>
+                    <button class="field button" id="ShowWaiters">Granska Servitriser</button>
+                    <button class="field button" id="HideAlaCarte"> Dölj Alacarte</button>
+                    <button class="field button" id="HideLunch"> Dölj Lunch</button>
+                    <button class="field button" id="HideWaiters"> Dölj Servitriser</button>
+                    
                 </div>
                 <div id="logoutdiv" align="bottom">
                     <br/>
                     <br/>
                     <br/>
                 <h:form>
-                    <h:commandButton id="loggautknapp" action="#{loginBean.logout}" value="Logga ut"></h:commandButton>
+                    <h:commandButton class="button" id="loggautknapp" action="#{loginBean.logout}" value="Logga ut"></h:commandButton>
                 </h:form>
                 </div>
                 

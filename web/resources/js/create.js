@@ -1,20 +1,28 @@
 $(document).ready(function () {
+    //Initiate page
     $("#logoutdiv").show();
-        $("#imageuploaddiv").hide();
-        $("#newalacartediv").hide();
-        $("#deletealacartediv").hide();
-        $("#newdrinkdiv").hide();
-        $("#deletedrinkdiv").hide();
-        $("#dailyspecialdiv").hide();
-        $("#newdagensdiv").hide();
-        $("#deletedagensdiv").hide();
-        $("#ShowAlaCarte").hide();
-        $("#PreAlaCarte").hide();
-        $("#ShowLunch").hide();
-        $("#PreLunch").hide();
-        $("#HideAlaCarte").hide();
-        $("#HideLunch").hide();
+    $("#imageuploaddiv").hide();
+    $("#newalacartediv").hide();
+    $("#deletealacartediv").hide();
+    $("#newdrinkdiv").hide();
+    $("#deletedrinkdiv").hide();
+    $("#dailyspecialdiv").hide();
+    $("#newdagensdiv").hide();
+    $("#deletedagensdiv").hide();
+    $("#ShowAlaCarte").hide();
+    $("#PreAlaCarte").hide();
+    $("#ShowLunch").hide();
+    $("#PreLunch").hide();
+    $("#HideAlaCarte").hide();
+    $("#HideLunch").hide();
+    $("#HideWaiters").hide();
+    $("#ShowWaiters").hide();
+    $("#PreWaiters").hide();
+    $("#newwaiterdiv").hide();
+    $("#deletewaiterdiv").hide();
     
+    
+    //Button events
     $("#bildknapp").click(function(){
         $("#imageuploaddiv").show();
         $("#newalacartediv").hide();
@@ -30,7 +38,11 @@ $(document).ready(function () {
         $("#PreLunch").hide();
         $("#HideAlaCarte").hide();
         $("#HideLunch").hide();
-        
+        $("#HideWaiters").hide();
+        $("#ShowWaiters").hide();
+        $("#PreWaiters").hide();
+        $("#newwaiterdiv").hide();
+        $("#deletewaiterdiv").hide();
     });
     $("#alacarteknapp").click(function(){
         $("#newalacartediv").show();
@@ -48,6 +60,11 @@ $(document).ready(function () {
         $("#PreLunch").hide();
         $("#HideAlaCarte").hide();
         $("#HideLunch").hide();
+        $("#HideWaiters").hide();
+        $("#ShowWaiters").hide();
+        $("#PreWaiters").hide();
+        $("#newwaiterdiv").hide();
+        $("#deletewaiterdiv").hide();
     });
     $("#dagensknapp").click(function(){
         $("#imageuploaddiv").hide();
@@ -65,6 +82,33 @@ $(document).ready(function () {
         $("#HideLunch").hide();
         $("#HideAlaCarte").hide();
         $("#HideLunch").hide();
+        $("#HideWaiters").hide();
+        $("#ShowWaiters").hide();
+        $("#PreWaiters").hide();
+        $("#newwaiterdiv").hide();
+        $("#deletewaiterdiv").hide();
+    });
+    $("#servitrisknapp").click(function(){
+        $("#imageuploaddiv").hide();
+        $("#newalacartediv").hide();
+        $("#deletealacartediv").hide();
+        $("#newdrinkdiv").hide();
+        $("#deletedrinkdiv").hide();
+        $("#newdagensdiv").hide();
+        $("#deletedagensdiv").hide();
+        $("#dailyspecialdiv").hide();
+        $("#ShowAlaCarte").hide();
+        $("#PreAlaCarte").hide();
+        $("#PreLunch").hide();
+        $("#ShowLunch").hide();
+        $("#HideLunch").hide();
+        $("#HideAlaCarte").hide();
+        $("#HideLunch").hide();
+        $("#HideWaiters").hide();
+        $("#ShowWaiters").show();
+        $("#PreWaiters").hide();
+        $("#newwaiterdiv").show();
+        $("#deletewaiterdiv").show();
     });
     $("#ShowAlaCarte").click(function(){
         $("#PreAlaCarte").show();
@@ -87,10 +131,23 @@ $(document).ready(function () {
         $("#HideLunch").hide();
         $("#ShowLunch").show();
     });
+    
+    $("#ShowWaiters").click(function(){
+        $("#PreWaiters").show();
+        $("#HideWaiters").show();
+        $("#ShowWaiters").hide();
+    });
+    $("#HideWaiters").click(function(){
+        $("#PreWaiters").hide();
+        $("#HideWaiters").hide();
+        $("#ShowWaiters").show();
+    });
+    
     $("#schemaknapp").click(function(){
        window.location.href = "javacalendar.jsp"; 
     });
     
+    //Change events
     $("#delete_drink").change(function(){
         $('#delete_drink_form\\:input_drink').val($('#delete_drink').val());
     });
@@ -105,6 +162,10 @@ $(document).ready(function () {
     
     $("#delete_dagens").change(function(){
         $('#delete_dagens_form\\:input_dagens').val($('#delete_dagens').val());
+    });
+    
+    $("#delete_waiter").change(function(){
+        $('#delete_waiter_form\\:input_waiter').val($('#delete_waiter').val());
     });
     
     $('.day_select').change(function(){

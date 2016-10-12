@@ -77,7 +77,7 @@ public class ChangedEventLog {
                     PreparedStatement ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
                     ps.setInt(1, ch.getId());
                     ps.setString(2, ch.getMessage());
-                    // execute the preparedstatement
+                    
                     ps.executeUpdate();
                 }
             }

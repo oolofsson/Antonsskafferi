@@ -70,7 +70,11 @@ public class Userlogin implements Serializable {
     }
 
     public Userlogin(String username, String password, String email, String telnr, String address) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.telnr = telnr;
+        this.address = address;
     }
 
     public Integer getUserid() {
