@@ -17,7 +17,7 @@
                 <button class="button" id="bildknapp"> Ändra Event</button>
                 <button class="button" id="alacarteknapp"> Ändra i A lá carte</button>
                 <button class="button" id="dagensknapp"> Ändra Dagensmeny</button>
-                <button class="button" id="servitrisknapp">Servitriser</button>
+                <button class="button" id="servitrisknapp">Hantera Personal</button>
                 <button class="button" id="schemaknapp">Öppna Schema</button>
                 
                 <div id="imageuploaddiv" class="field">
@@ -267,7 +267,7 @@
                 </div>
                 <div id="newwaiterdiv" class="field">
                     <h:column id="new_waiter_column">
-                        <h2>Lägg till en ny servitris: </h2>
+                        <h2>Lägg till ett konto: </h2>
                         <h:form id="new_waiter_form">
                             <h:panelGrid columns="3">
                                 <h:outputText value="Namn:" />
@@ -285,16 +285,16 @@
                     </h:column>
                 </div>
                 <div id="PreWaiters" class="field">
-                    <h2>Servitriser</h2>
+                    <h2>Personal</h2>
                     <p><h:dataTable var="d" value="#{waiterEJB.list}">
                             <h:column><strong>#{d.waitername}</strong><p> Pinkod: </p> #{d.pincode}</h:column>
                     </h:dataTable></p>
                 </div>
                 <div id="deletewaiterdiv" class="field">
                     <h:column id="delete_waiter_column">
-                        <h3>Ta bort en Servitris</h3><br />
+                        <h3>Ta bort ett konto</h3><br />
                         <h:selectOneMenu id="delete_waiter"> 
-                            <f:selectItem itemLabel="Välj en servitris..."  noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Välj ett konto..."  noSelectionOption="true"/>
                             <f:selectItems value="#{waiterEJB.list}" var="i" itemValue="#{i.waiterid}" />
                         </h:selectOneMenu><br />
                         <h:form id="delete_waiter_form">
@@ -313,10 +313,10 @@
                     <h:button class="button" value="Granska förstasida" outcome="show" />
                     <button class="field button" id="ShowAlaCarte"> Granska Alacarte</button>
                     <button class="field button" id="ShowLunch"> Granska Lunch</button>
-                    <button class="field button" id="ShowWaiters">Granska Servitriser</button>
+                    <button class="field button" id="ShowWaiters">Granska Personal</button>
                     <button class="field button" id="HideAlaCarte"> Dölj Alacarte</button>
                     <button class="field button" id="HideLunch"> Dölj Lunch</button>
-                    <button class="field button" id="HideWaiters"> Dölj Servitriser</button>
+                    <button class="field button" id="HideWaiters"> Dölj Personal</button>
                     
                 </div>
                 <div id="logoutdiv" align="bottom">
