@@ -120,3 +120,7 @@ body{
     background-color: #990000; 
     color: white;
 }
+input[type="file"] {
+    display: none;
+}
+

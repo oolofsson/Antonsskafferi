@@ -6,6 +6,7 @@
 package se.miun.dt142g.model;
 
 import java.io.Serializable;
+import java.nio.charset.Charset;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.persistence.Basic;
@@ -53,7 +54,12 @@ public class Imagetext implements Serializable {
     }
 
     public void setImagetext(String imagetext) {
-        this.imagetext = imagetext;
+        Charset windows1252 = Charset.forName("ISO-8859-1");
+        Charset utf8charset = Charset.forName("UTF-8");
+
+        byte[] bytes = imagetext.getBytes(windows1252);
+        String z = new String(bytes, utf8charset);
+        this.imagetext=z;
     }
 
     @Override

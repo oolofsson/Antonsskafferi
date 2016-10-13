@@ -25,11 +25,13 @@ public class ImagetextEJB {
     public List<Imagetext> getList(){
         return em.createNamedQuery("Imagetext.findAll").getResultList();
     }
+     
     public void create(){
         Imagetext d = new Imagetext(imagetext.getImagetext());
+        delete();
         em.persist(d);
     }
-    public void delete(){
-        em.createQuery("DELETE FROM Imagetext c WHERE c.imagetextid = " + imagetext.getImagetext()).executeUpdate();
+     public void delete(){
+        em.createQuery("DELETE FROM Imagetext").executeUpdate();
     }
 }

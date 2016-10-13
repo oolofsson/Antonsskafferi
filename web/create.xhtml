@@ -24,9 +24,11 @@
                     <h:column id="upload_image_column">
                         <h2>Ladda upp bild</h2>
                         <h:form id="fileUpload" prependId="false" enctype="multipart/form-data">
-                            <h:inputFile id="FileUpload" value="#{jsfFileUploadBean.file}">
-                                <f:validator validatorId="fileUploadValidator"/>
-                            </h:inputFile>
+                            <label class="button">Välj Bild
+                                <h:inputFile id="FileUpload" value="#{jsfFileUploadBean.file}">
+                                    <f:validator validatorId="fileUploadValidator"/>
+                                </h:inputFile>
+                            </label>    
                             <p> <h:messages id="messages" /></p>
                             <h:commandButton class="submit_button" value="Ladda Upp" action="create" actionListener="#{jsfFileUploadBean.processFileUpload}"/>
                         </h:form>
@@ -36,7 +38,7 @@
                             <h:inputTextarea value="#{imagetext.imagetext}" title="imagetextname" id="imagetextarea"
                                              required="true">
                                 
-                            </h:inputTextarea>
+                            </h:inputTextarea><br />
                             <h:commandButton class="submit_button" value="Spara Text" action="create" actionListener="#{imagetextEJB.create}"/>
                         </h:form>
                 </div>
