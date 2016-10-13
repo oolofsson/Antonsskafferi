@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    
     //Initiate page
     $("#logoutdiv").show();
     $("#imageuploaddiv").hide();
@@ -43,6 +44,7 @@ $(document).ready(function () {
         $("#PreWaiters").hide();
         $("#newwaiterdiv").hide();
         $("#deletewaiterdiv").hide();
+        document.cookie = "bild";
     });
     $("#alacarteknapp").click(function(){
         $("#newalacartediv").show();
@@ -65,6 +67,7 @@ $(document).ready(function () {
         $("#PreWaiters").hide();
         $("#newwaiterdiv").hide();
         $("#deletewaiterdiv").hide();
+        document.cookie = "alacarte";
     });
     $("#dagensknapp").click(function(){
         $("#imageuploaddiv").hide();
@@ -87,6 +90,7 @@ $(document).ready(function () {
         $("#PreWaiters").hide();
         $("#newwaiterdiv").hide();
         $("#deletewaiterdiv").hide();
+        document.cookie = "dagens";
     });
     $("#servitrisknapp").click(function(){
         $("#imageuploaddiv").hide();
@@ -109,6 +113,7 @@ $(document).ready(function () {
         $("#PreWaiters").hide();
         $("#newwaiterdiv").show();
         $("#deletewaiterdiv").show();
+        document.cookie = "servitris";
     });
     $("#ShowAlaCarte").click(function(){
         $("#PreAlaCarte").show();
@@ -177,6 +182,32 @@ $(document).ready(function () {
    
 });
 
+$(document).ready(function() {
+    // Executes after
+    
+    switch(document.cookie){
+    case "bild":
+        $("#bildknapp").trigger("click");
+        clearForm();
+        break;
+    case "alacarte":
+        $("#alacarteknapp").trigger("click");
+        clearForm();
+        break;
+    case "dagens":
+        $("#dagensknapp").trigger("click");
+        clearForm();
+        break;
+    case "servitris":
+        $("#servitrisknapp").trigger("click");
+        clearForm();
+        break;
+    }
+  
+});
 
-
-
+function clearForm()
+{
+    $(':input').not(':button, :submit, :reset, :hidden, :checkbox, :radio').val('');
+    $(':checkbox, :radio').prop('checked', false);
+}
