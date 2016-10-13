@@ -21,6 +21,7 @@
     margin: 5px;
     color: black;
     display: none;
+    padding: 5px;
 }
 root { 
     display: block;
@@ -52,13 +53,11 @@ body{
 }
 #loginbars{
     align-content: center;
-    text-align: center;   
+    text-align: center;
+    width: 20%;
+    margin: 0 auto;
 }
 
-#type_alacarte{
-    margin-left: 80px;
-    text-align: center;
-}
 /* -----Buttons----- */
 
 .button {
@@ -120,7 +119,50 @@ body{
     background-color: #990000; 
     color: white;
 }
+/* -----Inputs----- */
+#login_inputs{
+    width: 30% !important;
+    text-align: center;
+}
 input[type="file"] {
     display: none;
 }
-
+input[type=text] {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid black;
+}
+input[type=text]:focus {
+    border-bottom: 2px solid lightgray;
+}
+input[type=password] {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid black;
+}
+input[type=password]:focus {
+    border-bottom: 2px solid lightgray;
+}
+textarea {
+    width: 20%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+select {
+   background: white;
+   width: 250px;
+   border-radius: 5px;
+   border: 2px solid lightgrey;
+  
+}
+select:focus{
+    background: lightgrey;
+    border: 3px solid white;
+}

@@ -44,7 +44,8 @@ $(function(){
         //$(".event_start_date_input").val($("#datepicker").val());
         //$(".event_end_date_input").val($("#datepicker").val());
         $(".event_time_select").show();
-        
+        $(".event_time_select").val('default');
+        $('.event_submit').prop('disabled', true);
     });
     
     $(".event_time_select").change(function(){

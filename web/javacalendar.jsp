@@ -149,7 +149,7 @@
                             }
 
                             out.print("<div class=\"get_change_requests\">"); //Hämta mer info. Personer, tider mm.
-                            out.print("<h3>Du har byte</h3>");
+                            out.print("<h3>Bytesförfrågan</h3>");
                             out.print(from + " vill byta sitt pass den: " + fromTime + ", mot ditt pass den: " + toTime + ".");
                             out.print("<form class=\"change_form\" action=\"ChangeEvent\" method=\"POST\" >");
                             out.print("<input class=\"get_change_request_input\" type=\"text\" name=\"id\" value=\""
@@ -204,7 +204,7 @@
                     <div id="datepicker"></div>
                     
                     <select class="event_time_select">
-                        <option selected="true" disabled="true" >Välj tid...</option>
+                        <option value="default" selected="true" disabled="true" >Välj tid...</option>
                         <option value="11:00:00.15:00:00">Lunchpass</option>
                         <option value="17:00:00.22:00:00">Middagspass</option>
                     </select>

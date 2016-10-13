@@ -45,11 +45,10 @@
                 <div id="newalacartediv" class="field">
                     <h:column id="new_alacarte_column">
                         <h2>Lägg till ny rätt i alacarte: </h2>
-                        
-                        <h:selectOneMenu id="type_alacarte"> 
-                            <f:selectItem itemLabel="Välj rätttyp..."  noSelectionOption="true"/>
-                            <f:selectItems value="#{typeEJB.list}" var="i" itemValue="#{i.id}" />
-                        </h:selectOneMenu>
+                            <h:selectOneMenu id="type_alacarte"> 
+                                <f:selectItem itemLabel="Välj rätttyp..." itemDisabled="true"  noSelectionOption="true"/>
+                                <f:selectItems value="#{typeEJB.list}" var="i" itemValue="#{i.id}" />
+                            </h:selectOneMenu>
                         <br/>
                         <br/>
                      
@@ -99,7 +98,7 @@
                     <h:column id="delete_alacarte_column">
                         <h3>Ta bort en rätt i Alacarte</h3><br />
                         <h:selectOneMenu id="delete_alacarte"> 
-                            <f:selectItem itemLabel="Välj en rätt..."  noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Välj en rätt..." itemDisabled="true" noSelectionOption="true"/>
                             <f:selectItems value="#{alacarteEJB.list}" var="i" itemValue="#{i.alacarteid}" />
                         </h:selectOneMenu><br />
                         <h:form id="delete_alacarte_form">
@@ -143,7 +142,7 @@
                     <h:column id="delete_drink_column">
                         <h3>Ta bort en dryck</h3><br />
                         <h:selectOneMenu id="delete_drink"> 
-                            <f:selectItem itemLabel="Välj en dryck..."  noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Välj en dryck..." itemDisabled="true"  noSelectionOption="true"/>
                             <f:selectItems value="#{drinkEJB.list}" var="i" itemValue="#{i.drinkid}" />
                         </h:selectOneMenu><br />
                         <h:form id="delete_drink_form">
@@ -201,7 +200,7 @@
                     <h:column id="delete_dagens_column">
                         <h3>Ta bort en dagens</h3><br />
                         <h:selectOneMenu id="delete_dagens"> 
-                            <f:selectItem itemLabel="Välj en rätt..."  noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Välj en rätt..." itemDisabled="true" noSelectionOption="true"/>
                             <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishid}" />
                         </h:selectOneMenu><br />
                         <h:form id="delete_dagens_form">
@@ -218,31 +217,31 @@
                     <h2>Skapa dagens</h2>
                         <h:outputText value="Måndag" /><br />
                         <h:selectOneMenu class="day_select" id="select1">
-                            <f:selectItem itemLabel="Välj en rätt..."  noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Välj en rätt..." itemDisabled="true" noSelectionOption="true"/>
                             <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishname}, #{i.dishprice}" />
                         </h:selectOneMenu><br />
 
                         <h:outputText value="Tisdag" /><br />
                         <h:selectOneMenu class="day_select" id="select2">
-                            <f:selectItem itemLabel="Välj en rätt..."  noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Välj en rätt..." itemDisabled="true" noSelectionOption="true"/>
                             <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishname}, #{i.dishprice}" />
                         </h:selectOneMenu><br />
 
                           <h:outputText value="Onsdag" /><br />
                           <h:selectOneMenu class="day_select" id="select3">
-                            <f:selectItem itemLabel="Välj en rätt..."  noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Välj en rätt..." itemDisabled="true" noSelectionOption="true"/>
                             <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishname}, #{i.dishprice}" />
                         </h:selectOneMenu><br />
 
                         <h:outputText value="Torsdag" /><br />
                         <h:selectOneMenu class="day_select" id="select4">
-                            <f:selectItem itemLabel="Välj en rätt..."  noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Välj en rätt..." itemDisabled="true" noSelectionOption="true"/>
                             <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishname}, #{i.dishprice}" />
                         </h:selectOneMenu><br />
 
                         <h:outputText value="Fredag" /><br />
                         <h:selectOneMenu class="day_select" id="select5">
-                            <f:selectItem itemLabel="Välj en rätt..."  noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Välj en rätt..." itemDisabled="true" noSelectionOption="true"/>
                             <f:selectItems value="#{dishEJB.list}" var="i" itemValue="#{i.dishname}, #{i.dishprice}" />
                         </h:selectOneMenu><br />
 
@@ -296,7 +295,7 @@
                     <h:column id="delete_waiter_column">
                         <h3>Ta bort ett konto</h3><br />
                         <h:selectOneMenu id="delete_waiter"> 
-                            <f:selectItem itemLabel="Välj ett konto..."  noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Välj ett konto..." itemDisabled="true" noSelectionOption="true"/>
                             <f:selectItems value="#{waiterEJB.list}" var="i" itemValue="#{i.waiterid}" />
                         </h:selectOneMenu><br />
                         <h:form id="delete_waiter_form">
