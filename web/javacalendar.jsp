@@ -208,6 +208,10 @@
                         <option value="11:00:00.15:00:00">Lunchpass</option>
                         <option value="17:00:00.22:00:00">Middagspass</option>
                     </select>
+                    
+                    <select class="event_time_select_from"></select>
+                    <select class="event_time_select_to"></select>
+                    
                 </center>
 
                 <form action="SaveEvent" method="post">

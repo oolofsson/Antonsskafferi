@@ -41,7 +41,7 @@ body{
 .waiter_select{
     margin: 10px;
 }
-.event_time_select{
+.event_time_select, .event_time_select_from, .event_time_select_to{
     margin: 10px;
 }
 #change_event_log{
