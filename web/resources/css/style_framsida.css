@@ -1,11 +1,13 @@
 body{
     background-color: #240C00;
 }
-p, h1, h2, h3, h4, h5{
-    color: #A46849;
-}
 p{
-    font-size: 16px;
+    color: #7B4F37;
+    font-size: 150%;
+}
+h1, h2, h3, h4, h5{
+    color: #A46849;
+    font-size: 150%;
 }
 .row h4{
     margin-top: -15px;
@@ -36,6 +38,8 @@ p{
     z-index: 2;
     margin-right: -11px;
     right: 0px;
+    display: none;
+    
 }
 #sidaffisch img {
     width: 400px;
@@ -48,11 +52,16 @@ p{
 #lunch p{
     margin: -5px;
 }
+#middag {
+    margin-right: 50px;
+}
 #middag p{
     margin-top: -8px;
 }
-
-@media only screen and (max-width: 1400px){
+#DagensLunch{
+    margin-bottom: 50px;
+}
+@media only screen and (max-width: 1700px){
     #sidaffisch img {
         display: none;
     }

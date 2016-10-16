@@ -14,10 +14,10 @@
             <a href="#!" class="brand-logo center">Antons Skafferi</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="left hide-on-med-and-down">
-                <li><a href="#lunch">Lunch</a></li>
-                <li><a href="#middag">Ala carte</a></li>
-                <li><a href="#underhållning">Underhållning</a></li>
-                <li><a href="#hittahit">Hitta hit</a></li>
+                <li><a href="#lunch" style="font-size: 150%">Lunch</a></li>
+                <li><a href="#middag" style="font-size: 150%">Ala carte</a></li>
+                <li><a href="#underhållning" style="font-size: 150%">Underhållning</a></li>
+                <li><a href="#hittahit" style="font-size: 150%">Hitta hit</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
                 <li><a href="#lunch">Lunch</a></li>
@@ -48,11 +48,12 @@
             <div class="section dark-brown1">
                 <div class="row container">
                 <h:column>
+                    <div id="DagensLunch">
                     <h2>Dagens lunch</h2>
                     <h5 id="VisaDagens" ></h5>
                     <p>Dagens lunch serveras med salladsbar och dryck </p>
                         <p> klockan: 11-14</p>              
-                    
+                    </div>
                     <h2>Veckans lunchmeny</h2>
                     <h5>Måndag</h5>
                     <h:dataTable var="d" value="#{dailyspecialEJB.list}">
@@ -91,6 +92,12 @@
                                 break;
                             case 5:
                                 day = document.getElementById("#{5}").innerHTML;
+                                break;
+                            case 6:
+                                day = "Stängt";
+                                break;
+                            case 0:
+                                day = "Stängt";
                                 break;
                         }
                         document.getElementById("VisaDagens").innerHTML = day;
