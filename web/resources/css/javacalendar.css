@@ -10,19 +10,32 @@ and open the template in the editor.
 body{
     background-color: white !important;
 }
+#user_info{
+    text-align: center;
+    background-color: lightgrey;
+    border: 2px solid black;
+    margin: 10px 5px 10px 1000px;
+    box-shadow: 5px 5px 5px #888888;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 18px;
+    padding-top: 5px;
+}
 #planner{
     float: left;
 }
 #create_event{
     text-align: center;
-    margin-left: 1000px;
+    margin: 10px 5px 10px 1000px;
     border: 2px solid black;
     background-color: lightgray;
+    box-shadow: 5px 5px 5px #888888;
 }
 #change_event{
     text-align: center;
     border: 2px solid black;
     background-color: lightgray;
+    margin: 0px 5px 10px 1000px;
+    box-shadow: 5px 5px 5px #888888;
 }
 .sender_id_input, .event1_id_input, .event2_id_input, .receiver_id_input{
     display: none;
@@ -31,9 +44,11 @@ body{
     display: none;
 }
 .get_change_requests{
+    margin: 0px 5px 10px 1000px;
     border: 2px solid black;
     text-align: center;
     background-color: lightcoral;
+    box-shadow: 5px 5px 5px #888888;
 }
 .get_change_request_input{
     display: none;
@@ -46,14 +61,18 @@ body{
 }
 #change_event_log{
     border: 2px solid black;
-    margin-left: 1000px;
     background-color: lightgray;
-    
+    margin: 0px 5px 10px 1000px;
+    box-shadow: 5px 5px 5px #888888;
+    padding-left: 20px;
 }
 #change_event_log ul li {
    
     padding: 0 0 4px 23px;
 }
 #control_panel{
+    margin-left: 1000px;
+}
+#planner_logout_btn{
     margin-left: 1000px;
 }

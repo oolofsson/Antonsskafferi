@@ -44,24 +44,24 @@
             }
             %>
             </div>
-            <div id="user_info">
-                <%
-                    Connection conn = DatabaseConnection.getConnection();  //DriverManager.getConnection("jdbc:derby://localhost:1527/sample");
-                    if(session.getAttribute("username").toString().length() < 4){
 
-                        //Print out username
-                        ResultSet waiters = null;
+            <%
+                Connection conn = DatabaseConnection.getConnection();  //DriverManager.getConnection("jdbc:derby://localhost:1527/sample");
+                if(session.getAttribute("username").toString().length() < 4){
+
+                    //Print out username
+                    ResultSet waiters = null;
 
 
-                        Statement waiterstatement = conn.createStatement();
+                    Statement waiterstatement = conn.createStatement();
+                    out.print("<div id=\"user_info\"");
+                    waiters = waiterstatement.executeQuery("SELECT waitername FROM waiter WHERE waiterid = " + session.getAttribute("username").toString()); 
+                    while(waiters.next())
+                        out.print("<p>Välkommen till ditt schema " + waiters.getString(1) + "</p>");
 
-                        waiters = waiterstatement.executeQuery("SELECT waitername FROM waiter WHERE waiterid = " + session.getAttribute("username").toString()); 
-                        while(waiters.next())
-                            out.print("<p>Välkommen till ditt schema " + waiters.getString(1) + "</p>");
-
-                %>
-            </div>
-           
+                    out.print("</div>");
+            %>
+            
           
             <div id="change_event">
                 <%
@@ -248,7 +248,7 @@
                 } //username.lenght > 4, admin view
                 
             %>
-            <form action="Logout" method="get">
+            <form id="planner_logout_btn" action="Logout" method="get">
                 <input class="button" type="submit" value="Logga ut" />
             </form>
             

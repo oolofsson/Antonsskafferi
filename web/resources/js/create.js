@@ -149,7 +149,8 @@ $(document).ready(function () {
     });
     
     $("#schemaknapp").click(function(){
-       window.location.href = "javacalendar.jsp"; 
+        document.cookie = "schema";
+        window.location.href = "javacalendar.jsp";
     });
     
     //Change events
@@ -202,6 +203,8 @@ $(document).ready(function() {
         $("#servitrisknapp").trigger("click");
         clearForm();
         break;
+    default:
+        
     }
   
 });

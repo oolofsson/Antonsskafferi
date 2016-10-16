@@ -11,6 +11,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import se.miun.dt142g.dhtmlx.WaiterRemover;
 import se.miun.dt142g.model.Dish;
 import se.miun.dt142g.model.Waiter;
 
@@ -34,8 +35,10 @@ public class WaiterEJB {
         Waiter w = new Waiter(waiter.getWaitername(), waiter.getPincode());
         em.persist(w);
     }
-    public void delete(){
+    public void delete(){ //Delete everything waiter is involved in
         em.createQuery("DELETE FROM Waiter w WHERE w.waiterid = " + waiter.getWaiterid()).executeUpdate();
+        
+        WaiterRemover.delete(waiter.getWaiterid());
     }
     
 }
