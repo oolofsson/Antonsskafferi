@@ -1,3 +1,4 @@
+<%@page import="java.util.Calendar"%>
 <%@page import="se.miun.dt142g.dhtmlx.event.ChangedEvent"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
@@ -34,7 +35,10 @@
                 DHXPlanner s = new DHXPlanner("./codebase/", DHXSkin.TERRACE);
                 s.localizations.set(DHXLocalization.Swedish );
                 s.setWidth(900);
-                s.setInitialDate(2016, 9, 10); 
+                int year = Calendar.getInstance().get(Calendar.YEAR);
+                int month = Calendar.getInstance().get(Calendar.MONTH);
+                int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+                s.setInitialDate(year, month, day); 
                 s.load("events.jsp", DHXDataFormat.JSON);
                 s.data.dataprocessor.setURL("events.jsp");
                 s.config.setFirstHour(9);
