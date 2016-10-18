@@ -28,7 +28,7 @@
                                     <f:validator validatorId="fileUploadValidator"/>
                                 </h:inputFile>
                             </label>    
-                            <p> <h:messages id="messages" /></p>
+                            <p> <h:messages id="messages" globalOnly="true" /></p>
                             <h:commandButton class="submit_button" value="Ladda Upp" action="create" actionListener="#{jsfFileUploadBean.processFileUpload}"/>
                         </h:form>
                     </h:column>

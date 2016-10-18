@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
@@ -35,6 +36,7 @@ ExternalContext externalContext = context.getExternalContext();
 ServletContext servletContext = (ServletContext) externalContext.getContext();
 String absoluteDiskPath = servletContext.getRealPath(relativeWebPath) + "resources/images/";
         
+FacesContext facesContext = FacesContext.getCurrentInstance();
     private static final long serialVersionUID = 1L;
  
     private String name;
@@ -69,8 +71,10 @@ String absoluteDiskPath = servletContext.getRealPath(relativeWebPath) + "resourc
                 InputStream bytes = uploadedFile.getInputStream();
  
                   Files.copy(bytes, destination);
+                   FacesMessage facesMessage = new FacesMessage("Uploaded " + file.getSubmittedFileName());
+                  facesContext.addMessage(null, facesMessage);
             }
- 
+
         return null;
     }
  
