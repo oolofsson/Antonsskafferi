@@ -31,8 +31,8 @@ public class FileUploadValidator implements Validator{
  
             if (file==null || file.getSize()<=0 || file.getContentType().isEmpty() )
                 message=new FacesMessage("Select a valid file");
-            else if (!file.getContentType().endsWith("png"))
-                message=new FacesMessage("Select PNG file");
+            else if (!file.getContentType().endsWith("png") && !file.getContentType().endsWith("jpeg"))
+                message=new FacesMessage("Select image file");
             else if (file.getSize()>2000000)
                  message=new FacesMessage("File size too big. File size allowed  is less than or equal to 2 MB.");
  
