@@ -2,28 +2,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
         <div id="LoginAli">
         <ui:composition template="./WEB-INF/template_admin.xhtml">
             <ui:define name="content">            
-                <h:form>
+                <div class="login_buttons">
+                    <button class="button" id="admin_login_knapp">Logga in som administratör</button>
+                    <button class="button" id="personal_login_knapp">Logga in som personal</button>
+                </div>
+                <h:form id="login_form">
                     <div id="loginbars">
-                    <h3>Administratör/Personal</h3>
-                    <dd>
-                        <dt><h:outputText value="Användarnamn" /></dt>
-                        <dl><h:inputText id="username" value="#{loginBean.user}"></h:inputText></dl>
-                        <h:message for="username"></h:message>
-                        <br></br><br></br>
+                            <br />
+                            <br />
+                        <h:selectOneMenu id="choose_waiter">
+                            <f:selectItem itemLabel="Välj ditt namn i listan..." itemDisabled="true" noSelectionOption="true"/>
+                            <f:selectItems value="#{waiterEJB.list}" var="i" itemValue="#{i.waiterid}" />
+                        </h:selectOneMenu><br />
 
-                        <dt><h:outputText value="Lösenord" /></dt>
-                        <dl><h:inputSecret id="password" value="#{loginBean.pwd}"></h:inputSecret></dl>
-                        <h:message for="password"></h:message>
-                        <br></br><br></br>
-                    </dd>
-                    <h:commandButton class="button" action="#{loginBean.validateUsernamePassword}"
-                            value="Logga in"></h:commandButton>
+                        <dd>
+                            <dt><h:outputText id="admin_username_text" value="Användarnamn" /></dt>
+                            <dl><h:inputText id="username" value="#{loginBean.user}"></h:inputText></dl>
+                            <h:message for="username"></h:message>
+                            <br></br><br></br>
+
+                            <dt><h:outputText id="password_text" value="Lösenord" /></dt>
+                            <dl><h:inputSecret id="password" value="#{loginBean.pwd}"></h:inputSecret></dl>
+                            <h:message for="password"></h:message>
+                            <br></br><br></br>
+                        </dd>
+                        <h:commandButton id="login_knapp" class="submit_button" action="#{loginBean.validateUsernamePassword}"
+                                value="Logga in"></h:commandButton>
                     </div>
                 </h:form>
                 

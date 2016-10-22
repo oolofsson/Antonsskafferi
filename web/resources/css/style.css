@@ -166,3 +166,7 @@ select:focus{
     background: lightgrey;
     border: 3px solid white;
 }
+
+.login_buttons{
+    text-align: center;
+}
