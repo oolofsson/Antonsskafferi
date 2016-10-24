@@ -13,9 +13,9 @@ body{
 #user_info{
     text-align: center;
     background-color: #d9d9d9; 
-    border: 1px solid grey; 
+    border: 1px solid grey;
+    border-radius: 20px;
     margin: 10px 5px 10px 1000px;
-    box-shadow: 5px 5px 5px #888888;
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-size: 18px;
     padding-top: 5px;
@@ -27,16 +27,16 @@ body{
     text-align: center;
     margin: 10px 5px 10px 1000px;
     border: 1px solid grey;
+    border-radius: 20px;
     background-color: #d9d9d9;
-    box-shadow: 5px 5px 5px #888888;
     padding-bottom: 10px;
 }
 #change_event{
     text-align: center;
-    border: 1px solid grey; 
+    border: 1px solid grey;
+    border-radius: 20px;
     background-color: #d9d9d9;
     margin: 0px 5px 10px 1000px;
-    box-shadow: 5px 5px 5px #888888;
     padding-bottom: 10px;
 }
 .sender_id_input, .event1_id_input, .event2_id_input, .receiver_id_input{
@@ -48,9 +48,9 @@ body{
 .get_change_requests{
     margin: 0px 5px 10px 1000px;
     border: 1px solid red;
+    border-radius: 20px;
     text-align: center;
     background-color: #ffb3b3;
-    box-shadow: 5px 5px 5px #ff7f7f;
     padding-bottom: 10px;
 }
 .get_change_request_input{
@@ -64,9 +64,9 @@ body{
 }
 #change_event_log{
     border: 1px solid grey;
+    border-radius: 20px;
     background-color: #d9d9d9;
     margin: 0px 5px 10px 1000px;
-    box-shadow: 5px 5px 5px #888888;
     padding-left: 20px;
 }
 #change_event_log ul li {

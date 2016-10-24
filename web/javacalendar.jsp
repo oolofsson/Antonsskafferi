@@ -79,8 +79,11 @@
                         Statement statementYourEvents = conn.createStatement();
                         Statement statementOtherEvents = conn.createStatement();
 
-                        String queryYourEvents = "select * from waiter_event where waiter_id = " + session.getAttribute("username").toString() + " order by start_date";
-                        String queryOtherEvents = "select * from waiter_event where waiter_id != " + session.getAttribute("username").toString() + " order by start_date";
+                        String queryYourEvents = "select * from waiter_event where waiter_id = " + 
+                                session.getAttribute("username").toString() + " and start_date > CURRENT_TIMESTAMP " + " order by start_date";
+                        
+                        String queryOtherEvents = "select * from waiter_event where waiter_id != " + 
+                                session.getAttribute("username").toString() + " and start_date > CURRENT_TIMESTAMP " + " order by start_date";
                         
                         yourEvents = statementYourEvents.executeQuery(queryYourEvents); //Inloggad waiter
                         otherEvents = statementOtherEvents.executeQuery(queryOtherEvents); //Alla som inte är waiter
